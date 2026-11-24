@@ -8,7 +8,7 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 
 ## Hard rules
 
-- **Privacy is the product.** No ad or social pixels, no Google Analytics, no third-party cookies. The only analytics is Cloudflare Web Analytics (cookie-free), loaded through `_includes/analytics.html` on resource and info pages only. It stays off until `cloudflare_analytics_token` is set in `_config.yml`, and it skips browsers that send GPC or Do Not Track. Never include it on tracker pages or `shared.html`.
+- **Privacy is the product.** No ad or social pixels, no Google Analytics, no third-party cookies. The only analytics is Cloudflare Web Analytics (cookie-free), loaded through `_includes/analytics.html` on resource and info pages only. The public site token is `cloudflare_analytics_token` in `_config.yml` (empty it to turn analytics off), and it skips browsers that send GPC or Do Not Track. Never include it on tracker pages or `shared.html`.
 - **Washington My Health My Data Act:** everything here is treated as consumer health data. `consumer-health-data.html` must stay linked separately from `privacy.html` on every page that collects data, including the homepage, all three trackers and `shared.html`. New trackers save nothing until the consent box is checked.
 - **Tracker data is end-to-end encrypted.** The operator must never be able to read it. Never send the username or passphrase anywhere, and never log them.
 - **Buy Me a Coffee stays off** until Brent agrees. Don't advertise BetterHelp beyond the "membership is required" note.
@@ -62,7 +62,6 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 
 - Ben: publish the current `firestore.rules`. Ratings and share links depend on it.
 - Ben: **turn on a Firestore TTL policy** on collection group `shares`, field `expires`. The privacy policy promises expired reports are deleted within about a day.
-- Ben: send the Cloudflare Web Analytics token, then set `cloudflare_analytics_token`.
 - Ben: confirm Firestore backups and point-in-time recovery are off, since the policy says no backups. Turn on 2-step sign-in for the Google and GitHub accounts.
 - Ben: have a privacy lawyer confirm whether Washington's law covers an individual volunteer.
 - Ben: verify the domain in the org's Pages settings and enforce HTTPS, set the Google Form to anonymous, submit the sitemap to Search Console and Bing, and retire the old Google Site.
