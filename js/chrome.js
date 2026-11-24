@@ -1,4 +1,4 @@
-// Shared page behavior: header dropdowns, the phone menu, quick exit, and sharing the site.
+// Shared page behavior: header dropdowns, the phone menu, and sharing the site.
 (function () {
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var SITE = 'https://www.slagroupresources.com/';
@@ -27,20 +27,9 @@
     panel.addEventListener('click', function (e) { e.stopPropagation(); if (e.target.closest('a')) setPanel(false); });
   }
 
-  // Quick exit: sign out of the trackers and go to the Google homepage, replacing this page in history.
-  // Pressing Escape three times quickly does the same.
-  function quickExit() {
-    try { sessionStorage.clear(); localStorage.removeItem('trackerSession'); } catch (e) {}
-    location.replace('https://www.google.com/');
-  }
-  $$('[data-exit]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); quickExit(); }); });
-  var escTimes = [];
+  // Escape closes any open menu
   document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    closeMenus(); setPanel(false);
-    var now = Date.now();
-    escTimes = escTimes.filter(function (t) { return now - t < 1500; }); escTimes.push(now);
-    if (escTimes.length >= 3) quickExit();
+    if (e.key === 'Escape') { closeMenus(); setPanel(false); }
   });
 
   // Share the site: phone share sheet where available, otherwise copy the link

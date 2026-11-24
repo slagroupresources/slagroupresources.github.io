@@ -2,7 +2,7 @@
 layout: page
 type: guide
 title: Rebuilding trust after infidelity
-description: "Simple places to start for couples rebuilding trust after cheating or sex addiction: practices from this site, couples support, and books."
+description: "Simple places to start for couples rebuilding trust after cheating or sex addiction: practices from this site and books."
 lede: A few simple places to start for couples.
 updated: November 24, 2026
 ---
@@ -17,13 +17,8 @@ updated: November 24, 2026
 
 These come from [Recovery practices](index.html#practices) and the tip of the week on the homepage.
 
-## Find support together
+## More for couples
 
-- [Recovering Couples Anonymous (RCA)](https://recovering-couples.org/) is a 12-step fellowship for couples. <sup>[1](#sources)</sup>
 - Books for couples are under [Books](index.html#books). Pick "I'm walking this journey with someone" on the [homepage](index.html).
-
-## Sources
-
-1. Recovering Couples Anonymous, [recovering-couples.org](https://recovering-couples.org/)
 
 <p class="note">This page isn't medical advice. SLA Group Resources is independent and volunteer-run.</p>

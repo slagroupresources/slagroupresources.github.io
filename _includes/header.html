@@ -1,5 +1,5 @@
 {%- comment -%}
-  Shared header for every page: menus, "Help now", quick exit, and the phone menu.
+  Shared header for every page: menus, "Help now", and the phone menu.
   Resource sections come from _data/resources.json.
 {%- endcomment -%}
 {%- assign SECS = site.data.resources.sections -%}
@@ -39,7 +39,6 @@
     </nav>
     <a class="help-now" href="help-now.html">Help now</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-    <a class="quick-exit" href="https://www.google.com/" data-exit title="Leave this site now and go to Google. Also signs you out of the trackers. Tip: press Esc three times.">Exit <span aria-hidden="true">✕</span></a>
   </div>
   <nav id="mobile-menu" class="mobile-menu" aria-label="Menu" hidden>
     <div class="inner">

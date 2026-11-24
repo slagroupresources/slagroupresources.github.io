@@ -15,7 +15,7 @@ The World Health Organization lists compulsive sexual behaviour disorder in the 
 
 ## Where to start
 
-- **Find a group.** [Sex Addicts Anonymous (SAA)](https://saa-recovery.org/) and [Sex and Love Addicts Anonymous (SLAA)](https://slaafws.org/) are 12-step groups. The Sex Addiction group sessions on BetterHelp need a BetterHelp membership. See [Find support](index.html#support).
+- **Find a group.** Start with the Sex Addiction group sessions on BetterHelp (you need a BetterHelp membership). [Sex and Love Addicts Anonymous (SLAA)](https://slaafws.org/) is another option. See [Find support](index.html#support).
 - **Talk to a doctor or therapist** about what's right for you.
 - **Use the trackers.** [Feelings check-in](feelings-check-in.html), [90-day tracker](90-day-tracker.html), and [coping skills log](coping-skills-log.html).
 - **Read the handouts.** Start with the [90-Day Detox Summary](index.html#files).

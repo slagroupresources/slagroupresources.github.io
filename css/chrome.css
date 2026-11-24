@@ -1,4 +1,4 @@
-/* Shared header, menus, quick exit, footer and toast for every page. */
+/* Shared header, menus, footer and toast for every page. */
 :root { --green-900:#1f3a2b; --green-700:#2f5a40; --green-100:#e8f0ea; --ink:#1d2420; --muted:#5b665f; --line:#dde3df; --bg:#fafbfa; }
 
 .skip { position:absolute; left:-9999px; top:8px; background:#fff; color:var(--ink); padding:8px 14px; border-radius:8px; z-index:100; }
@@ -21,8 +21,6 @@
 /* "Help now" is the one bright thing in the header */
 .help-now { display:inline-flex; align-items:center; gap:6px; background:#f2d27a; color:#1d2420; font-weight:700; font-size:.92rem; text-decoration:none; padding:7px 13px; border-radius:999px; white-space:nowrap; margin-left:6px; }
 .help-now:hover { background:#f6dd95; }
-.quick-exit { display:inline-flex; align-items:center; gap:5px; color:#fff; border:1px solid rgba(255,255,255,.55); background:none; font:inherit; font-size:.88rem; font-weight:600; padding:6px 11px; border-radius:999px; text-decoration:none; white-space:nowrap; cursor:pointer; }
-.quick-exit:hover { background:rgba(255,255,255,.12); }
 .menu-toggle { display:none; color:#fff; background:none; border:1px solid rgba(255,255,255,.35); font:inherit; font-size:.9rem; padding:6px 11px; border-radius:999px; cursor:pointer; }
 
 /* Phone menu: one panel with every link */
@@ -41,7 +39,7 @@
 @media (max-width: 420px) {
   .site-header .bar { padding:0 12px; gap:6px; }
   .help-now { padding:7px 10px; margin-left:0; }
-  .quick-exit, .menu-toggle { padding:6px 9px; }
+  .menu-toggle { padding:6px 9px; }
   .mobile-menu .inner { grid-template-columns:1fr; }
 }
 

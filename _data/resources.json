@@ -5,7 +5,7 @@
       "group-session",
       "when-an-urge-hits",
       "out-of-the-shadows",
-      "saa"
+      "slaa"
     ],
     "together": [
       "bring-the-session-home",
@@ -15,7 +15,7 @@
     ],
     "healing": [
       "sex-lies-and-the-other-woman",
-      "s-anon",
+      "bring-the-session-home",
       "joy-recovery",
       "the-anatomy-of-trust"
     ]
@@ -24,7 +24,7 @@
     {
       "id": "support",
       "title": "Find support",
-      "intro": "Recovery is easier with other people. Here are a few places to find a group.",
+      "intro": "Recovery is easier with other people. Start with the Sex Addiction group sessions on BetterHelp, or try SLAA.",
       "items": [
         {
           "id": "group-session",
@@ -37,47 +37,12 @@
           ]
         },
         {
-          "id": "saa",
-          "title": "Sex Addicts Anonymous (SAA)",
-          "url": "https://saa-recovery.org/",
-          "text": "Free 12-step group. Meetings in person, by phone, and online.",
-          "for": [
-            "recovery"
-          ]
-        },
-        {
           "id": "slaa",
           "title": "Sex and Love Addicts Anonymous (SLAA)",
           "url": "https://slaafws.org/",
-          "text": "Free 12-step group that also covers love and relationship addiction.",
+          "text": "Free 12-step group, and another option for finding support.",
           "for": [
-            "recovery"
-          ]
-        },
-        {
-          "id": "s-anon",
-          "title": "S-Anon",
-          "url": "https://sanon.org/",
-          "text": "12-step program for family and friends of sex addicts. Meetings in many countries, plus phone support.",
-          "for": [
-            "healing"
-          ]
-        },
-        {
-          "id": "cosa",
-          "title": "COSA",
-          "url": "https://cosa-recovery.org/",
-          "text": "12-step program for people whose lives have been affected by compulsive sexual behavior. Meetings in person, by phone, and online.",
-          "for": [
-            "healing"
-          ]
-        },
-        {
-          "id": "recovering-couples-anonymous",
-          "title": "Recovering Couples Anonymous (RCA)",
-          "url": "https://recovering-couples.org/",
-          "text": "12-step fellowship for couples.",
-          "for": [
+            "recovery",
             "together"
           ]
         }
@@ -213,7 +178,7 @@
         {
           "id": "saa-green-book",
           "title": "Sex Addicts Anonymous (\"The Green Book\")",
-          "url": "https://saa-recovery.org/",
+          "url": "https://bookshop.org/search?keywords=Sex+Addicts+Anonymous+Green+Book",
           "by": "SAA Fellowship",
           "text": "SAA's main book. A must if you're working the SAA program.",
           "for": [

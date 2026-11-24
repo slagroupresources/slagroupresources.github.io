@@ -38,8 +38,8 @@ All counts live in one Firestore document, `stats/ratings`, so a homepage visit 
 | File | Purpose |
 |---|---|
 | `index.html` | Homepage template (fills itself in from `_data`) |
-| `_includes/header.html`, `_includes/footer.html` | The header (menus, Help now, Exit) and footer (independence note, email, policy links) on every page |
-| `css/chrome.css`, `js/chrome.js` | Styles and behavior for the header, phone menu, quick exit, and share buttons |
+| `_includes/header.html`, `_includes/footer.html` | The header (menus, Help now) and footer (independence note, email, policy links) on every page |
+| `css/chrome.css`, `js/chrome.js` | Styles and behavior for the header, phone menu, and share buttons |
 | `_layouts/page.html` | Layout for the guides, policies, and Help now page |
 | `img/og-image.png` | The picture shown when the site is shared in messages or social media |
 | `_config.yml` | Site build settings |
