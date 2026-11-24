@@ -16,7 +16,7 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 
 ## How it's built
 
-- **Hosting:** GitHub Pages from `main` of `slagroupresources/slagroupresources.github.io` (a GitHub org), custom domain `www.slagroupresources.com` (`CNAME`). DNS is at Namecheap.
+- **Hosting:** GitHub Pages from `main` of `slagroupresources/slagroupresources.github.io` (a GitHub org), custom domain `www.slagroupresources.com` (`CNAME`). The domain is registered at Namecheap, and DNS runs at Cloudflare. Every record must stay **DNS only (gray cloud)**: proxying would send all traffic through Cloudflare, which the privacy policy says doesn't happen, and it breaks GitHub's certificate.
 - **Homepage:** `index.html` is a Jekyll/Liquid template. GitHub Pages builds it, so there's no local Jekyll; rubygems is blocked in the sandbox. Content comes from:
   - `_data/resources.json`: `start_here` paths (recovery / together / healing) and `sections` → items `{id, title, url?, by?, text?, points?, for[]}`. Keep `id`s stable, because ratings are keyed on them.
   - `_data/tip.json`: the tip of the week.
@@ -60,7 +60,6 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 
 ## Open items (as of 2026-11-24)
 
-- Ben: publish the current `firestore.rules`. Ratings and share links depend on it.
 - Ben: **turn on a Firestore TTL policy** on collection group `shares`, field `expires`. The privacy policy promises expired reports are deleted within about a day.
 - Ben: confirm Firestore backups and point-in-time recovery are off, since the policy says no backups. Turn on 2-step sign-in for the Google and GitHub accounts.
 - Ben: have a privacy lawyer confirm whether Washington's law covers an individual volunteer.
