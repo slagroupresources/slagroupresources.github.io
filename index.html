@@ -1,213 +1,173 @@
+---
+---
+{%- assign R = site.data.resources -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sex Addiction Recovery Resources | SLA Group Resources</title>
-<meta name="description" content="Resources shared in our sex addiction recovery group. Books, podcasts, apps, 12-step groups, and worksheets for people in recovery, partners, and couples.">
+<meta name="description" content="Resources shared in our sex addiction recovery group. Books, podcasts, apps, 12-step groups, worksheets, and private trackers for people in recovery, partners, and couples.">
 <link rel="canonical" href="https://www.slagroupresources.com/">
 <meta name="theme-color" content="#1f3a2b">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-<!-- Social / link previews -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="SLA Group Resources: Sex Addiction Recovery Resources">
 <meta property="og:description" content="Resources shared in our sex addiction recovery group, for people in recovery, partners, and couples.">
 <meta property="og:url" content="https://www.slagroupresources.com/">
 <meta name="twitter:card" content="summary">
-
-<!-- Structured data: tells search engines and AI assistants what this page is -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "SLA Group Resources",
-      "url": "https://www.slagroupresources.com/"
-    },
-    {
-      "@type": "CollectionPage",
-      "name": "Sex Addiction Recovery Resources",
-      "url": "https://www.slagroupresources.com/",
-      "description": "Community-curated sex and porn addiction recovery resources for people in recovery, betrayed partners, and couples.",
-      "about": ["Sex addiction recovery", "Porn addiction recovery", "Betrayal trauma", "Rebuilding trust"],
-      "audience": {"@type": "Audience", "audienceType": "People in sex addiction recovery, betrayed partners, and couples"}
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is a 90-day detox in sex addiction recovery?",
-          "acceptedAnswer": {"@type": "Answer", "text": "A 90-day detox, also called sexual sobriety or abstinence, is a common step in sex addiction recovery. It gives you space to heal, figure out your triggers, and build new ways to cope. The goal is to reset unhealthy patterns and work toward healthy intimacy, not to give up sex forever. Plan it with your therapist, and talk it through with your partner if you are in a relationship."}
-        },
-        {
-          "@type": "Question",
-          "name": "What does 'disclosure is better than discovery' mean?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Telling the truth yourself, ideally with help from a therapist, does less damage than your partner finding out on their own. When they find out on their own, they're hurt by the behavior and by the hiding."}
-        },
-        {
-          "@type": "Question",
-          "name": "Where can I find a support group for sex addiction?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Our recovery group meets through BetterHelp group sessions (BetterHelp membership required). 12-step fellowships such as Sex Addicts Anonymous (SAA) and Sex and Love Addicts Anonymous (SLAA) also hold free meetings in person and online."}
-        }
-      ]
-    }
+    { "@type": "WebSite", "name": "SLA Group Resources", "url": "https://www.slagroupresources.com/" },
+    { "@type": "CollectionPage", "name": "Sex Addiction Recovery Resources", "url": "https://www.slagroupresources.com/",
+      "description": "Resources shared in a sex addiction recovery group, for people in recovery, partners, and couples.",
+      "about": ["Sex addiction recovery", "Porn addiction recovery", "Betrayal trauma", "Rebuilding trust"] },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What is a 90-day detox in sex addiction recovery?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A 90-day detox, also called sexual sobriety or abstinence, is a common step in sex addiction recovery. It gives you space to heal, figure out your triggers, and build new ways to cope. The goal is to reset unhealthy patterns and work toward healthy intimacy, not to give up sex forever. Plan it with your therapist, and talk it through with your partner if you are in a relationship." } },
+      { "@type": "Question", "name": "What does 'disclosure is better than discovery' mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Telling the truth yourself, ideally with help from a therapist, does less damage than your partner finding out on their own. When they find out on their own, they're hurt by the behavior and by the hiding." } },
+      { "@type": "Question", "name": "Where can I find a support group for sex addiction?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our recovery group meets through BetterHelp group sessions (BetterHelp membership required). 12-step fellowships such as Sex Addicts Anonymous (SAA) and Sex and Love Addicts Anonymous (SLAA) also hold free meetings in person and online." } }
+    ] }
   ]
 }
 </script>
-
 <style>
-  :root {
-    --green-900: #1f3a2b;
-    --green-700: #2f5a40;
-    --green-100: #e8f0ea;
-    --ink: #1d2420;
-    --muted: #5b665f;
-    --line: #dde3df;
-    --bg: #fafbfa;
-    --card: #ffffff;
-    --radius: 12px;
-  }
+  :root { --green-900:#1f3a2b; --green-700:#2f5a40; --green-100:#e8f0ea; --ink:#1d2420; --muted:#5b665f; --line:#dde3df; --bg:#fafbfa; --radius:12px; }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.55;
+  html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  a { color:var(--green-700); }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+  .hidden { display:none !important; }
+  .eyebrow { font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green-700); }
+
+  /* Header + menu */
+  .site-header { background:var(--green-900); color:#fff; position:relative; z-index:20; }
+  .site-header .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:60px; }
+  .brand { color:#fff; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:10px; white-space:nowrap; }
+  .menu { display:flex; gap:4px; align-items:center; }
+  .menu-link { color:#d6e4da; background:none; border:0; font:inherit; font-size:.95rem; padding:8px 12px; border-radius:8px; cursor:pointer; text-decoration:none; white-space:nowrap; }
+  .menu-link:hover, .menu-link[aria-expanded="true"] { background:rgba(255,255,255,.12); color:#fff; }
+  .dd { position:relative; }
+  .dd-panel { display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,.14); min-width:220px; padding:6px; z-index:30; }
+  .dd.open .dd-panel { display:block; }
+  .dd-panel a { display:block; padding:9px 12px; color:var(--ink); text-decoration:none; border-radius:8px; }
+  .dd-panel a:hover, .dd-panel a:focus { background:var(--green-100); outline:none; }
+
+  /* Hero: one question */
+  .hero { background:var(--green-900); color:#fff; padding:40px 0 48px; }
+  .hero h1 { font-size:1rem; font-weight:600; color:#a9c2b1; margin:0 0 6px; letter-spacing:.02em; }
+  .hero .ask { font-size:clamp(1.7rem,4vw,2.4rem); font-weight:700; margin:0 0 6px; line-height:1.2; }
+  .hero p { color:#d6e4da; margin:0 0 24px; }
+  .hero p.ask { color:#fff; }
+  .paths { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .path { display:flex; gap:14px; align-items:center; text-align:left; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:14px; padding:18px; font:inherit; cursor:pointer; }
+  .path:hover { background:rgba(255,255,255,.14); }
+  .path[aria-pressed="true"] { background:#fff; color:var(--green-900); }
+  .path svg { flex:none; width:40px; height:40px; }
+  .path strong { display:block; font-size:1.05rem; line-height:1.3; }
+
+  /* Start here */
+  .start { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-top:-24px; box-shadow:0 8px 24px rgba(31,58,43,.10); position:relative; }
+  .start h2 { margin:2px 0 14px; font-size:1.35rem; }
+  .picks { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+  .pick { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:12px; padding:14px; text-decoration:none; color:var(--ink); background:var(--bg); }
+  .pick:hover { border-color:var(--green-700); }
+  .pick .kind { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--green-700); }
+  .pick strong { margin:2px 0 4px; }
+  .pick span.t { font-size:.9rem; color:var(--muted); }
+  .start .more { display:inline-block; margin-top:14px; font-weight:700; background:none; border:0; font:inherit; color:var(--green-700); cursor:pointer; padding:0; text-decoration:underline; }
+
+  /* Tools */
+  .tools { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:28px; }
+  .tool { display:flex; gap:14px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px; text-decoration:none; color:var(--ink); }
+  .tool:hover { border-color:var(--green-700); }
+  .tool svg { flex:none; width:44px; height:44px; }
+  .tool strong { display:block; }
+  .tool span { font-size:.88rem; color:var(--muted); }
+
+  /* Group banner + tip */
+  .strip > span { flex:1 1 420px; }
+  .strip { display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; justify-content:space-between; background:var(--green-100); border-radius:14px; padding:16px 20px; margin-top:28px; }
+  .button { display:inline-block; border:0; cursor:pointer; background:var(--green-900); color:#fff; text-decoration:none; padding:10px 18px; border-radius:999px; font:inherit; font-weight:600; font-size:.95rem; white-space:nowrap; }
+  .tip { margin-top:16px; border:1px solid var(--line); background:#fff; border-radius:14px; padding:16px 20px; }
+  .tip .q { font-size:1.15rem; font-weight:700; margin:2px 0; }
+  .tip p { margin:0; }
+
+  /* Sections */
+  section.block { margin-top:40px; }
+  section.block > h2 { font-size:1.5rem; margin:0 0 4px; }
+  .lede { color:var(--muted); margin:0 0 14px; }
+  .handout-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .handout { display:flex; flex-direction:column; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .handout .thumb { display:flex; align-items:center; justify-content:center; height:170px; padding:12px; border-bottom:1px solid var(--line); background:#fff; }
+  .handout .thumb img { max-width:100%; max-height:100%; object-fit:contain; }
+  .handout .body { padding:14px 16px 16px; display:flex; flex-direction:column; flex:1; }
+  .handout .type { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--green-700); }
+  .handout h3 { margin:2px 0 4px; font-size:1.02rem; }
+  .handout p { margin:0 0 12px; font-size:.92rem; color:var(--muted); }
+  .handout .actions { margin-top:auto; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .handout .actions .button { padding:8px 16px; font-size:.9rem; }
+
+  .toolbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0 0 14px; }
+  .toolbar input { flex:1 1 240px; padding:10px 14px; border:1px solid var(--line); border-radius:999px; font:inherit; background:#fff; }
+  .chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font:inherit; font-size:.9rem; cursor:pointer; }
+  .chip[aria-pressed="true"] { background:var(--green-900); border-color:var(--green-900); color:#fff; }
+  details.cat { background:#fff; border:1px solid var(--line); border-radius:14px; margin-bottom:10px; }
+  details.cat > summary { list-style:none; cursor:pointer; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  details.cat > summary::-webkit-details-marker { display:none; }
+  details.cat > summary h3 { margin:0; font-size:1.15rem; }
+  details.cat > summary .count { font-size:.85rem; color:var(--muted); white-space:nowrap; }
+  details.cat > summary .chev { transition:transform .15s; }
+  details.cat[open] > summary .chev { transform:rotate(180deg); }
+  .cat-body { padding:0 20px 18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
+  .card { display:flex; flex-direction:column; border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:var(--bg); }
+  .card h4 { margin:0; font-size:1rem; }
+  .card h4 a { text-decoration:none; }
+  .card h4 a:hover { text-decoration:underline; }
+  .card .by { color:var(--muted); font-size:.86rem; margin:1px 0 0; }
+  .card p.t { margin:6px 0 10px; font-size:.93rem; }
+  .card ul { margin:6px 0 10px; padding-left:18px; font-size:.93rem; }
+  .card .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; }
+  .tags { display:flex; gap:5px; flex-wrap:wrap; }
+  .tag { font-size:.72rem; padding:2px 8px; border-radius:999px; background:var(--green-100); color:var(--green-700); }
+  .rate { display:flex; gap:4px; }
+  .vote { display:flex; align-items:center; gap:4px; border:1px solid var(--line); background:#fff; border-radius:999px; padding:4px 10px; font:inherit; font-size:.82rem; color:var(--muted); cursor:pointer; min-height:32px; }
+  .vote svg { width:15px; height:15px; }
+  .vote[aria-pressed="true"] { background:var(--green-900); border-color:var(--green-900); color:#fff; }
+  .empty { color:var(--muted); }
+  details.faq { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px; }
+  details.faq summary { cursor:pointer; font-weight:600; }
+  details.faq p { margin:10px 0 0; }
+  .submit { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  footer { margin-top:48px; background:var(--green-900); color:#d6e4da; padding:26px 0; font-size:.92rem; }
+  footer strong, footer a { color:#fff; }
+  footer p { margin:6px 0; }
+
+  @media (max-width: 820px) {
+    .paths, .tools { grid-template-columns:1fr; }
+    .picks { grid-template-columns:1fr 1fr; }
   }
-  a { color: var(--green-700); }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
-
-  /* Group handouts (featured) */
-  .handouts { background: var(--green-100); border-radius: 18px; padding: 28px; margin-top: 24px; }
-  .handouts-head h2 { font-size: 1.7rem; margin: 2px 0 4px; }
-  .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green-700); }
-  .handout-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-  .card.handout { padding: 0; overflow: hidden; }
-  .card.handout .thumb { display: flex; align-items: center; justify-content: center; height: 190px; padding: 12px; background: #fff; border-bottom: 1px solid var(--line); }
-  .card.handout .thumb img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
-  .card.handout .type { margin: 14px 18px 0; font-size: .78rem; font-weight: 600; color: var(--green-700); text-transform: uppercase; letter-spacing: .05em; }
-  .card.handout h3 { margin: 2px 18px 0; font-size: 1.05rem; }
-  .card.handout .desc { margin: 6px 18px 14px; }
-  .card.handout .actions { margin: auto 18px 18px; display: flex; align-items: center; gap: 16px; }
-  .card.handout .button { padding: 9px 18px; font-size: .92rem; }
-  @media (max-width: 720px) { .card.handout .thumb { height: auto; } .handouts { padding: 20px; } }
-  /* Featured row */
-  .featured-band { margin-top: -36px; margin-bottom: 28px; }
-  .featured { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .feature { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px; text-decoration: none; color: var(--ink); box-shadow: 0 6px 20px rgba(31,58,43,.10); transition: transform .15s, box-shadow .15s; }
-  .feature:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(31,58,43,.16); }
-  .feature-art { width: 64px; height: 64px; object-fit: cover; object-position: top; border-radius: 10px; margin-bottom: 12px; }
-  .feature h2 { margin: 4px 0 4px; font-size: 1.25rem; }
-  .feature p { margin: 0 0 14px; color: var(--muted); }
-  .feature .go { margin-top: auto; font-weight: 700; color: var(--green-700); }
-  .badge-new { align-self: flex-start; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--green-900); color: #fff; border-radius: 999px; padding: 3px 10px; }
-  .badge-new.quiet { background: var(--green-100); color: var(--green-700); }
-  .hero { padding-bottom: 76px !important; }
-  @media (max-width: 820px) { .featured { grid-template-columns: 1fr; } }
-  /* Header menu */
-  .site-header nav.menu { display: flex; gap: 4px; align-items: center; overflow: visible; }
-  .menu-link { color: #d6e4da; background: none; border: 0; font: inherit; font-size: .95rem; padding: 8px 12px; border-radius: 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
-  .menu-link:hover, .menu-link[aria-expanded="true"] { background: rgba(255,255,255,.12); color: #fff; }
-  .dd { position: relative; }
-  .dd-panel { display: none; position: absolute; right: 0; top: calc(100% + 6px); background: #fff; border: 1px solid #dde3df; border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.14); min-width: 220px; padding: 6px; z-index: 30; }
-  .dd.open .dd-panel { display: block; }
-  .dd-panel a { display: block; padding: 9px 12px; color: #1d2420; text-decoration: none; border-radius: 8px; }
-  .dd-panel a:hover, .dd-panel a:focus { background: #e8f0ea; outline: none; }
-  @media (max-width: 720px) { .brand span { display: none; } .menu-link { padding: 8px 9px; } }
-
-  /* Header */
-  .site-header {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--green-900); color: #fff;
-  }
-  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
-  .brand { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.05rem; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
-
-  /* Group session banner */
-  .group-banner { background: var(--green-100); border-bottom: 1px solid var(--line); }
-  .group-banner .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 14px; padding-bottom: 14px; }
-  .group-banner .wrap > div { flex: 1 1 420px; }
-  .banner-link { background: var(--green-900); color: #fff; text-decoration: none; padding: 9px 18px; border-radius: 999px; font-weight: 600; white-space: nowrap; font-size: .95rem; }
-
-  /* Hero */
-  .hero { background: var(--green-900); color: #fff; padding: 48px 0 56px; }
-  .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin: 0 0 12px; font-weight: 600; }
-  .hero p { color: #d6e4da; max-width: 640px; margin: 0 0 28px; font-size: 1.08rem; }
-  .start-label { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: #a9c2b1; margin-bottom: 10px; }
-  .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .path {
-    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
-    color: #fff; border-radius: var(--radius); padding: 16px 18px; text-align: left;
-    font: inherit; cursor: pointer;
-  }
-  .path:hover, .path[aria-pressed="true"] { background: #fff; color: var(--green-900); }
-  .path strong { display: block; font-size: 1.05rem; }
-  .path span { font-size: .9rem; opacity: .85; }
-
-  /* Toolbar */
-  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 20px 0 4px; }
-  .toolbar input {
-    flex: 1 1 260px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 999px; font: inherit; background: #fff;
-  }
-  .chip {
-    border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-size: .9rem; cursor: pointer;
-  }
-  .chip[aria-pressed="true"] { background: var(--green-900); border-color: var(--green-900); color: #fff; }
-
-  /* Tip */
-  .tip { margin: 20px 0 8px; background: var(--green-100); border-left: 4px solid var(--green-700); border-radius: var(--radius); padding: 16px 20px; }
-  .tip b { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--green-700); }
-  .tip p { margin: 4px 0 0; }
-  .tip .quote { font-size: 1.15rem; font-weight: 600; margin-top: 2px; }
-
-  /* Sections and cards */
-  section { padding: 28px 0 8px; }
-  section > h2 { font-size: 1.45rem; margin: 0 0 4px; }
-  section > .lede { color: var(--muted); margin: 0 0 16px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; }
-  .card h3 { font-size: 1.02rem; margin: 0; }
-  .card h3 a { text-decoration: none; }
-  .card h3 a:hover { text-decoration: underline; }
-  .card .by { color: var(--muted); font-size: .88rem; margin: 2px 0 0; }
-  .card p.desc { margin: 8px 0 12px; font-size: .95rem; }
-  .card ul { margin: 8px 0 12px; padding-left: 18px; font-size: .95rem; }
-  .tags { margin-top: auto; display: flex; gap: 6px; flex-wrap: wrap; }
-  .tag { font-size: .75rem; padding: 2px 8px; border-radius: 999px; background: var(--green-100); color: var(--green-700); }
-  .hidden { display: none !important; }
-  .empty { color: var(--muted); padding: 24px 0; }
-
-  /* Files */
-  .file-card img { width: 100%; height: 180px; object-fit: contain; background: #f1f4f2; border-radius: 8px; margin-bottom: 10px; }
-
-  /* FAQ */
-  details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px; }
-  summary { cursor: pointer; font-weight: 600; }
-  details p { margin: 10px 0 0; }
-
-  /* Submit */
-  .submit { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
-  .button { display: inline-block; background: var(--green-900); color: #fff; text-decoration: none; padding: 11px 20px; border-radius: 999px; font-weight: 600; }
-
-  /* Footer */
-  footer { margin-top: 40px; background: var(--green-900); color: #d6e4da; padding: 28px 0; font-size: .92rem; }
-  footer strong { color: #fff; }
-  footer a { color: #fff; }
-  footer p { margin: 6px 0; }
-
-  @media (max-width: 720px) {
-    .paths { grid-template-columns: 1fr; }
+  @media (max-width: 560px) {
+    .brand span { display:none; }
+    .menu-link { padding:8px 9px; }
+    .picks { grid-template-columns:1fr; }
+    .path { padding:14px; }
   }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="thumb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></symbol>
+</svg>
 
 <header class="site-header">
   <div class="wrap">
@@ -218,12 +178,9 @@
         <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-res">Resources <span aria-hidden="true">▾</span></button>
         <div class="dd-panel" id="dd-res">
           <a href="index.html#files">Group handouts</a>
-          <a href="index.html#support">Find support</a>
-          <a href="index.html#practices">Tools from group</a>
-          <a href="index.html#books">Books</a>
-          <a href="index.html#podcasts">Podcasts</a>
-          <a href="index.html#videos">YouTube and videos</a>
-          <a href="index.html#apps">Apps</a>
+          {%- for sec in R.sections %}
+          <a href="index.html#{{ sec.id }}">{{ sec.title }}</a>
+          {%- endfor %}
           <a href="index.html#faq">Common questions</a>
           <a href="index.html#submit">Suggest a resource</a>
         </div>
@@ -243,462 +200,160 @@
 <main>
   <div class="hero">
     <div class="wrap">
-      <h1>Sex addiction recovery resources</h1>
-      <p>Welcome! This page has all the resources shared during our group therapy sessions. Pick where you're at below to see what fits you.</p>
-      <div class="start-label">Start here</div>
-      <div class="paths" role="group" aria-label="Show resources for">
-        <button class="path" data-filter="self" aria-pressed="false"><strong>I'm in recovery</strong><span>Learn about the addiction and stay sober</span></button>
-        <button class="path" data-filter="partner" aria-pressed="false"><strong>I'm a partner</strong><span>Help for you after betrayal</span></button>
-        <button class="path" data-filter="couple" aria-pressed="false"><strong>We're healing together</strong><span>Rebuilding trust together</span></button>
+      <h1>Sex addiction recovery resources from our group</h1>
+      <p class="ask">Where are you starting?</p>
+      <p>Pick the one that fits and we'll show you where to begin.</p>
+      <div class="paths" role="group" aria-label="Where are you starting?">
+        <button class="path" type="button" data-path="recovery" aria-pressed="false">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#9cc5b0"/><path d="M20 9c-4 6-9 9-9 15a9 9 0 0 0 18 0c0-6-5-9-9-15Z" fill="#1f3a2b"/></svg>
+          <span><strong>I'm working on my own recovery</strong></span>
+        </button>
+        <button class="path" type="button" data-path="together" aria-pressed="false">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#f2d27a"/><circle cx="15" cy="17" r="5" fill="#1f3a2b"/><circle cx="25" cy="17" r="5" fill="#1f3a2b"/><path d="M7 31c1-5 4-7 8-7s7 2 8 7M17 31c1-5 4-7 8-7s7 2 8 7" fill="none" stroke="#1f3a2b" stroke-width="3" stroke-linecap="round"/></svg>
+          <span><strong>I'm walking this journey with someone</strong></span>
+        </button>
+        <button class="path" type="button" data-path="healing" aria-pressed="false">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#e09a8a"/><path d="M20 30s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12Z" fill="#1f3a2b"/></svg>
+          <span><strong>I was hurt and want to understand and heal</strong></span>
+        </button>
       </div>
-    </div>
-  </div>
-
-  <!-- ============ FEATURED ============ -->
-  <div class="featured-band">
-    <div class="wrap featured">
-      <a class="feature" href="tracker.html#feelings">
-        <svg class="feature-art" viewBox="0 0 80 80" aria-hidden="true">
-          <circle cx="40" cy="40" r="36" fill="#f2d27a"/>
-          <path d="M40 40 L40 4 A36 36 0 0 1 71.2 22 Z" fill="#9cc5b0"/>
-          <path d="M40 40 L71.2 22 A36 36 0 0 1 71.2 58 Z" fill="#8fa9d1"/>
-          <path d="M40 40 L71.2 58 A36 36 0 0 1 40 76 Z" fill="#e09a8a"/>
-          <path d="M40 40 L40 76 A36 36 0 0 1 8.8 58 Z" fill="#c4a5d6"/>
-          <path d="M40 40 L8.8 58 A36 36 0 0 1 8.8 22 Z" fill="#d9b38c"/>
-          <circle cx="40" cy="40" r="12" fill="#fff"/>
-        </svg>
-        <span class="badge-new">New</span>
-        <h2>Feelings check-in</h2>
-        <p>Turn the wheel to put a name to what you're feeling, and keep a private log.</p>
-        <span class="go">Open the feelings wheel →</span>
-      </a>
-      <a class="feature" href="tracker.html#ninety">
-        <svg class="feature-art" viewBox="0 0 80 80" aria-hidden="true">
-          <g fill="#5f9a73"><rect x="4" y="10" width="14" height="14" rx="3"/><rect x="22" y="10" width="14" height="14" rx="3"/><rect x="40" y="10" width="14" height="14" rx="3"/><rect x="58" y="10" width="14" height="14" rx="3"/>
-          <rect x="4" y="28" width="14" height="14" rx="3"/><rect x="22" y="28" width="14" height="14" rx="3"/></g>
-          <rect x="40" y="28" width="14" height="14" rx="3" fill="#fff" stroke="#1f3a2b" stroke-width="2"/>
-          <g fill="#e8f0ea"><rect x="58" y="28" width="14" height="14" rx="3"/><rect x="4" y="46" width="14" height="14" rx="3"/><rect x="22" y="46" width="14" height="14" rx="3"/><rect x="40" y="46" width="14" height="14" rx="3"/><rect x="58" y="46" width="14" height="14" rx="3"/></g>
-          <rect x="4" y="66" width="68" height="6" rx="3" fill="#e8f0ea"/><rect x="4" y="66" width="24" height="6" rx="3" fill="#2f5a40"/>
-        </svg>
-        <span class="badge-new">New</span>
-        <h2>90-day tracker</h2>
-        <p>Check in once a day and see yourself hit 30, 60, and 90 days.</p>
-        <span class="go">Start your 90 days →</span>
-      </a>
-      <a class="feature" href="#files">
-        <img class="feature-art" src="files/thumbs/90-day-detox-summary.jpg" alt="">
-        <span class="badge-new quiet">From group</span>
-        <h2>Group handouts</h2>
-        <p>The worksheets the host shared in group, ready to download and print.</p>
-        <span class="go">See the handouts →</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Group session banner: directly below the hero -->
-  <div class="group-banner">
-    <div class="wrap">
-      <div>
-        <strong>Join our group!</strong>
-        We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.
-      </div>
-      <a class="banner-link" href="https://www.betterhelp.com/groups-faq/" target="_blank" rel="noopener">How to register for group sessions</a>
     </div>
   </div>
 
   <div class="wrap">
-    <div class="toolbar">
-      <input id="search" type="search" placeholder="Search resources (e.g. trust, dopamine, Carnes)" aria-label="Search resources">
-      <button class="chip" data-filter="all" aria-pressed="true">All</button>
-      <button class="chip" data-filter="self" aria-pressed="false">In recovery</button>
-      <button class="chip" data-filter="partner" aria-pressed="false">Partners</button>
-      <button class="chip" data-filter="couple" aria-pressed="false">Couples</button>
+    {%- assign labels = "recovery:Your recovery,together:Walking together,healing:Healing from hurt" | split: "," %}
+    {%- for pair in labels %}
+    {%- assign kv = pair | split: ":" %}
+    {%- assign p = kv[0] %}
+    <div class="start hidden" id="start-{{ p }}">
+      <span class="eyebrow">{{ kv[1] }}</span>
+      <h2>Start here</h2>
+      <div class="picks">
+        {%- for pick in R.start_here[p] %}
+        {%- for sec in R.sections %}{%- for it in sec.items %}{%- if it.id == pick %}
+        <a class="pick" href="{% if it.url %}{{ it.url }}{% else %}#{{ sec.id }}{% endif %}"{% if it.url %} target="_blank" rel="noopener"{% endif %}>
+          <span class="kind">{{ sec.title }}</span>
+          <strong>{{ it.title | escape }}</strong>
+          <span class="t">{% if it.text %}{{ it.text | escape | truncatewords: 16 }}{% else %}{{ it.points[0].lead | escape }} {{ it.points[0].text | escape | truncatewords: 12 }}{% endif %}</span>
+        </a>
+        {%- endif %}{%- endfor %}{%- endfor %}
+        {%- endfor %}
+      </div>
+      <button class="more" type="button" data-showall="{{ p }}">Show everything for me ↓</button>
+    </div>
+    {%- endfor %}
+
+    <!-- Trackers -->
+    <div class="tools">
+      <a class="tool" href="tracker.html#feelings">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#f2d27a"/><path d="M22 22 22 2A20 20 0 0 1 39.3 12Z" fill="#9cc5b0"/><path d="M22 22 39.3 12A20 20 0 0 1 39.3 32Z" fill="#8fa9d1"/><path d="M22 22 39.3 32A20 20 0 0 1 22 42Z" fill="#e09a8a"/><path d="M22 22 22 42A20 20 0 0 1 4.7 32Z" fill="#c4a5d6"/><path d="M22 22 4.7 32A20 20 0 0 1 4.7 12Z" fill="#d9b38c"/><circle cx="22" cy="22" r="7" fill="#fff"/></svg>
+        <div><strong>Feelings check-in</strong><span>Name what you feel and keep a private log</span></div>
+      </a>
+      <a class="tool" href="tracker.html#ninety">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="#5f9a73"><rect x="2" y="4" width="11" height="11" rx="3"/><rect x="16" y="4" width="11" height="11" rx="3"/><rect x="30" y="4" width="11" height="11" rx="3"/><rect x="2" y="18" width="11" height="11" rx="3"/></g><rect x="16" y="18" width="11" height="11" rx="3" fill="#fff" stroke="#1f3a2b" stroke-width="2"/><g fill="#e8f0ea"><rect x="30" y="18" width="11" height="11" rx="3"/><rect x="2" y="32" width="11" height="11" rx="3"/><rect x="16" y="32" width="11" height="11" rx="3"/><rect x="30" y="32" width="11" height="11" rx="3"/></g></svg>
+        <div><strong>90-day tracker</strong><span>Check in daily and hit 30, 60, and 90</span></div>
+      </a>
+      <a class="tool" href="tracker.html#coping">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="3" width="36" height="38" rx="5" fill="#e8f0ea"/><rect x="4" y="3" width="36" height="10" rx="5" fill="#f2d27a"/><g stroke="#2f5a40" stroke-width="2.5" stroke-linecap="round"><path d="M11 21h22M11 28h22M11 35h14"/></g></svg>
+        <div><strong>Coping skills log</strong><span>See which coping skills help you most</span></div>
+      </a>
     </div>
 
-    <!-- Update this block each week -->
+    <div class="strip">
+      <span><strong>Join our group!</strong> We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.</span>
+      <a class="button" href="https://www.betterhelp.com/groups-faq/" target="_blank" rel="noopener">How to register</a>
+    </div>
+
     <div class="tip">
-      <b>Tip of the week</b>
-      <p class="quote">Transparency vs. honesty.</p>
-      <p>Honesty is telling the truth when you're asked. Transparency is telling it before anyone has to ask. Stop the little lies, and be open even when it might not go well. That's what rebuilds trust.</p>
+      <span class="eyebrow">Tip of the week</span>
+      <p class="q">{{ site.data.tip.title | escape }}</p>
+      <p>{{ site.data.tip.text | escape }}</p>
     </div>
 
-    <!-- ============ GROUP HANDOUTS (featured) ============ -->
-    <section id="files" class="handouts">
-      <div class="handouts-head">
-        <span class="eyebrow">From our group sessions</span>
-        <h2>Group handouts</h2>
-        <p class="lede">Files the host shared in group. Open them here, or download and print them.</p>
-      </div>
+    <!-- Handouts -->
+    <section class="block" id="files">
+      <span class="eyebrow">From our group sessions</span>
+      <h2>Group handouts</h2>
+      <p class="lede">Files the host shared in group. Open them here, or download and print them.</p>
       <div class="handout-grid">
-        <article class="card handout" data-for="self">
-          <a class="thumb" href="files/healthy-sexual-decision-framework.png" target="_blank"><img src="files/healthy-sexual-decision-framework.png" alt="Healthy Sexual Decision Framework: red, yellow, and green circles for behaviors that undermine recovery, need caution, or support recovery" loading="lazy"></a>
-          <span class="type">Image · PNG</span>
-          <h3>Healthy Sexual Decision Framework</h3>
-          <p class="desc">A red, yellow, and green guide for deciding what fits your recovery.</p>
-          <div class="actions"><a class="button" href="files/healthy-sexual-decision-framework.png" download>Download</a><a href="files/healthy-sexual-decision-framework.png" target="_blank">View</a></div>
+        {%- for h in site.data.handouts.handouts %}
+        <article class="handout">
+          <a class="thumb" href="{{ h.file }}" target="_blank"><img src="{{ h.image }}" alt="{{ h.alt | escape }}" loading="lazy"></a>
+          <div class="body">
+            <span class="type">{{ h.type }}</span>
+            <h3>{{ h.title | escape }}</h3>
+            <p>{{ h.text | escape }}</p>
+            <div class="actions">
+              {%- if h.online %}<a class="button" href="{{ h.online }}">Fill it in online</a><a href="{{ h.file }}" download>Download</a>
+              {%- else %}<a class="button" href="{{ h.file }}" download>Download</a>{% if h.viewable %}<a href="{{ h.file }}" target="_blank">View</a>{% endif %}{% endif %}
+            </div>
+          </div>
         </article>
-        <article class="card handout" data-for="self partner couple">
-          <a class="thumb" href="files/feelings-wheel.png" target="_blank"><img src="files/feelings-wheel.png" alt="Feelings wheel showing core emotions and more specific feelings radiating outward" loading="lazy"></a>
-          <span class="type">Image · PNG</span>
-          <h3>Feelings Wheel</h3>
-          <p class="desc">Helps you put a name to what you're feeling.</p>
-          <div class="actions"><a class="button" href="files/feelings-wheel.png" download>Download</a><a href="files/feelings-wheel.png" target="_blank">View</a></div>
-        </article>
-        <article class="card handout" data-for="self">
-          <a class="thumb" href="files/coping-skills-log.docx"><img src="files/thumbs/coping-skills-log.jpg" alt="Coping Skills Log worksheet: a table for trigger, thoughts, emotion intensity, coping skill used, and results" loading="lazy"></a>
-          <span class="type">Worksheet · Word</span>
-          <h3>Coping Skills Log</h3>
-          <p class="desc">Write down a trigger, what you were thinking, and how strong your feelings were before and after using a coping skill. Has an example filled in.</p>
-          <div class="actions"><a class="button" href="tracker.html#coping">Fill it in online</a><a href="files/coping-skills-log.docx" download>Download</a></div>
-        </article>
-        <article class="card handout" data-for="self couple">
-          <a class="thumb" href="files/90-day-detox-summary.pdf" target="_blank"><img src="files/thumbs/90-day-detox-summary.jpg" alt="90-Day Detox Summary: three color-coded stages for days 1–30, 31–60, and 61–90" loading="lazy"></a>
-          <span class="type">Guide · PDF</span>
-          <h3>90-Day Detox Summary</h3>
-          <p class="desc">What to expect during each month of a 90-day detox.</p>
-          <div class="actions"><a class="button" href="files/90-day-detox-summary.pdf" download>Download</a><a href="files/90-day-detox-summary.pdf" target="_blank">View</a></div>
-        </article>
+        {%- endfor %}
       </div>
     </section>
 
-    <p id="no-results" class="empty hidden">No resources match that search. Try a different word, or <a href="#submit">suggest one</a>.</p>
-
-    <!-- ============ FIND SUPPORT ============ -->
-    <section id="support">
-      <h2>Find support</h2>
-      <p class="lede">Recovery is easier with other people. Start with our group, and add a 12-step meeting if you want more support.</p>
-      <div class="grid">
-        <article class="card" data-for="self couple" style="border-color:var(--green-700);border-width:2px">
-          <h3><a href="https://www.betterhelp.com/groups-faq/" target="_blank" rel="noopener">Join our group session</a></h3>
-          <p class="desc">Everything on this site came out of our group. It helps to hear from people who are further along and to say things out loud. We meet through BetterHelp, so you need a BetterHelp membership to attend.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://saa-recovery.org/" target="_blank" rel="noopener">Sex Addicts Anonymous (SAA)</a></h3>
-          <p class="desc">Free 12-step group. Meetings in person, by phone, and online.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://slaafws.org/" target="_blank" rel="noopener">Sex and Love Addicts Anonymous (SLAA)</a></h3>
-          <p class="desc">Free 12-step group that also covers love and relationship addiction.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
+    <!-- All resources -->
+    <section class="block" id="browse">
+      <h2>All resources</h2>
+      <p class="lede">Tap a section to open it. Tell us what helped with the thumbs.</p>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search (e.g. trust, dopamine, Carnes)" aria-label="Search resources">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="recovery" aria-pressed="false">My recovery</button>
+        <button class="chip" type="button" data-filter="together" aria-pressed="false">Together</button>
+        <button class="chip" type="button" data-filter="healing" aria-pressed="false">Healing</button>
       </div>
+      {%- for sec in R.sections %}
+      <details class="cat" id="{{ sec.id }}">
+        <summary><h3>{{ sec.title }}</h3><span><span class="count" data-count>{{ sec.items | size }}</span> <span class="chev" aria-hidden="true">▾</span></span></summary>
+        <div class="cat-body">
+          {%- if sec.intro != "" %}<p class="lede">{{ sec.intro | escape }}</p>{% endif %}
+          <div class="grid">
+            {%- for it in sec.items %}
+            <article class="card" data-id="{{ it.id }}" data-for="{{ it.for | join: ' ' }}">
+              <h4>{% if it.url %}<a href="{{ it.url }}" target="_blank" rel="noopener">{{ it.title | escape }}</a>{% else %}{{ it.title | escape }}{% endif %}</h4>
+              {%- if it.by %}<p class="by">{{ it.by | escape }}</p>{% endif %}
+              {%- if it.text %}<p class="t">{{ it.text | escape }}</p>{% endif %}
+              {%- if it.points %}<ul>{% for pt in it.points %}<li>{% if pt.lead %}<b>{{ pt.lead | escape }}</b> {% endif %}{{ pt.text | escape }}</li>{% endfor %}</ul>{% endif %}
+              <div class="foot">
+                <div class="tags">{% for f in it.for %}<span class="tag">{% if f == "recovery" %}My recovery{% elsif f == "together" %}Together{% else %}Healing{% endif %}</span>{% endfor %}</div>
+                <div class="rate hidden" data-rate="{{ it.id }}">
+                  <button class="vote" type="button" data-v="up" aria-pressed="false" aria-label="This helped"><svg aria-hidden="true"><use href="#thumb"/></svg><span class="n">0</span></button>
+                  <button class="vote" type="button" data-v="down" aria-pressed="false" aria-label="This didn't help"><svg aria-hidden="true" style="transform:rotate(180deg)"><use href="#thumb"/></svg><span class="n">0</span></button>
+                </div>
+              </div>
+            </article>
+            {%- endfor %}
+          </div>
+        </div>
+      </details>
+      {%- endfor %}
+      <p id="no-results" class="empty hidden">Nothing matches that. Try a different word, or <a href="#submit">suggest a resource</a>.</p>
     </section>
 
-    <!-- ============ PRACTICES ============ -->
-    <section id="practices">
-      <h2>Tools from group</h2>
-      <p class="lede">Things that come up a lot in our sessions.</p>
-      <div class="grid">
-        <article class="card" data-for="partner couple">
-          <h3>Bring the session home</h3>
-          <p class="desc">For partners: ask your partner to go to group, take notes, and share them with you after.</p>
-          <ul>
-            <li>You get to see what they're learning.</li>
-            <li>It's an easy way for them to practice being open with you.</li>
-            <li>It gives you both something to talk about besides the hurt.</li>
-          </ul>
-          <div class="tags"><span class="tag">Partners</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3>Rebuilding trust</h3>
-          <ul>
-            <li><b>Be present.</b> When you're with your partner, don't be preoccupied. Limit sitting on the couch on your phones. Pay attention, because they've probably already told you what they need to trust you.</li>
-            <li><b>Catch yourself.</b> Stop the little lies, and be open even when it might not go well.</li>
-            <li><b>There's no timeline.</b> Trust comes back on your partner's schedule, not yours.</li>
-          </ul>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3>When an urge hits</h3>
-          <ul>
-            <li><b>Make a safety plan.</b> If certain places or people trigger you, plan ahead so you stay safe.</li>
-            <li><b>Reach out.</b> Call your partner, a friend, or family. You don't have to share details. Talk about the trigger or anything else to get your mind off it.</li>
-            <li><b>Check HALT.</b> Ask yourself if you're hungry, angry, lonely, or tired, and take care of that first.</li>
-            <li><b>Wait it out.</b> Urges pass. Give it 15 minutes and go for a walk.</li>
-          </ul>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3>Natural ways to help your mood</h3>
-          <p class="desc">Sunlight, exercise, healthy food, yoga, sleep, probiotics, and omega-3s.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3>Medication: talk to your doctor</h3>
-          <p class="desc">Medication helps some people with compulsive behavior. Talk to your doctor about whether it's right for you.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ BOOKS ============ -->
-    <section id="books">
-      <h2>Books</h2>
-      <p class="lede">Links go to Bookshop.org.</p>
-      <div class="grid">
-        <article class="card" data-for="self partner">
-          <h3><a href="https://bookshop.org/search?keywords=Out+of+the+Shadows+Patrick+Carnes" target="_blank" rel="noopener">Out of the Shadows</a></h3>
-          <p class="by">Patrick Carnes</p>
-          <p class="desc">Usually the first book people get recommended. A lot of how sex addiction is treated today comes from this book.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=Facing+the+Shadow+Patrick+Carnes" target="_blank" rel="noopener">Facing the Shadow</a></h3>
-          <p class="by">Patrick Carnes</p>
-          <p class="desc">The workbook that goes with Out of the Shadows. Good for your first steps in recovery.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=A+Gentle+Path+Through+the+Twelve+Steps" target="_blank" rel="noopener">A Gentle Path Through the Twelve Steps</a></h3>
-          <p class="by">Patrick Carnes</p>
-          <p class="desc">A workbook for the 12 steps. Less rigid and more reflective.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://saa-recovery.org/" target="_blank" rel="noopener">Sex Addicts Anonymous ("The Green Book")</a></h3>
-          <p class="by">SAA Fellowship</p>
-          <p class="desc">SAA's main book. A must if you're working the SAA program.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=Don%27t+Call+It+Love+Carnes" target="_blank" rel="noopener">Don't Call It Love</a></h3>
-          <p class="by">Patrick Carnes</p>
-          <p class="desc">Carnes's research on people with sex addiction. Helpful for seeing yourself in the patterns.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="partner self">
-          <h3><a href="https://bookshop.org/search?keywords=Contrary+to+Love+Carnes" target="_blank" rel="noopener">Contrary to Love</a></h3>
-          <p class="by">Patrick Carnes</p>
-          <p class="desc">About helping someone with sex addiction. Partners and therapists read this one a lot.</p>
-          <div class="tags"><span class="tag">Partners</span><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=In+the+Shadows+of+the+Net" target="_blank" rel="noopener">In the Shadows of the Net</a></h3>
-          <p class="by">Patrick Carnes, David Delmonico &amp; Elizabeth Griffin</p>
-          <p class="desc">About compulsive online sexual behavior. Good if most of your acting out happens on screens.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3><a href="https://bookshop.org/search?keywords=Out+of+the+Doghouse+Robert+Weiss" target="_blank" rel="noopener">Out of the Doghouse</a></h3>
-          <p class="by">Robert Weiss</p>
-          <p class="desc">A step-by-step guide for fixing the relationship after you've been caught.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3><a href="https://bookshop.org/search?keywords=Help+Her+Heal" target="_blank" rel="noopener">Help Her Heal</a></h3>
-          <p class="by">Carol Juergensen Sheets &amp; Vicki Tidwell Palmer</p>
-          <p class="desc">An empathy workbook to help your partner heal. You can do it alone or together.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="partner">
-          <h3><a href="https://bookshop.org/search?keywords=Sex+Lies+and+the+Other+Woman" target="_blank" rel="noopener">Sex, Lies, and the Other Woman</a></h3>
-          <p class="desc">For the betrayed partner. Helps with the "why did this happen?" question.</p>
-          <div class="tags"><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3><a href="https://bookshop.org/search?keywords=The+Porn+Trap+Maltz" target="_blank" rel="noopener">The Porn Trap</a></h3>
-          <p class="by">Wendy Maltz &amp; Larry Maltz</p>
-          <p class="desc">A guide to spotting and recovering from porn problems. Good for individuals and couples.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=Mind+Over+Explicit+Matter" target="_blank" rel="noopener">Mind Over Explicit Matter</a></h3>
-          <p class="desc">How porn changes the brain and how to undo it.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=Every+Man%27s+Battle" target="_blank" rel="noopener">Every Man's Battle</a></h3>
-          <p class="by">Stephen Arterburn &amp; Fred Stoeker</p>
-          <p class="desc">A Christian book on sexual purity and self-control. Very common in faith-based recovery.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3><a href="https://bookshop.org/search?keywords=Dopamine+Nation+Anna+Lembke" target="_blank" rel="noopener">Dopamine Nation</a></h3>
-          <p class="by">Dr. Anna Lembke</p>
-          <p class="desc">A Stanford psychiatrist on how modern life overloads the brain and what to do about it. Goes well with The Molecule of More.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=The+Molecule+of+More" target="_blank" rel="noopener">The Molecule of More</a></h3>
-          <p class="by">Daniel Z. Lieberman &amp; Michael E. Long</p>
-          <p class="desc">All about dopamine and why your brain craves what it craves.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://bookshop.org/search?keywords=The+Power+of+Habit+Duhigg" target="_blank" rel="noopener">The Power of Habit</a></h3>
-          <p class="by">Charles Duhigg</p>
-          <p class="desc">How habits form and how to change them. Useful for replacing acting out with something better.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3><a href="https://bookshop.org/search?keywords=No+Bad+Parts+Richard+Schwartz" target="_blank" rel="noopener">No Bad Parts</a></h3>
-          <p class="by">Richard Schwartz</p>
-          <p class="desc">An intro to Internal Family Systems (IFS) therapy. Helps with deep beliefs you have about yourself.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="couple">
-          <h3><a href="https://bookshop.org/search?keywords=Attachment+Theory+Workbook+for+Couples" target="_blank" rel="noopener">Attachment Theory Workbook for Couples</a></h3>
-          <p class="by">Elizabeth Gillette</p>
-          <p class="desc">Exercises to figure out your attachment styles and why you connect the way you do.</p>
-          <div class="tags"><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3><a href="https://bookshop.org/search?keywords=The+Presence+Process+Michael+Brown" target="_blank" rel="noopener">The Presence Process</a></h3>
-          <p class="by">Michael Brown</p>
-          <p class="desc">A 10-week practice for staying in the moment. Helps with the "be where your feet are" part of recovery.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3><a href="https://bookshop.org/search?keywords=Good+Vibes+Good+Life+Vex+King" target="_blank" rel="noopener">Good Vibes, Good Life</a></h3>
-          <p class="by">Vex King</p>
-          <p class="desc">About self-love as the starting point for change. More mindset than clinical.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3><a href="https://bookshop.org/search?keywords=The+Subtle+Art+of+Not+Giving+a+F*ck" target="_blank" rel="noopener">The Subtle Art of Not Giving a F*ck</a></h3>
-          <p class="by">Mark Manson</p>
-          <p class="desc">About choosing what's actually worth your energy. Blunt but helpful.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ PODCASTS ============ -->
-    <section id="podcasts">
-      <h2>Podcasts</h2>
-      <div class="grid">
-        <article class="card" data-for="self partner couple">
-          <h3><a href="https://podcasts.apple.com/us/podcast/porn-betrayal-sex-and-the-experts-pbse/id1494869058" target="_blank" rel="noopener">Porn, Betrayal, Sex and the Experts (PBSE)</a></h3>
-          <p class="by">Steve Moore &amp; Mark Kastleman</p>
-          <p class="desc">Two therapists who are in recovery themselves answer questions from addicts, partners, and couples. Really good on disclosure and rebuilding trust.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self partner couple">
-          <h3><a href="https://daretoconnectnow.com/" target="_blank" rel="noopener">Dare to Connect</a></h3>
-          <p class="by">From the PBSE hosts</p>
-          <p class="desc">The PBSE hosts' live online program, with sessions for addicts, spouses, and couples.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://podcasts.apple.com/us/search?term=Unhooked%20Jeremy%20Lipkowitz" target="_blank" rel="noopener">Unhooked</a></h3>
-          <p class="by">Jeremy Lipkowitz</p>
-          <p class="desc">What porn does to your brain and body, plus a mindfulness approach to quitting.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://podcasts.apple.com/us/search?term=Unravelling%20the%20Big%20Mystery" target="_blank" rel="noopener">Unravelling the Big Mystery</a></h3>
-          <p class="desc">The psychology behind porn addiction. A good place to start if you want to understand the why.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self partner">
-          <h3><a href="https://podcasts.apple.com/us/search?term=Solved%20How%20to%20Let%20Go%20of%20Your%20Shame" target="_blank" rel="noopener">Solved: How to Let Go of Your Shame</a></h3>
-          <p class="desc">A deep dive into shame and how it feeds addiction. It's a longer listen.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ VIDEOS ============ -->
-    <section id="videos">
-      <h2>YouTube and videos</h2>
-      <div class="grid">
-        <article class="card" data-for="self">
-          <h3><a href="https://www.youtube.com/results?search_query=Dr+Trish+Leigh" target="_blank" rel="noopener">Dr. Trish Leigh</a></h3>
-          <p class="desc">A brain coach who makes short videos about porn recovery and what's going on in your brain.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self partner couple">
-          <h3><a href="https://www.youtube.com/@JoyRecovery" target="_blank" rel="noopener">Joy Recovery</a></h3>
-          <p class="by">Roy &amp; Jacqueline</p>
-          <p class="desc">Roy and Jacqueline are a husband and wife who are certified recovery coaches. They've been through infidelity and betrayal trauma themselves and work with individuals and couples.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self partner couple">
-          <h3><a href="https://brenebrown.com/videos/anatomy-trust-video/" target="_blank" rel="noopener">The Anatomy of Trust</a></h3>
-          <p class="by">Brené Brown</p>
-          <p class="desc">Brené Brown breaks trust into seven parts called BRAVING: Boundaries, Reliability, Accountability, Vault, Integrity, Nonjudgment, and Generosity. Trust gets built in small, everyday moments.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span><span class="tag">Couples</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ APPS ============ -->
-    <section id="apps">
-      <h2>Apps and accountability tools</h2>
-      <p class="lede">Apps can help, but they don't replace doing the work. Check each site for current prices.</p>
-      <div class="grid">
-        <article class="card" data-for="self couple">
-          <h3><a href="https://www.covenanteyes.com/" target="_blank" rel="noopener">Covenant Eyes</a></h3>
-          <p class="desc">The most popular accountability app. Your partner gets an easy-to-read report of anything flagged. Faith-based.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3><a href="https://everaccountable.com/" target="_blank" rel="noopener">Ever Accountable</a></h3>
-          <p class="desc">Sends weekly reports to up to three accountability partners. Usually cheaper than Covenant Eyes.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://canopy.us/" target="_blank" rel="noopener">Canopy</a></h3>
-          <p class="desc">Blocks explicit content before it loads. Your partner can stop it from being uninstalled.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3><a href="https://truple.io/" target="_blank" rel="noopener">Truple</a></h3>
-          <p class="desc">Takes random screenshots and sends them to an accountability partner. It monitors instead of blocking. Works best on Android.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://appblock.app/" target="_blank" rel="noopener">AppBlock</a></h3>
-          <p class="desc">Lets you block risky apps and websites.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://getbrick.com/" target="_blank" rel="noopener">Brick</a></h3>
-          <p class="desc">A physical device that locks the apps you pick until you tap your phone on it again. One-time cost, no subscription. Works best if someone else holds onto it.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="https://unchaind.app/" target="_blank" rel="noopener">Unchaind</a></h3>
-          <p class="desc">A Christian app with streak tracking, daily check-ins, and scripture. Needs a subscription.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3>Quitter</h3>
-          <p class="desc">Tracks your streak and shows how your brain is recovering. A few apps use this name, so check the reviews before you download.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-      </div>
-    </section>
-
-
-    <!-- ============ FAQ ============ -->
-    <section id="faq">
+    <section class="block" id="faq">
       <h2>Common questions</h2>
-      <details>
+      <details class="faq">
         <summary>What is a 90-day detox?</summary>
         <p>A 90-day detox, also called sexual sobriety or abstinence, is a common step in sex addiction recovery. It gives you space to heal, figure out your triggers, and build new ways to cope. The goal is to reset unhealthy patterns and work toward healthy intimacy, not to give up sex forever. Plan it with your therapist, and talk it through with your partner if you're in a relationship.</p>
       </details>
-      <details>
+      <details class="faq">
         <summary>What does "disclosure is better than discovery" mean?</summary>
         <p>Telling the truth yourself, ideally with help from a therapist, does less damage than your partner finding out on their own. When they find out on their own, they're hurt by the behavior and by the hiding.</p>
       </details>
-      <details>
-        <summary>I'm a partner. Is any of this for me?</summary>
-        <p>Yes. Betrayal hurts, and your healing matters on its own. Pick "I'm a partner" at the top of the page to see resources for you. You can also ask your partner to come to our group, take notes, and share them with you after.</p>
+      <details class="faq">
+        <summary>I was hurt by my partner. Is any of this for me?</summary>
+        <p>Yes. Betrayal hurts, and your healing matters on its own. Pick "I was hurt" at the top of the page to see resources for you. You can also ask your partner to come to our group, take notes, and share them with you after.</p>
       </details>
     </section>
 
-    <!-- ============ SUBMIT ============ -->
-    <section id="submit">
-      <h2>Suggest a resource</h2>
+    <section class="block" id="submit">
       <div class="submit">
-        <p style="margin:0;max-width:560px">Found something that helped you? Share it and we'll add it. You don't need to give your name.</p>
+        <span><strong>Found something that helped you?</strong> Share it and we'll add it. You don't need to give your name.</span>
         <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ojm_oHYAaRXsPqXgRi53S9tYrqIOC5v7FKdAHj9fibQcTQ/viewform" target="_blank" rel="noopener">Suggest a resource</a>
       </div>
     </section>
-
   </div>
 </main>
 
@@ -706,71 +361,113 @@
   <div class="wrap">
     <p><strong>In crisis?</strong> In the U.S., call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) any time, or call 911 in an emergency.</p>
     <p>These resources come from members of a sex addiction recovery group. This isn't medical advice and doesn't replace a therapist or doctor.</p>
-    <p>Last updated November 2026</p>
   </div>
 </footer>
 
 <script>
-// Filters cards by audience (chips / "Start here" buttons) and by search text.
+// Header dropdowns, starting paths, filters, search, and opening sections from links
 (function () {
-  var current = 'all';
-  var search = document.getElementById('search');
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
-  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
 
-  function apply() {
-    var q = search.value.trim().toLowerCase();
-    var shown = 0;
-    cards.forEach(function (card) {
-      var audienceOk = current === 'all' || card.dataset.for.split(' ').indexOf(current) !== -1;
-      var textOk = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
-      var visible = audienceOk && textOk;
-      card.classList.toggle('hidden', !visible);
-      if (visible) shown++;
-    });
-    // Hide card sections that have nothing left to show (FAQ and Submit have no cards and stay visible)
-    sections.forEach(function (s) {
-      var sCards = s.querySelectorAll('.card');
-      if (!sCards.length) return;
-      s.classList.toggle('hidden', !s.querySelector('.card:not(.hidden)'));
-    });
-    document.getElementById('no-results').classList.toggle('hidden', shown > 0);
-    buttons.forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.dataset.filter === current));
-    });
-  }
-
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () {
-      // Clicking an active "Start here" path again clears it
-      current = (current === b.dataset.filter && b.classList.contains('path')) ? 'all' : b.dataset.filter;
-      apply();
-      if (b.classList.contains('path')) document.querySelector('.toolbar').scrollIntoView();
-    });
-  });
-  search.addEventListener('input', apply);
-})();
-</script>
-<script>
-// Header dropdowns: click to open, close on outside click or Escape
-(function () {
-  var dds = Array.prototype.slice.call(document.querySelectorAll('.dd'));
-  function closeAll(except) {
+  // Dropdowns
+  var dds = $$('.dd');
+  function closeMenus(except) {
     dds.forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); } });
   }
   dds.forEach(function (d) {
     var b = d.querySelector('button');
     b.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = !d.classList.contains('open');
-      closeAll(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+      e.stopPropagation(); var open = !d.classList.contains('open');
+      closeMenus(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
     });
-    d.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { closeAll(); }); });
+    d.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { closeMenus(); }); });
   });
-  document.addEventListener('click', function () { closeAll(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  document.addEventListener('click', function () { closeMenus(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenus(); });
+
+  // Filters
+  var current = 'all', search = document.getElementById('search');
+  var cards = $$('.card'), cats = $$('details.cat');
+  function apply(openMatches) {
+    var q = search.value.trim().toLowerCase(), shown = 0;
+    cats.forEach(function (cat) {
+      var n = 0;
+      cat.querySelectorAll('.card').forEach(function (c) {
+        var ok = (current === 'all' || c.dataset.for.split(' ').indexOf(current) !== -1) && (!q || c.textContent.toLowerCase().indexOf(q) !== -1);
+        c.classList.toggle('hidden', !ok); if (ok) n++;
+      });
+      cat.querySelector('[data-count]').textContent = n;
+      cat.classList.toggle('hidden', n === 0);
+      if (openMatches) cat.open = n > 0;
+      shown += n;
+    });
+    document.getElementById('no-results').classList.toggle('hidden', shown > 0);
+    $$('.chip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === current)); });
+  }
+  $$('.chip').forEach(function (b) { b.addEventListener('click', function () { current = b.dataset.filter; apply(current !== 'all'); }); });
+  search.addEventListener('input', function () { apply(!!search.value.trim()); });
+
+  // Starting paths: show that path's picks; remember the choice
+  function choosePath(p, scroll) {
+    $$('.path').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.path === p)); });
+    $$('.start').forEach(function (s) { s.classList.toggle('hidden', s.id !== 'start-' + p); });
+    try { localStorage.setItem('startPath', p); } catch (e) {}
+    if (scroll) document.getElementById('start-' + p).scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  $$('.path').forEach(function (b) { b.addEventListener('click', function () { choosePath(b.dataset.path, true); }); });
+  $$('[data-showall]').forEach(function (b) {
+    b.addEventListener('click', function () { current = b.dataset.showall; apply(true); document.getElementById('browse').scrollIntoView({ behavior: 'smooth' }); });
+  });
+  try { var saved = localStorage.getItem('startPath'); if (saved) choosePath(saved, false); } catch (e) {}
+
+  // Menu links like #books open that section
+  function openFromHash() { var el = location.hash && document.getElementById(location.hash.slice(1)); if (el && el.tagName === 'DETAILS') el.open = true; }
+  window.addEventListener('hashchange', openFromHash); openFromHash();
 })();
+</script>
+
+<script type="module">
+// Thumbs up / down. Counts live in Firestore (ratings/{id}); each browser remembers its own vote.
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCqUX6QcVt14Tn1nYd8VjOx6p5LWojYCaI",
+  authDomain: "slagroupresources.firebaseapp.com",
+  projectId: "slagroupresources",
+  storageBucket: "slagroupresources.firebasestorage.app",
+  messagingSenderId: "211673871277",
+  appId: "1:211673871277:web:d7bd74fde52082db68e724"
+};
+const rows = [...document.querySelectorAll('[data-rate]')];
+let votes = {};
+try { votes = JSON.parse(localStorage.getItem('votes') || '{}'); } catch {}
+const counts = {};
+function paint(id) {
+  const row = rows.find(r => r.dataset.rate === id); if (!row) return;
+  const c = counts[id] || { up: 0, down: 0 };
+  row.querySelectorAll('.vote').forEach(b => {
+    b.querySelector('.n').textContent = c[b.dataset.v] || 0;
+    b.setAttribute('aria-pressed', String(votes[id] === b.dataset.v));
+  });
+}
+try {
+  const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+  const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+  const db = fs.getFirestore(initializeApp(FIREBASE_CONFIG));
+  const snap = await fs.getDocs(fs.collection(db, 'ratings'));
+  snap.forEach(d => { counts[d.id] = { up: d.data().up || 0, down: d.data().down || 0 }; });
+  rows.forEach(r => { r.classList.remove('hidden'); paint(r.dataset.rate); });
+  rows.forEach(r => r.querySelectorAll('.vote').forEach(b => b.addEventListener('click', async () => {
+    const id = r.dataset.rate, v = b.dataset.v, prev = votes[id];
+    const delta = { up: 0, down: 0 };
+    if (prev === v) { delta[v] = -1; delete votes[id]; }           // tap again to undo
+    else { delta[v] = 1; if (prev) delta[prev] = -1; votes[id] = v; } // new vote or switch
+    const c = counts[id] = counts[id] || { up: 0, down: 0 };
+    c.up = Math.max(0, c.up + delta.up); c.down = Math.max(0, c.down + delta.down);
+    paint(id);
+    try { localStorage.setItem('votes', JSON.stringify(votes)); } catch {}
+    try { await fs.setDoc(fs.doc(db, 'ratings', id), { up: fs.increment(delta.up), down: fs.increment(delta.down) }, { merge: true }); }
+    catch (err) { console.error(err); }
+  })));
+} catch (err) { console.warn('Ratings unavailable', err); }
 </script>
 </body>
 </html>

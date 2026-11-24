@@ -1,0 +1,7 @@
+# GitHub Pages builds this site with Jekyll. Content lives in _data/*.json.
+title: SLA Group Resources
+exclude:
+  - README.md
+  - firestore.rules
+  - Gemfile
+  - Gemfile.lock

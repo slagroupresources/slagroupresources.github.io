@@ -2,10 +2,32 @@
 
 A plain static site: one `index.html` plus a few small files. No build step. To edit, open `index.html`, copy an existing `<article class="card">` block, and change the text.
 
+## Editing content (no code needed)
+Everything on the homepage comes from three files in the `_data` folder. Open one on GitHub, click the pencil icon, edit, and click **Commit changes**. The site rebuilds itself in about a minute.
+
+| File | What it controls |
+|---|---|
+| `_data/tip.json` | Tip of the week: `title` and `text` |
+| `_data/resources.json` | Every resource, grouped into sections, plus the "Start here" picks for each path |
+| `_data/handouts.json` | The group handouts (file, picture, description) |
+
+**Adding a resource:** copy an existing item inside the right section's `items` list, paste it below, and change the values.
+- `id`: unique, lowercase, dashes instead of spaces (also used for its thumbs-up count, so don't change it later)
+- `title`, `text`, and optional `url` and `by`
+- `for`: any of `"recovery"` (working on my own recovery), `"together"` (walking with someone), `"healing"` (hurt and healing)
+
+**Changing "Start here":** under `start_here`, list up to four item `id`s for each path.
+
+**Careful with commas and quotes.** Every item except the last in a list ends with a comma. If a commit breaks the file, GitHub keeps showing the last good version of the site, and the commit shows a red ✗ under the repository's **Actions** tab. Undo the edit to fix it.
+
+## Ratings (thumbs up / down)
+Counts are stored in Firestore under `ratings/<resource id>`. Each browser can vote once per resource and can change or undo its vote. The thumbs only appear once the rules in `firestore.rules` are published in Firebase.
+
 ## Files
 | File | Purpose |
 |---|---|
-| `index.html` | The whole site |
+| `index.html` | Homepage template (fills itself in from `_data`) |
+| `_config.yml` | Site build settings |
 | `robots.txt` | Lets search engines and AI crawlers in, and points them to the sitemap |
 | `sitemap.xml` | Tells search engines the page exists. Update `lastmod` when you make big changes |
 | `llms.txt` | Plain-text summary that AI assistants can read quickly |

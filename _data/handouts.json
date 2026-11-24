@@ -1,0 +1,61 @@
+{
+  "_how_to_edit": "Put the file in the files folder and its picture in files or files/thumbs, then add an entry here.",
+  "handouts": [
+    {
+      "id": "healthy-sexual-decision-framework",
+      "title": "Healthy Sexual Decision Framework",
+      "type": "Image · PNG",
+      "file": "files/healthy-sexual-decision-framework.png",
+      "image": "files/healthy-sexual-decision-framework.png",
+      "alt": "Healthy Sexual Decision Framework: red, yellow, and green circles for behaviors that undermine recovery, need caution, or support recovery",
+      "text": "A red, yellow, and green guide for deciding what fits your recovery.",
+      "for": [
+        "recovery"
+      ],
+      "viewable": true
+    },
+    {
+      "id": "feelings-wheel",
+      "title": "Feelings Wheel",
+      "type": "Image · PNG",
+      "file": "files/feelings-wheel.png",
+      "image": "files/feelings-wheel.png",
+      "alt": "Feelings wheel showing core emotions and more specific feelings radiating outward",
+      "text": "Helps you put a name to what you're feeling.",
+      "for": [
+        "recovery",
+        "healing",
+        "together"
+      ],
+      "viewable": true
+    },
+    {
+      "id": "coping-skills-log",
+      "title": "Coping Skills Log",
+      "type": "Worksheet · Word",
+      "file": "files/coping-skills-log.docx",
+      "image": "files/thumbs/coping-skills-log.jpg",
+      "alt": "Coping Skills Log worksheet: a table for trigger, thoughts, emotion intensity, coping skill used, and results",
+      "text": "Write down a trigger, what you were thinking, and how strong your feelings were before and after using a coping skill. Has an example filled in.",
+      "for": [
+        "recovery"
+      ],
+      "viewable": false,
+      "online": "tracker.html#coping"
+    },
+    {
+      "id": "90-day-detox-summary",
+      "title": "90-Day Detox Summary",
+      "type": "Guide · PDF",
+      "file": "files/90-day-detox-summary.pdf",
+      "image": "files/thumbs/90-day-detox-summary.jpg",
+      "alt": "90-Day Detox Summary: three color-coded stages for days 1–30, 31–60, and 61–90",
+      "text": "What to expect during each month of a 90-day detox.",
+      "for": [
+        "recovery",
+        "together"
+      ],
+      "viewable": true
+    }
+  ]
+}

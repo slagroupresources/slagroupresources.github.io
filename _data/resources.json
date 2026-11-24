@@ -1,0 +1,557 @@
+{
+  "_how_to_edit": "Each item needs a unique id (lowercase, dashes). 'for' can include recovery, together, healing. 'url' and 'by' are optional. Keep the commas and quotes exactly as they are.",
+  "start_here": {
+    "recovery": [
+      "group-session",
+      "when-an-urge-hits",
+      "out-of-the-shadows",
+      "saa"
+    ],
+    "together": [
+      "bring-the-session-home",
+      "rebuilding-trust",
+      "pbse",
+      "help-her-heal"
+    ],
+    "healing": [
+      "sex-lies-and-the-other-woman",
+      "pbse",
+      "joy-recovery",
+      "the-anatomy-of-trust"
+    ]
+  },
+  "sections": [
+    {
+      "id": "support",
+      "title": "Find support",
+      "intro": "Recovery is easier with other people. Start with our group, and add a 12-step meeting if you want more support.",
+      "items": [
+        {
+          "id": "group-session",
+          "title": "Join our group session",
+          "url": "https://www.betterhelp.com/groups-faq/",
+          "text": "Everything on this site came out of our group. It helps to hear from people who are further along and to say things out loud. We meet through BetterHelp, so you need a BetterHelp membership to attend.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "saa",
+          "title": "Sex Addicts Anonymous (SAA)",
+          "url": "https://saa-recovery.org/",
+          "text": "Free 12-step group. Meetings in person, by phone, and online.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "slaa",
+          "title": "Sex and Love Addicts Anonymous (SLAA)",
+          "url": "https://slaafws.org/",
+          "text": "Free 12-step group that also covers love and relationship addiction.",
+          "for": [
+            "recovery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "practices",
+      "title": "Tools from group",
+      "intro": "Things that come up a lot in our sessions.",
+      "items": [
+        {
+          "id": "bring-the-session-home",
+          "title": "Bring the session home",
+          "text": "For partners: ask your partner to go to group, take notes, and share them with you after.",
+          "points": [
+            {
+              "text": "You get to see what they're learning."
+            },
+            {
+              "text": "It's an easy way for them to practice being open with you."
+            },
+            {
+              "text": "It gives you both something to talk about besides the hurt."
+            }
+          ],
+          "for": [
+            "healing",
+            "together"
+          ]
+        },
+        {
+          "id": "rebuilding-trust",
+          "title": "Rebuilding trust",
+          "points": [
+            {
+              "lead": "Be present.",
+              "text": "When you're with your partner, don't be preoccupied. Limit sitting on the couch on your phones. Pay attention, because they've probably already told you what they need to trust you."
+            },
+            {
+              "lead": "Catch yourself.",
+              "text": "Stop the little lies, and be open even when it might not go well."
+            },
+            {
+              "lead": "There's no timeline.",
+              "text": "Trust comes back on your partner's schedule, not yours."
+            }
+          ],
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "when-an-urge-hits",
+          "title": "When an urge hits",
+          "points": [
+            {
+              "lead": "Make a safety plan.",
+              "text": "If certain places or people trigger you, plan ahead so you stay safe."
+            },
+            {
+              "lead": "Reach out.",
+              "text": "Call your partner, a friend, or family. You don't have to share details. Talk about the trigger or anything else to get your mind off it."
+            },
+            {
+              "lead": "Check HALT.",
+              "text": "Ask yourself if you're hungry, angry, lonely, or tired, and take care of that first."
+            },
+            {
+              "lead": "Wait it out.",
+              "text": "Urges pass. Give it 15 minutes and go for a walk."
+            }
+          ],
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "natural-ways-to-help-your-mood",
+          "title": "Natural ways to help your mood",
+          "text": "Sunlight, exercise, healthy food, yoga, sleep, probiotics, and omega-3s.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        },
+        {
+          "id": "medication-talk-to-your-doctor",
+          "title": "Medication: talk to your doctor",
+          "text": "Medication helps some people with compulsive behavior. Talk to your doctor about whether it's right for you.",
+          "for": [
+            "recovery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "books",
+      "title": "Books",
+      "intro": "Links go to Bookshop.org.",
+      "items": [
+        {
+          "id": "out-of-the-shadows",
+          "title": "Out of the Shadows",
+          "url": "https://bookshop.org/search?keywords=Out+of+the+Shadows+Patrick+Carnes",
+          "by": "Patrick Carnes",
+          "text": "Usually the first book people get recommended. A lot of how sex addiction is treated today comes from this book.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        },
+        {
+          "id": "facing-the-shadow",
+          "title": "Facing the Shadow",
+          "url": "https://bookshop.org/search?keywords=Facing+the+Shadow+Patrick+Carnes",
+          "by": "Patrick Carnes",
+          "text": "The workbook that goes with Out of the Shadows. Good for your first steps in recovery.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "a-gentle-path-through-the-twelve-steps",
+          "title": "A Gentle Path Through the Twelve Steps",
+          "url": "https://bookshop.org/search?keywords=A+Gentle+Path+Through+the+Twelve+Steps",
+          "by": "Patrick Carnes",
+          "text": "A workbook for the 12 steps. Less rigid and more reflective.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "saa-green-book",
+          "title": "Sex Addicts Anonymous (\"The Green Book\")",
+          "url": "https://saa-recovery.org/",
+          "by": "SAA Fellowship",
+          "text": "SAA's main book. A must if you're working the SAA program.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "don-t-call-it-love",
+          "title": "Don't Call It Love",
+          "url": "https://bookshop.org/search?keywords=Don%27t+Call+It+Love+Carnes",
+          "by": "Patrick Carnes",
+          "text": "Carnes's research on people with sex addiction. Helpful for seeing yourself in the patterns.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "contrary-to-love",
+          "title": "Contrary to Love",
+          "url": "https://bookshop.org/search?keywords=Contrary+to+Love+Carnes",
+          "by": "Patrick Carnes",
+          "text": "About helping someone with sex addiction. Partners and therapists read this one a lot.",
+          "for": [
+            "healing",
+            "recovery"
+          ]
+        },
+        {
+          "id": "in-the-shadows-of-the-net",
+          "title": "In the Shadows of the Net",
+          "url": "https://bookshop.org/search?keywords=In+the+Shadows+of+the+Net",
+          "by": "Patrick Carnes, David Delmonico & Elizabeth Griffin",
+          "text": "About compulsive online sexual behavior. Good if most of your acting out happens on screens.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "out-of-the-doghouse",
+          "title": "Out of the Doghouse",
+          "url": "https://bookshop.org/search?keywords=Out+of+the+Doghouse+Robert+Weiss",
+          "by": "Robert Weiss",
+          "text": "A step-by-step guide for fixing the relationship after you've been caught.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "help-her-heal",
+          "title": "Help Her Heal",
+          "url": "https://bookshop.org/search?keywords=Help+Her+Heal",
+          "by": "Carol Juergensen Sheets & Vicki Tidwell Palmer",
+          "text": "An empathy workbook to help your partner heal. You can do it alone or together.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "sex-lies-and-the-other-woman",
+          "title": "Sex, Lies, and the Other Woman",
+          "url": "https://bookshop.org/search?keywords=Sex+Lies+and+the+Other+Woman",
+          "text": "For the betrayed partner. Helps with the \"why did this happen?\" question.",
+          "for": [
+            "healing"
+          ]
+        },
+        {
+          "id": "the-porn-trap",
+          "title": "The Porn Trap",
+          "url": "https://bookshop.org/search?keywords=The+Porn+Trap+Maltz",
+          "by": "Wendy Maltz & Larry Maltz",
+          "text": "A guide to spotting and recovering from porn problems. Good for individuals and couples.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "mind-over-explicit-matter",
+          "title": "Mind Over Explicit Matter",
+          "url": "https://bookshop.org/search?keywords=Mind+Over+Explicit+Matter",
+          "text": "How porn changes the brain and how to undo it.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "every-man-s-battle",
+          "title": "Every Man's Battle",
+          "url": "https://bookshop.org/search?keywords=Every+Man%27s+Battle",
+          "by": "Stephen Arterburn & Fred Stoeker",
+          "text": "A Christian book on sexual purity and self-control. Very common in faith-based recovery.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "dopamine-nation",
+          "title": "Dopamine Nation",
+          "url": "https://bookshop.org/search?keywords=Dopamine+Nation+Anna+Lembke",
+          "by": "Dr. Anna Lembke",
+          "text": "A Stanford psychiatrist on how modern life overloads the brain and what to do about it. Goes well with The Molecule of More.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        },
+        {
+          "id": "the-molecule-of-more",
+          "title": "The Molecule of More",
+          "url": "https://bookshop.org/search?keywords=The+Molecule+of+More",
+          "by": "Daniel Z. Lieberman & Michael E. Long",
+          "text": "All about dopamine and why your brain craves what it craves.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "the-power-of-habit",
+          "title": "The Power of Habit",
+          "url": "https://bookshop.org/search?keywords=The+Power+of+Habit+Duhigg",
+          "by": "Charles Duhigg",
+          "text": "How habits form and how to change them. Useful for replacing acting out with something better.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "no-bad-parts",
+          "title": "No Bad Parts",
+          "url": "https://bookshop.org/search?keywords=No+Bad+Parts+Richard+Schwartz",
+          "by": "Richard Schwartz",
+          "text": "An intro to Internal Family Systems (IFS) therapy. Helps with deep beliefs you have about yourself.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        },
+        {
+          "id": "attachment-theory-workbook-for-couples",
+          "title": "Attachment Theory Workbook for Couples",
+          "url": "https://bookshop.org/search?keywords=Attachment+Theory+Workbook+for+Couples",
+          "by": "Elizabeth Gillette",
+          "text": "Exercises to figure out your attachment styles and why you connect the way you do.",
+          "for": [
+            "together"
+          ]
+        },
+        {
+          "id": "the-presence-process",
+          "title": "The Presence Process",
+          "url": "https://bookshop.org/search?keywords=The+Presence+Process+Michael+Brown",
+          "by": "Michael Brown",
+          "text": "A 10-week practice for staying in the moment. Helps with the \"be where your feet are\" part of recovery.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        },
+        {
+          "id": "good-vibes-good-life",
+          "title": "Good Vibes, Good Life",
+          "url": "https://bookshop.org/search?keywords=Good+Vibes+Good+Life+Vex+King",
+          "by": "Vex King",
+          "text": "About self-love as the starting point for change. More mindset than clinical.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        },
+        {
+          "id": "subtle-art",
+          "title": "The Subtle Art of Not Giving a F*ck",
+          "url": "https://bookshop.org/search?keywords=The+Subtle+Art+of+Not+Giving+a+F*ck",
+          "by": "Mark Manson",
+          "text": "About choosing what's actually worth your energy. Blunt but helpful.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasts",
+      "title": "Podcasts",
+      "intro": "",
+      "items": [
+        {
+          "id": "pbse",
+          "title": "Porn, Betrayal, Sex and the Experts (PBSE)",
+          "url": "https://podcasts.apple.com/us/podcast/porn-betrayal-sex-and-the-experts-pbse/id1494869058",
+          "by": "Steve Moore & Mark Kastleman",
+          "text": "Two therapists who are in recovery themselves answer questions from addicts, partners, and couples. Really good on disclosure and rebuilding trust.",
+          "for": [
+            "recovery",
+            "healing",
+            "together"
+          ]
+        },
+        {
+          "id": "dare-to-connect",
+          "title": "Dare to Connect",
+          "url": "https://daretoconnectnow.com/",
+          "by": "From the PBSE hosts",
+          "text": "The PBSE hosts' live online program, with sessions for addicts, spouses, and couples.",
+          "for": [
+            "recovery",
+            "healing",
+            "together"
+          ]
+        },
+        {
+          "id": "unhooked",
+          "title": "Unhooked",
+          "url": "https://podcasts.apple.com/us/search?term=Unhooked%20Jeremy%20Lipkowitz",
+          "by": "Jeremy Lipkowitz",
+          "text": "What porn does to your brain and body, plus a mindfulness approach to quitting.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "unravelling-the-big-mystery",
+          "title": "Unravelling the Big Mystery",
+          "url": "https://podcasts.apple.com/us/search?term=Unravelling%20the%20Big%20Mystery",
+          "text": "The psychology behind porn addiction. A good place to start if you want to understand the why.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "solved-how-to-let-go-of-your-shame",
+          "title": "Solved: How to Let Go of Your Shame",
+          "url": "https://podcasts.apple.com/us/search?term=Solved%20How%20to%20Let%20Go%20of%20Your%20Shame",
+          "text": "A deep dive into shame and how it feeds addiction. It's a longer listen.",
+          "for": [
+            "recovery",
+            "healing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "videos",
+      "title": "YouTube and videos",
+      "intro": "",
+      "items": [
+        {
+          "id": "dr-trish-leigh",
+          "title": "Dr. Trish Leigh",
+          "url": "https://www.youtube.com/results?search_query=Dr+Trish+Leigh",
+          "text": "A brain coach who makes short videos about porn recovery and what's going on in your brain.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "joy-recovery",
+          "title": "Joy Recovery",
+          "url": "https://www.youtube.com/@JoyRecovery",
+          "by": "Roy & Jacqueline",
+          "text": "Roy and Jacqueline are a husband and wife who are certified recovery coaches. They've been through infidelity and betrayal trauma themselves and work with individuals and couples.",
+          "for": [
+            "recovery",
+            "healing",
+            "together"
+          ]
+        },
+        {
+          "id": "the-anatomy-of-trust",
+          "title": "The Anatomy of Trust",
+          "url": "https://brenebrown.com/videos/anatomy-trust-video/",
+          "by": "Brené Brown",
+          "text": "Brené Brown breaks trust into seven parts called BRAVING: Boundaries, Reliability, Accountability, Vault, Integrity, Nonjudgment, and Generosity. Trust gets built in small, everyday moments.",
+          "for": [
+            "recovery",
+            "healing",
+            "together"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apps",
+      "title": "Apps and accountability tools",
+      "intro": "Apps can help, but they don't replace doing the work. Check each site for current prices.",
+      "items": [
+        {
+          "id": "covenant-eyes",
+          "title": "Covenant Eyes",
+          "url": "https://www.covenanteyes.com/",
+          "text": "The most popular accountability app. Your partner gets an easy-to-read report of anything flagged. Faith-based.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "ever-accountable",
+          "title": "Ever Accountable",
+          "url": "https://everaccountable.com/",
+          "text": "Sends weekly reports to up to three accountability partners. Usually cheaper than Covenant Eyes.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "canopy",
+          "title": "Canopy",
+          "url": "https://canopy.us/",
+          "text": "Blocks explicit content before it loads. Your partner can stop it from being uninstalled.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "truple",
+          "title": "Truple",
+          "url": "https://truple.io/",
+          "text": "Takes random screenshots and sends them to an accountability partner. It monitors instead of blocking. Works best on Android.",
+          "for": [
+            "recovery",
+            "together"
+          ]
+        },
+        {
+          "id": "appblock",
+          "title": "AppBlock",
+          "url": "https://appblock.app/",
+          "text": "Lets you block risky apps and websites.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "brick",
+          "title": "Brick",
+          "url": "https://getbrick.com/",
+          "text": "A physical device that locks the apps you pick until you tap your phone on it again. One-time cost, no subscription. Works best if someone else holds onto it.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "unchaind",
+          "title": "Unchaind",
+          "url": "https://unchaind.app/",
+          "text": "A Christian app with streak tracking, daily check-ins, and scripture. Needs a subscription.",
+          "for": [
+            "recovery"
+          ]
+        },
+        {
+          "id": "quitter",
+          "title": "Quitter",
+          "text": "Tracks your streak and shows how your brain is recovering. A few apps use this name, so check the reviews before you download.",
+          "for": [
+            "recovery"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,23 @@ service cloud.firestore {
         && request.resource.data.iv.size() < 32
         && request.resource.data.updated == request.time;
     }
+    // Thumbs up / down counts, readable by everyone. Each write can move a count by at most 1.
+    match /ratings/{id} {
+      allow get, list: if true;
+      allow create: if id.matches('^[a-z0-9-]{1,80}$')
+        && request.resource.data.keys().hasOnly(['up', 'down'])
+        && request.resource.data.get('up', 0) is int
+        && request.resource.data.get('down', 0) is int
+        && request.resource.data.get('up', 0) >= 0
+        && request.resource.data.get('down', 0) >= 0
+        && request.resource.data.get('up', 0) + request.resource.data.get('down', 0) == 1;
+      allow update: if request.resource.data.keys().hasOnly(['up', 'down'])
+        && request.resource.data.up is int && request.resource.data.down is int
+        && request.resource.data.up >= 0 && request.resource.data.down >= 0
+        && math.abs(request.resource.data.up - resource.data.get('up', 0)) <= 1
+        && math.abs(request.resource.data.down - resource.data.get('down', 0)) <= 1;
+      allow delete: if false;
+    }
     // Everything else is closed
     match /{document=**} {
       allow read, write: if false;
