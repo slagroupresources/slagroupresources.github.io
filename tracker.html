@@ -129,6 +129,7 @@
         <div class="dd-panel" id="dd-trk">
           <a href="tracker.html#feelings">Feelings check-in</a>
           <a href="tracker.html#ninety">90-day tracker</a>
+          <a href="tracker.html#coping">Coping skills log</a>
         </div>
       </div>
     </nav>
@@ -138,7 +139,7 @@
 <div class="hero">
   <div class="wrap">
     <h1>My recovery tracker</h1>
-    <p>Log how you're feeling and track your 90 days. No email or account needed, just a username and a passphrase.</p>
+    <p>Log how you're feeling, track your 90 days, and fill in your coping skills log. No email or account needed, just a username and a passphrase.</p>
   </div>
 </div>
 
@@ -182,6 +183,7 @@
       <div class="tabs" role="tablist" style="margin:0">
         <button class="tab" role="tab" id="tabWheel" aria-selected="true" aria-controls="paneWheel">Feelings check-in</button>
         <button class="tab" role="tab" id="tab90" aria-selected="false" aria-controls="pane90">90-day tracker</button>
+        <button class="tab" role="tab" id="tabCope" aria-selected="false" aria-controls="paneCope">Coping skills log</button>
       </div>
       <div class="row">
         <span id="saveStatus" class="status" role="status"></span>
@@ -269,6 +271,60 @@
       </div>
     </div>
 
+    <!-- Coping skills log (from Brent's worksheet) -->
+    <div id="paneCope" class="panel hidden" role="tabpanel" aria-labelledby="tabCope">
+      <div class="grid2">
+        <form id="copeForm">
+          <h2 style="margin-top:0">Coping skills log</h2>
+          <p class="status" style="margin:0">Write down what happened, how you felt before and after, and what you did to cope. Over time you'll see which skills help you most.</p>
+          <details style="margin-top:12px">
+            <summary style="cursor:pointer;font-weight:600">See an example</summary>
+            <div class="private" style="margin-top:8px;font-size:.92rem">
+              <b>Situation:</b> Argument with partner<br>
+              <b>Thoughts:</b> "I'm a failure in this relationship." "I'm going to end up alone."<br>
+              <b>Before:</b> Shame, sadness (9/10)<br>
+              <b>Coping skill:</b> Replacement / challenging thoughts: "Just because we argued doesn't mean my partner doesn't care about me."<br>
+              <b>Results:</b> Improved mood. Realized I don't have to believe every negative thought.<br>
+              <b>After:</b> Shame, sadness (5/10)
+            </div>
+          </details>
+          <label for="cTrigger">Situation or trigger</label>
+          <input id="cTrigger" type="text" maxlength="160" required>
+          <label for="cThoughts">Thoughts</label>
+          <textarea id="cThoughts" maxlength="400"></textarea>
+          <label for="cBeforeEm">Emotions before</label>
+          <input id="cBeforeEm" type="text" maxlength="120" placeholder="e.g. shame, sadness">
+          <label for="cBefore">How strong before? <span id="cBeforeVal">5</span>/10</label>
+          <input id="cBefore" type="range" min="1" max="10" value="5">
+          <label for="cSkill">Coping skill used</label>
+          <input id="cSkill" type="text" maxlength="120" list="skillList" required>
+          <datalist id="skillList">
+            <option value="Replacement / challenging thoughts"></option>
+            <option value="Called someone"></option>
+            <option value="Went for a walk"></option>
+            <option value="Deep breathing"></option>
+            <option value="Prayer or meditation"></option>
+            <option value="Left the situation"></option>
+            <option value="Journaling"></option>
+            <option value="Exercise"></option>
+          </datalist>
+          <label for="cResults">Results</label>
+          <textarea id="cResults" maxlength="400"></textarea>
+          <label for="cAfterEm">Emotions after</label>
+          <input id="cAfterEm" type="text" maxlength="120">
+          <label for="cAfter">How strong after? <span id="cAfterVal">5</span>/10</label>
+          <input id="cAfter" type="range" min="1" max="10" value="5">
+          <div class="row" style="margin-top:14px"><button class="button" type="submit">Save entry</button></div>
+        </form>
+        <div>
+          <h3 style="margin-top:0">What's helped most</h3>
+          <div id="copeBest" class="status"></div>
+          <h3 style="margin-bottom:0">Your entries</h3>
+          <ul class="log" id="copeLog"></ul>
+        </div>
+      </div>
+    </div>
+
     <div class="row" style="justify-content:flex-end">
       <button class="button warn" type="button" id="deleteBtn">Delete my tracker</button>
     </div>
@@ -349,7 +405,7 @@ async function unlock(key, rec) {
 
 // ---------- Session ----------
 let vault = null, data = null, saveTimer = null;
-const blank = () => ({ v: 1, created: new Date().toISOString(), feelings: [], tracker: { start: null, days: {}, past: [] } });
+const blank = () => ({ v: 1, created: new Date().toISOString(), feelings: [], tracker: { start: null, days: {}, past: [] }, coping: [] });
 
 $('signinForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -378,9 +434,10 @@ function msg(t, err) { $('signinMsg').textContent = t; $('signinMsg').classList.
 function enterApp() {
   $('pass').value = '';
   $('signin').classList.add('hidden'); $('app').classList.remove('hidden');
-  renderLog(); render90(); showTabFromHash();
+  data.coping = data.coping || [];
+  renderLog(); render90(); renderCope(); showTabFromHash();
 }
-function showTabFromHash() { if (location.hash === '#ninety') $('tab90').click(); else if (location.hash === '#feelings') $('tabWheel').click(); }
+function showTabFromHash() { const t = { '#feelings': 'tabWheel', '#ninety': 'tab90', '#coping': 'tabCope' }[location.hash]; if (t) $(t).click(); }
 window.addEventListener('hashchange', () => { if (data) showTabFromHash(); });
 function save() { $('saveStatus').textContent = 'Saving…'; clearTimeout(saveTimer); saveTimer = setTimeout(saveNow, 400); }
 async function saveNow() {
@@ -389,9 +446,10 @@ async function saveNow() {
 }
 
 // Tabs
-for (const [tab, pane] of [['tabWheel', 'paneWheel'], ['tab90', 'pane90']]) {
+const TABS = [['tabWheel', 'paneWheel'], ['tab90', 'pane90'], ['tabCope', 'paneCope']];
+for (const [tab, pane] of TABS) {
   $(tab).addEventListener('click', () => {
-    for (const [t, p] of [['tabWheel', 'paneWheel'], ['tab90', 'pane90']]) {
+    for (const [t, p] of TABS) {
       $(t).setAttribute('aria-selected', String(t === tab)); $(p).classList.toggle('hidden', p !== pane);
     }
   });
@@ -575,6 +633,42 @@ function render90() {
   $('pastBox').classList.toggle('hidden', !t.past.length);
   $('pastList').innerHTML = t.past.map(p => `<li>${nice(p.start)} to ${nice(p.end)} · ${diffDays(p.start, p.end) + 1} day${diffDays(p.start, p.end) ? 's' : ''} · ${p.kept} check-ins kept</li>`).join('');
 }
+// ---------- Coping skills log ----------
+for (const [r, v] of [['cBefore', 'cBeforeVal'], ['cAfter', 'cAfterVal']]) $(r).addEventListener('input', () => { $(v).textContent = $(r).value; });
+$('copeForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const val = (id) => $(id).value.trim();
+  data.coping.unshift({ t: new Date().toISOString(), trigger: val('cTrigger'), thoughts: val('cThoughts'),
+    beforeEm: val('cBeforeEm'), before: Number($('cBefore').value), skill: val('cSkill'),
+    results: val('cResults'), afterEm: val('cAfterEm'), after: Number($('cAfter').value) });
+  $('copeForm').reset(); $('cBeforeVal').textContent = '5'; $('cAfterVal').textContent = '5';
+  renderCope(); save();
+});
+function renderCope() {
+  const list = data.coping;
+  $('copeLog').innerHTML = list.length ? list.slice(0, 20).map(c => {
+    const drop = c.before - c.after;
+    const change = drop > 0 ? `down ${drop}` : drop < 0 ? `up ${-drop}` : 'no change';
+    return `<li><div class="when">${new Date(c.t).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</div>
+      <strong>${esc(c.trigger)}</strong>
+      <div>${esc(c.skill)} · ${c.before} → ${c.after} (${change})</div>
+      <details><summary class="status" style="cursor:pointer">Details</summary>
+        ${c.thoughts ? `<div><b>Thoughts:</b> ${esc(c.thoughts)}</div>` : ''}
+        ${c.beforeEm ? `<div><b>Before:</b> ${esc(c.beforeEm)} (${c.before}/10)</div>` : ''}
+        ${c.results ? `<div><b>Results:</b> ${esc(c.results)}</div>` : ''}
+        ${c.afterEm ? `<div><b>After:</b> ${esc(c.afterEm)} (${c.after}/10)</div>` : ''}
+      </details></li>`;
+  }).join('') : '<li class="status">No entries yet. The next time something triggers you, fill one in.</li>';
+  // Average drop in intensity per coping skill
+  const by = {};
+  list.forEach(c => { const k = c.skill.toLowerCase(); (by[k] = by[k] || { name: c.skill, drops: [] }).drops.push(c.before - c.after); });
+  const ranked = Object.values(by).map(x => ({ name: x.name, n: x.drops.length, avg: x.drops.reduce((a, b) => a + b, 0) / x.drops.length }))
+    .sort((a, b) => b.avg - a.avg).slice(0, 3);
+  $('copeBest').innerHTML = ranked.length
+    ? ranked.map(r => `<div><strong>${esc(r.name)}</strong>: feelings dropped ${r.avg.toFixed(1)} points on average (${r.n} time${r.n === 1 ? '' : 's'})</div>`).join('')
+    : 'Once you log a few entries, this shows which coping skills bring your feelings down the most.';
+}
+
 // Tap a past day: none → kept → slipped → none
 $('days').addEventListener('click', (e) => {
   const b = e.target.closest('.day'); if (!b || b.disabled) return;

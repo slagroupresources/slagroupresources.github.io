@@ -9,7 +9,7 @@ The group meets through BetterHelp's group sessions; attendees must be BetterHel
 - [Sex addiction recovery resources](https://www.slagroupresources.com/): the full list, with each item tagged for people in recovery, partners, or couples.
 
 ## Trackers
-- [Feelings check-in and 90-day tracker](https://www.slagroupresources.com/tracker.html): a private feelings wheel log and a 90-day check-in tracker with 30, 60, and 90 day milestones. Entries are encrypted in the browser with the user's own passphrase; no email or account.
+- [Feelings check-in and 90-day tracker](https://www.slagroupresources.com/tracker.html): a private feelings wheel log, a 90-day check-in tracker with 30, 60, and 90 day milestones, and an online version of the group's coping skills log. Entries are encrypted in the browser with the user's own passphrase; no email or account.
 
 ## Sections
 - [Find support](https://www.slagroupresources.com/#support): our recovery group sessions (BetterHelp membership required) and 12-step fellowships (SAA, SLAA).

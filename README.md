@@ -10,7 +10,7 @@ A plain static site: one `index.html` plus a few small files. No build step. To 
 | `sitemap.xml` | Tells search engines the page exists. Update `lastmod` when you make big changes |
 | `llms.txt` | Plain-text summary that AI assistants can read quickly |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser-tab and phone home-screen icons (the small "open seat" logo) |
-| `tracker.html` | Feelings check-in and 90-day tracker |
+| `tracker.html` | Feelings check-in, 90-day tracker, and coping skills log |
 | `firestore.rules` | Security rules for the tracker database (copy of what's published in Firebase) |
 | `files/thumbs/` | Preview pictures for the Word and PDF handouts |
 | `img/mark-light.svg` | Logo in the site header |
