@@ -32,7 +32,7 @@ Each tracker page has **Share with your therapist**. People pick which trackers,
 - Private links need the `shares` rules from `firestore.rules` to be published in Firebase.
 
 ## Ratings (thumbs up / down)
-Counts are stored in Firestore under `ratings/<resource id>`. Each browser can vote once per resource and can change or undo its vote. The thumbs only appear once the rules in `firestore.rules` are published in Firebase.
+All counts live in one Firestore document, `stats/ratings`, so a homepage visit costs one database read, and each browser keeps a copy for 6 hours, so repeat visits cost none. Each browser can vote once per resource and can change or undo its vote. The thumbs only appear once the rules in `firestore.rules` are published in Firebase.
 
 ## Files
 | File | Purpose |

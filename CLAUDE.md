@@ -33,11 +33,11 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 - **Sharing with a therapist:** `js/report.js` (`makeSnapshot`, `renderReport`) is used by the tracker pages and by `shared.html`, the read-only viewer.
 - **Firebase Firestore:** project `slagroupresources`. The web config in the pages is public by design, and security comes from `firestore.rules`. Ben pastes that file into Firebase → Firestore → Rules → Publish whenever it changes. Collections:
   - `vaults/{64-hex}`: `{ct, iv, updated}`. The key and ID come from PBKDF2-SHA256 (250k iterations, salt `'slagroupresources:'+username`, 512 bits): the first 32 bytes are the AES-GCM key, and the last 32 bytes, as hex, are the doc ID.
-  - `ratings/{resource-id}`: `{up, down}` counters. Each change is ±1 at most.
+  - `stats/ratings`: ONE document with every resource's thumbs counts, `{<resource-id>: {up, down}, last_vote: <resource-id>}`. The homepage reads it over Firestore's REST API (no Firebase library on the homepage) and caches it in `localStorage.ratingsCache` for 6 hours, so a visit costs at most one read. Votes are REST `commit` writes with `updateTransforms` increments; the rules check that only the `last_vote` resource changed, by at most 1, never below 0. The old per-resource `ratings/{id}` collection is retired.
   - `shares/{32-hex}`: `{ct, iv, created, expires}`, encrypted with a random key that lives only in the link fragment `shared.html#<id>.<base64url key>`. Expires in at most 31 days. There's no TTL (it needs billing). Expired copies are deleted when the owner removes the link or signs in, and when `shared.html` gets a permission-denied on an expired link. The privacy policy describes exactly this, so keep them in sync.
 - **Browser storage keys:**
   - `trackerSession`: session storage, plus local storage when "keep me signed in" is checked.
-  - `votes`, `startPath`, `trackerPage`, `trackerTab`, `installDismissed`.
+  - `votes`, `ratingsCache`, `startPath`, `trackerPage`, `trackerTab`, `installDismissed`.
   - Session-only state lives in variables.
 - **Other files:**
   - `llms.txt`, `robots.txt` (allows AI crawlers) and `sitemap.xml`: update the sitemap when you add pages.

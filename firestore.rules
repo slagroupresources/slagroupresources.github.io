@@ -15,22 +15,26 @@ service cloud.firestore {
         && request.resource.data.iv.size() < 32
         && request.resource.data.updated == request.time;
     }
-    // Thumbs up / down counts, readable by everyone. Each write can move a count by at most 1.
-    match /ratings/{id} {
-      allow get, list: if true;
-      allow create: if id.matches('^[a-z0-9-]{1,80}$')
-        && request.resource.data.keys().hasOnly(['up', 'down'])
-        && request.resource.data.get('up', 0) is int
-        && request.resource.data.get('down', 0) is int
-        && request.resource.data.get('up', 0) >= 0
-        && request.resource.data.get('down', 0) >= 0
-        && request.resource.data.get('up', 0) + request.resource.data.get('down', 0) == 1;
-      allow update: if request.resource.data.keys().hasOnly(['up', 'down'])
-        && request.resource.data.up is int && request.resource.data.down is int
-        && request.resource.data.up >= 0 && request.resource.data.down >= 0
-        && math.abs(request.resource.data.up - resource.data.get('up', 0)) <= 1
-        && math.abs(request.resource.data.down - resource.data.get('down', 0)) <= 1;
-      allow delete: if false;
+    // Thumbs up / down counts: ONE document holding every resource's counts, so a homepage visit
+    // costs a single read. Each vote names its resource in last_vote; only that resource's counts
+    // may change, each by at most 1, and never below 0.
+    match /stats/ratings {
+      allow get: if true;
+      allow create: if validVote(request.resource.data, {});
+      allow update: if validVote(request.resource.data, resource.data);
+    }
+    function validVote(after, before) {
+      let k = after.last_vote;
+      let changed = after.diff(before).affectedKeys();
+      let now = after[k];
+      let was = before.get(k, {'up': 0, 'down': 0});
+      return k is string && k.matches('^[a-z0-9-]{1,80}$')
+        && changed.hasOnly([k, 'last_vote']) && changed.hasAll([k])
+        && now.keys().hasOnly(['up', 'down'])
+        && now.get('up', 0) is int && now.get('down', 0) is int
+        && now.get('up', 0) >= 0 && now.get('down', 0) >= 0
+        && math.abs(now.get('up', 0) - was.get('up', 0)) <= 1
+        && math.abs(now.get('down', 0) - was.get('down', 0)) <= 1;
     }
     // Reports shared with a therapist. Encrypted in the browser; the key is only in the link.
     // A report can be read until it expires; anyone holding the link (or the owner) can remove it.

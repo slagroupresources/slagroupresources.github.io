@@ -411,19 +411,18 @@
 </script>
 
 <script type="module">
-// Thumbs up / down. Counts live in Firestore (ratings/{id}); each browser remembers its own vote.
-const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyCqUX6QcVt14Tn1nYd8VjOx6p5LWojYCaI",
-  authDomain: "slagroupresources.firebaseapp.com",
-  projectId: "slagroupresources",
-  storageBucket: "slagroupresources.firebasestorage.app",
-  messagingSenderId: "211673871277",
-  appId: "1:211673871277:web:d7bd74fde52082db68e724"
-};
+// Thumbs up / down. All counts live in ONE Firestore document (stats/ratings) so a visit costs one read,
+// and the counts are cached in this browser for 6 hours, so repeat visits cost none. Talks to Firestore's
+// REST API directly, so the homepage doesn't download the Firebase library. Each browser remembers its own vote.
+const API_KEY = 'AIzaSyCqUX6QcVt14Tn1nYd8VjOx6p5LWojYCaI';
+const DB = 'projects/slagroupresources/databases/(default)/documents';
+const DOC = DB + '/stats/ratings';
+const BASE = 'https://firestore.googleapis.com/v1/';
+const CACHE_HOURS = 6;
 const rows = [...document.querySelectorAll('[data-rate]')];
-let votes = {};
+let votes = {}, counts = {};
 try { votes = JSON.parse(localStorage.getItem('votes') || '{}'); } catch {}
-const counts = {};
+
 function paint(id) {
   const row = rows.find(r => r.dataset.rate === id); if (!row) return;
   const c = counts[id] || { up: 0, down: 0 };
@@ -432,24 +431,48 @@ function paint(id) {
     b.setAttribute('aria-pressed', String(votes[id] === b.dataset.v));
   });
 }
+function saveCache() { try { localStorage.setItem('ratingsCache', JSON.stringify({ at: Date.now(), counts })); } catch {} }
+async function loadCounts() {
+  try {
+    const c = JSON.parse(localStorage.getItem('ratingsCache') || 'null');
+    if (c && Date.now() - c.at < CACHE_HOURS * 3600e3) return c.counts;
+  } catch {}
+  const res = await fetch(BASE + DOC + '?key=' + API_KEY);
+  if (res.status === 404) return {};                          // nobody has voted yet
+  if (!res.ok) throw new Error('ratings ' + res.status);
+  const out = {}, f = (await res.json()).fields || {};
+  for (const id in f) {
+    if (id === 'last_vote') continue;
+    const m = (f[id].mapValue || {}).fields || {};
+    out[id] = { up: +((m.up || {}).integerValue || 0), down: +((m.down || {}).integerValue || 0) };
+  }
+  return out;
+}
+// Add +1/-1 to one resource's counts with a server-side increment (no read needed).
+// last_vote names the resource so the database rules can check only it changed.
+function sendVote(id, delta) {
+  const t = [];
+  for (const k of ['up', 'down']) if (delta[k]) t.push({ fieldPath: '`' + id + '`.' + k, increment: { integerValue: String(delta[k]) } });
+  return fetch(BASE + DB.replace('/documents', '/documents:commit') + '?key=' + API_KEY, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ writes: [{ update: { name: DOC, fields: { last_vote: { stringValue: id } } }, updateMask: { fieldPaths: ['last_vote'] }, updateTransforms: t }] })
+  }).then(r => { if (!r.ok) throw new Error('vote ' + r.status); });
+}
+
 try {
-  const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
-  const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
-  const db = fs.getFirestore(initializeApp(FIREBASE_CONFIG));
-  const snap = await fs.getDocs(fs.collection(db, 'ratings'));
-  snap.forEach(d => { counts[d.id] = { up: d.data().up || 0, down: d.data().down || 0 }; });
+  counts = await loadCounts();
+  saveCache();
   rows.forEach(r => { r.classList.remove('hidden'); paint(r.dataset.rate); });
-  rows.forEach(r => r.querySelectorAll('.vote').forEach(b => b.addEventListener('click', async () => {
+  rows.forEach(r => r.querySelectorAll('.vote').forEach(b => b.addEventListener('click', () => {
     const id = r.dataset.rate, v = b.dataset.v, prev = votes[id];
     const delta = { up: 0, down: 0 };
     if (prev === v) { delta[v] = -1; delete votes[id]; }           // tap again to undo
     else { delta[v] = 1; if (prev) delta[prev] = -1; votes[id] = v; } // new vote or switch
     const c = counts[id] = counts[id] || { up: 0, down: 0 };
     c.up = Math.max(0, c.up + delta.up); c.down = Math.max(0, c.down + delta.down);
-    paint(id);
+    paint(id); saveCache();
     try { localStorage.setItem('votes', JSON.stringify(votes)); } catch {}
-    try { await fs.setDoc(fs.doc(db, 'ratings', id), { up: fs.increment(delta.up), down: fs.increment(delta.down) }, { merge: true }); }
-    catch (err) { console.error(err); }
+    sendVote(id, delta).catch(err => console.error(err));
   })));
 } catch (err) { console.warn('Ratings unavailable', err); }
 </script>

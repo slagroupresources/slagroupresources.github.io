@@ -47,7 +47,7 @@ If you share a report with your therapist, it's locked with a new one-time key. 
 The site saves a few things in your own browser's storage. They stay on your device and aren't sent to us.
 
 - Your tracker session, so a refresh doesn't sign you out. If you check "Keep me signed in," it stays until you sign out. Otherwise it ends when you close the tab.
-- Which resources you rated, so you can change your vote.
+- Which resources you rated, so you can change your vote, and a copy of the rating totals, refreshed every few hours, so the page loads faster.
 - Your last choice on "Where are you starting?" and your last tracker page.
 - Whether you closed the "Add to home screen" message.
 
