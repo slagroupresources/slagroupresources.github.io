@@ -154,7 +154,10 @@
 <main class="wrap">
   <div id="installBar" class="install">
     <span>Use this often? Put it on your home screen like an app.</span>
-    <button class="button secondary" type="button" id="installBtn">Add to home screen</button>
+    <span class="row" style="gap:8px">
+      <button class="button secondary" type="button" id="installBtn">Add to home screen</button>
+      <button class="button secondary" type="button" id="installClose" aria-label="Don't show this again" style="padding:11px 14px">✕</button>
+    </span>
     <div id="installHelp" class="hidden" style="flex-basis:100%">
       <p style="margin:4px 0"><b>iPhone or iPad (Safari):</b> tap the Share button, then <b>Add to Home Screen</b>.</p>
       <p style="margin:4px 0"><b>Android (Chrome):</b> tap the ⋮ menu, then <b>Add to Home screen</b> or <b>Install app</b>.</p>
@@ -727,8 +730,15 @@ function renderCope() {
 
 // ---------- Add to home screen ----------
 let installPrompt = null;
+// Only offer it on phones and tablets that haven't added it yet (or dismissed it)
 const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
-if (standalone) $('installBar').classList.add('hidden');
+const mobile = matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+let dismissed = false; try { dismissed = localStorage.getItem('installDismissed') === '1'; } catch {}
+if (standalone || !mobile || dismissed) $('installBar').classList.add('hidden');
+window.addEventListener('appinstalled', () => $('installBar').classList.add('hidden'));
+$('installClose').addEventListener('click', () => {
+  $('installBar').classList.add('hidden'); try { localStorage.setItem('installDismissed', '1'); } catch {}
+});
 window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installPrompt = e; });
 $('installBtn').addEventListener('click', async () => {
   if (installPrompt) { installPrompt.prompt(); installPrompt = null; return; }

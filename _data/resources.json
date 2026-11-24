@@ -28,9 +28,9 @@
       "items": [
         {
           "id": "group-session",
-          "title": "Join our group session",
+          "title": "Join the group that inspired this site",
           "url": "https://www.betterhelp.com/groups-faq/",
-          "text": "Everything on this site came out of our group. It helps to hear from people who are further along and to say things out loud. We meet through BetterHelp, so you need a BetterHelp membership to attend.",
+          "text": "Most of the resources here come from members of our group. We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.",
           "for": [
             "recovery",
             "together"

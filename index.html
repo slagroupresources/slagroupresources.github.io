@@ -260,7 +260,7 @@
     </div>
 
     <div class="strip">
-      <span><strong>Join our group!</strong> We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.</span>
+      <span><strong>Join the group that inspired this site.</strong> Most of what's here comes from our group members. We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.</span>
       <a class="button" href="https://www.betterhelp.com/groups-faq/" target="_blank" rel="noopener">How to register</a>
     </div>
 
@@ -411,6 +411,7 @@
   function choosePath(p, scroll) {
     $$('.path').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.path === p)); });
     $$('.start').forEach(function (s) { s.classList.toggle('hidden', s.id !== 'start-' + p); });
+    current = p; apply(false);
     try { localStorage.setItem('startPath', p); } catch (e) {}
     if (scroll) document.getElementById('start-' + p).scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
