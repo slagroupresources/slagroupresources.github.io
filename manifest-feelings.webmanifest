@@ -1,0 +1,31 @@
+{
+  "id": "/feelings-check-in.html",
+  "name": "Feelings check-in",
+  "short_name": "Feelings",
+  "description": "A private feelings wheel and log for sex addiction recovery. Encrypted with your own passphrase; no email or account.",
+  "start_url": "/feelings-check-in.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafbfa",
+  "theme_color": "#1f3a2b",
+  "icons": [
+    {
+      "src": "/img/icon-feelings-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/icon-feelings-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/icon-feelings-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

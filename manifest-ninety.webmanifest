@@ -1,0 +1,31 @@
+{
+  "id": "/90-day-tracker.html",
+  "name": "90-day tracker",
+  "short_name": "90 Days",
+  "description": "A private 90-day check-in tracker with 30, 60, and 90 day milestones. Encrypted with your own passphrase; no email or account.",
+  "start_url": "/90-day-tracker.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafbfa",
+  "theme_color": "#1f3a2b",
+  "icons": [
+    {
+      "src": "/img/icon-ninety-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/icon-ninety-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/icon-ninety-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

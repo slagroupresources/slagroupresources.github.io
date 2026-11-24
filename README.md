@@ -32,7 +32,10 @@ Counts are stored in Firestore under `ratings/<resource id>`. Each browser can v
 | `sitemap.xml` | Tells search engines the page exists. Update `lastmod` when you make big changes |
 | `llms.txt` | Plain-text summary that AI assistants can read quickly |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser-tab and phone home-screen icons (the small "open seat" logo) |
-| `tracker.html` | Feelings check-in, 90-day tracker, and coping skills log |
+| `feelings-check-in.html`, `90-day-tracker.html`, `coping-skills-log.html` | The three trackers, each its own page and home-screen app |
+| `tracker.html` | Forwards old tracker links to the right page |
+| `manifest-*.webmanifest`, `img/icon-*` | Home-screen name and icon for each tracker |
+| `files/qr-code.png` | QR code for sharing the site |
 | `firestore.rules` | Security rules for the tracker database (copy of what's published in Firebase) |
 | `files/thumbs/` | Preview pictures for the Word and PDF handouts |
 | `img/mark-light.svg` | Logo in the site header |

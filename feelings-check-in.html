@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feelings Check-in | SLA Group Resources</title>
+<meta name="description" content="A private feelings wheel and log for sex addiction recovery. Encrypted with your own passphrase; no email or account.">
+<link rel="canonical" href="https://www.slagroupresources.com/feelings-check-in.html">
+<meta name="theme-color" content="#1f3a2b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="img/icon-feelings-180.png">
+<link rel="manifest" href="manifest-feelings.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Feelings">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+  :root { --green-900:#1f3a2b; --green-700:#2f5a40; --green-100:#e8f0ea; --ink:#1d2420; --muted:#5b665f; --line:#dde3df; --bg:#fafbfa; --radius:12px; --amber:#b7791f; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  a { color:var(--green-700); }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+  .site-header { background:var(--green-900); color:#fff; }
+  .site-header .wrap { display:flex; align-items:center; justify-content:space-between; height:60px; gap:16px; }
+  .brand { color:#fff; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:10px; }
+  .wrap { max-width:1040px; }
+  /* Header menu */
+  .site-header nav.menu { display: flex; gap: 4px; align-items: center; overflow: visible; }
+  .menu-link { color: #d6e4da; background: none; border: 0; font: inherit; font-size: .95rem; padding: 8px 12px; border-radius: 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .menu-link:hover, .menu-link[aria-expanded="true"] { background: rgba(255,255,255,.12); color: #fff; }
+  .dd { position: relative; }
+  .dd-panel { display: none; position: absolute; right: 0; top: calc(100% + 6px); background: #fff; border: 1px solid #dde3df; border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.14); min-width: 220px; padding: 6px; z-index: 30; }
+  .dd.open .dd-panel { display: block; }
+  .dd-panel a { display: block; padding: 9px 12px; color: #1d2420; text-decoration: none; border-radius: 8px; }
+  .dd-panel a:hover, .dd-panel a:focus { background: #e8f0ea; outline: none; }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #1f3a2b; color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 600; z-index: 50; }
+  @media (max-width: 720px) { .brand span, .share-btn span { display: none; } .menu-link { padding: 8px 9px; } }
+  .hero { background:var(--green-900); color:#fff; padding:28px 0 36px; }
+  .hero h1 { margin:0 0 8px; font-size:clamp(1.6rem,4vw,2.2rem); }
+  .hero p { margin:0; color:#d6e4da; max-width:640px; }
+  .panel { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; margin:24px 0; }
+  .notice { background:#fff4d6; color:#5a4300; border-radius:var(--radius); padding:10px 14px; font-size:.92rem; margin-top:16px; }
+  .private { background:var(--green-100); border-radius:var(--radius); padding:14px 18px; font-size:.95rem; }
+  .private ul { margin:6px 0 0; padding-left:18px; }
+  label { display:block; font-weight:600; font-size:.92rem; margin:14px 0 4px; }
+  input[type=text], input[type=password], input[type=date], textarea { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+  textarea { min-height:70px; resize:vertical; }
+  .row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .button { display:inline-block; border:0; cursor:pointer; background:var(--green-900); color:#fff; text-decoration:none; padding:11px 20px; border-radius:999px; font:inherit; font-weight:600; }
+  .button.secondary { background:#fff; color:var(--green-900); border:1px solid var(--green-900); }
+  .button.warn { background:#fff; color:#8a3b2b; border:1px solid #c98b7d; }
+  .button:disabled { opacity:.5; cursor:default; }
+  .msg { margin-top:12px; font-size:.95rem; }
+  .msg.err { color:#8a3b2b; }
+  .hidden { display:none !important; }
+  .check { display:flex; gap:8px; align-items:flex-start; font-weight:500; margin-top:14px; }
+  .check input { margin-top:4px; width:18px; height:18px; accent-color:var(--green-900); }
+  .install { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; margin-top:16px; font-size:.95rem; }
+  .tab[aria-current="page"] { background:var(--green-900); color:#fff; border-color:var(--green-900); }
+  a.tab { text-decoration:none; color:inherit; }
+  .tabs { display:flex; gap:8px; margin:24px 0 0; flex-wrap:wrap; }
+  .tab { border:1px solid var(--line); background:#fff; border-radius:999px; padding:10px 18px; font:inherit; font-weight:600; cursor:pointer; }
+  .tab[aria-selected="true"] { background:var(--green-900); color:#fff; border-color:var(--green-900); }
+  .status { font-size:.85rem; color:var(--muted); }
+  .grid2 { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; align-items:start; }
+  @media (max-width:820px){ .grid2 { grid-template-columns:1fr; } }
+
+  /* Wheel */
+  .wheel-box { position:relative; max-width:440px; margin:0 auto; touch-action:none; user-select:none; }
+  .wheel-box svg { width:100%; height:auto; display:block; cursor:grab; }
+  .wheel-box svg:active { cursor:grabbing; }
+  .seg { stroke:#fff; stroke-width:1.5; }
+  .seg-out { cursor:pointer; }
+  .seg-out:focus { outline:none; }
+  .seg-out.sel { stroke:var(--green-900); stroke-width:3; }
+  .wtext { font-size:10.5px; fill:#1d2420; pointer-events:none; }
+  .ctext { font-size:12px; font-weight:700; fill:#1d2420; pointer-events:none; }
+  .turns { display:flex; justify-content:center; gap:10px; margin-top:8px; }
+  .picked { font-size:1.5rem; font-weight:700; margin:0; }
+  .picked small { display:block; font-size:.9rem; font-weight:600; color:var(--muted); }
+  input[type=range] { width:100%; accent-color:var(--green-900); }
+  .log { list-style:none; padding:0; margin:8px 0 0; }
+  .log li { border-bottom:1px solid var(--line); padding:10px 0; }
+  .log .when { font-size:.82rem; color:var(--muted); }
+  .bars { display:grid; gap:6px; margin-top:8px; }
+  .bar { display:grid; grid-template-columns:80px 1fr 28px; gap:8px; align-items:center; font-size:.9rem; }
+  .bar span.fill { display:block; height:12px; border-radius:6px; }
+
+  /* 90-day */
+  .daycount { font-size:2.4rem; font-weight:800; margin:0; line-height:1.1; }
+  .progress { position:relative; height:14px; background:var(--green-100); border-radius:7px; margin:18px 0 28px; }
+  .progress .fill { height:100%; background:var(--green-700); border-radius:7px; }
+  .progress .mark { position:absolute; top:-4px; width:2px; height:22px; background:var(--green-900); }
+  .progress .mark span { position:absolute; top:24px; left:50%; transform:translateX(-50%); font-size:.78rem; font-weight:700; white-space:nowrap; }
+  .days { display:grid; grid-template-columns:repeat(15, minmax(0,1fr)); gap:4px; margin-top:12px; }
+  .day { aspect-ratio:1; border-radius:5px; border:1px solid var(--line); background:#fff; font-size:.62rem; color:var(--muted); display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+  .day.future { background:#f3f5f4; cursor:default; }
+  .day.yes { background:#5f9a73; border-color:#5f9a73; color:#fff; }
+  .day.slip { background:#e8b65c; border-color:#e8b65c; color:#3b2a00; }
+  .day.today { outline:2px solid var(--green-900); outline-offset:1px; }
+  .day.m { font-weight:800; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; font-size:.85rem; color:var(--muted); margin-top:8px; }
+  .legend i { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
+  .milestones { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; margin-top:20px; }
+  @media (max-width:820px){ .milestones { grid-template-columns:1fr; } .days { grid-template-columns:repeat(10, minmax(0,1fr)); } }
+  .milestone { border:1px solid var(--line); border-radius:var(--radius); padding:16px; }
+  .milestone.done { border-color:var(--green-700); background:var(--green-100); }
+  .milestone h4 { margin:0 0 4px; }
+  .milestone p { margin:0; font-size:.92rem; }
+  .badge { display:inline-block; font-size:.75rem; font-weight:700; border-radius:999px; padding:2px 10px; background:#f3f5f4; color:var(--muted); margin-bottom:6px; }
+  .milestone.done .badge { background:var(--green-900); color:#fff; }
+  footer { margin-top:40px; background:var(--green-900); color:#d6e4da; padding:24px 0; font-size:.92rem; }
+  footer a { color:#fff; }
+</style>
+</head>
+<body data-page="feelings">
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/mark-light.svg" alt="" width="30" height="30"><span>SLA Group Resources</span></a>
+    <nav class="menu" aria-label="Main">
+      <a class="menu-link" href="index.html">Home</a>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-res">Resources <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-res">
+          <a href="index.html#files">Group handouts</a>
+          <a href="index.html#support">Find support</a>
+          <a href="index.html#practices">Tools from group</a>
+          <a href="index.html#books">Books</a>
+          <a href="index.html#podcasts">Podcasts</a>
+          <a href="index.html#videos">YouTube and videos</a>
+          <a href="index.html#apps">Apps</a>
+          <a href="index.html#faq">Common questions</a>
+          <a href="index.html#submit">Suggest a resource</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-trk">Trackers <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-trk">
+          <a href="feelings-check-in.html">Feelings check-in</a>
+          <a href="90-day-tracker.html">90-day tracker</a>
+          <a href="coping-skills-log.html">Coping skills log</a>
+        </div>
+      </div>
+      <button class="menu-link share-btn" type="button" data-share>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>
+        <span>Share</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Feelings check-in</h1>
+    <p>Turn the wheel to name what you're feeling, and keep a private log. No email or account needed, just a username and a passphrase.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="installBar" class="install">
+    <span>Use this often? Put the feelings check-in on your home screen like an app.</span>
+    <span class="row" style="gap:8px">
+      <button class="button secondary" type="button" id="installBtn">Add to home screen</button>
+      <button class="button secondary" type="button" id="installClose" aria-label="Don't show this again" style="padding:11px 14px">✕</button>
+    </span>
+    <div id="installHelp" class="hidden" style="flex-basis:100%">
+      <p style="margin:4px 0"><b>iPhone or iPad (Safari):</b> tap the Share button, then <b>Add to Home Screen</b>.</p>
+      <p style="margin:4px 0"><b>Android (Chrome):</b> tap the ⋮ menu, then <b>Add to Home screen</b> or <b>Install app</b>.</p>
+      <p style="margin:4px 0" class="status">It shows up as "Feelings" so it's discreet. Each tracker can have its own icon: add the others from their pages.</p>
+    </div>
+  </div>
+  <div id="previewNotice" class="notice hidden">Preview mode: the database isn't connected yet, so entries are saved only in this browser.</div>
+
+  <!-- ============ SIGN IN ============ -->
+  <section id="signin" class="panel">
+    <div class="grid2">
+      <form id="signinForm" method="post" action="#">
+        <h2 style="margin-top:0">Open your tracker</h2>
+        <label for="uname">Username</label>
+        <input id="uname" name="username" type="text" autocomplete="username" minlength="3" maxlength="40" required placeholder="Anything you'll remember, not your real name" autocapitalize="off" spellcheck="false">
+        <label for="pass">Passphrase</label>
+        <input id="pass" name="password" type="password" autocomplete="current-password" minlength="10" required placeholder="At least 10 characters, e.g. four random words">
+        <label class="check"><input type="checkbox" id="remember"> <span>Keep me signed in on this device<br><span class="status">Only check this on a phone or computer that's just yours.</span></span></label>
+        <div class="row" style="margin-top:18px">
+          <button class="button" type="submit" id="openBtn">Open my tracker</button>
+        </div>
+        <p id="signinMsg" class="msg" role="status"></p>
+        <div id="notFound" class="hidden">
+          <p class="msg">We couldn't find a tracker with that username and passphrase. Check for typos, or start a new one.</p>
+          <button class="button secondary" type="button" id="createBtn">Start a new tracker</button>
+        </div>
+      </form>
+      <div class="private">
+        <strong>Your privacy</strong>
+        <ul>
+          <li>Your entries are encrypted with your passphrase before they're saved.</li>
+          <li>We can't see your passphrase or anything you log.</li>
+          <li>Someone would need both your username and your passphrase to open your tracker.</li>
+          <li><strong>If you forget your passphrase, we can't get it back.</strong> Write it down somewhere safe.</li>
+          <li>Don't use your real name or email as your username.</li>
+          <li>Your password manager can save your username and passphrase for you.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APP ============ -->
+  <section id="app" class="hidden">
+    <div class="row" style="justify-content:space-between; margin-top:24px">
+      <nav class="tabs" aria-label="Trackers" style="margin:0">
+        <a class="tab" id="tabWheel" href="feelings-check-in.html" aria-current="page">Feelings check-in</a>
+        <a class="tab" id="tab90" href="90-day-tracker.html">90-day tracker</a>
+        <a class="tab" id="tabCope" href="coping-skills-log.html">Coping skills log</a>
+      </nav>
+      <div class="row">
+        <span id="saveStatus" class="status" role="status"></span>
+        <button class="button secondary" type="button" id="signOut">Sign out</button>
+      </div>
+    </div>
+
+    <!-- Feelings -->
+    <div id="paneWheel" class="panel" role="tabpanel" aria-labelledby="tabWheel">
+      <div class="grid2">
+        <div>
+          <div class="wheel-box">
+            <svg id="wheel" viewBox="-215 -222 430 437" role="group" aria-label="Feelings wheel. Drag to turn, or tap a feeling.">
+              <polygon points="-11,-218 11,-218 0,-198" fill="#1f3a2b"></polygon>
+              <g id="wheelRot"></g>
+              <circle r="38" fill="#fff" stroke="#dde3df"></circle>
+              <text y="-4" text-anchor="middle" class="ctext" style="font-size:11px">Turn or</text>
+              <text y="11" text-anchor="middle" class="ctext" style="font-size:11px">tap</text>
+            </svg>
+          </div>
+          <div class="turns">
+            <button class="button secondary" type="button" id="turnLeft" aria-label="Turn wheel left">◀ Turn</button>
+            <button class="button secondary" type="button" id="turnRight" aria-label="Turn wheel right">Turn ▶</button>
+          </div>
+        </div>
+        <div>
+          <p class="status" style="margin:0">Right now I feel…</p>
+          <p class="picked" id="picked" aria-live="polite">—</p>
+          <label for="intensity">How strong? <span id="intVal">5</span>/10</label>
+          <input id="intensity" type="range" min="1" max="10" value="5">
+          <label for="note">What's going on? (optional)</label>
+          <textarea id="note" maxlength="280" placeholder="A trigger, a situation, a thought"></textarea>
+          <div class="row" style="margin-top:14px">
+            <button class="button" type="button" id="logBtn">Log this feeling</button>
+          </div>
+          <h3 style="margin-bottom:0">Last 30 days</h3>
+          <div class="bars" id="bars"></div>
+          <h3 style="margin-bottom:0">Recent entries</h3>
+          <ul class="log" id="log"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 90 days -->
+    <div id="pane90" class="panel hidden" role="tabpanel" aria-labelledby="tab90">
+      <div id="startBox" class="hidden">
+        <h2 style="margin-top:0">Start your 90 days</h2>
+        <p>Pick the day you started. Then check in once a day.</p>
+        <label for="startDate">Start date</label>
+        <input id="startDate" type="date" style="max-width:220px">
+        <div class="row" style="margin-top:14px"><button class="button" type="button" id="startBtn">Start</button></div>
+      </div>
+      <div id="runBox" class="hidden">
+        <div class="row" style="justify-content:space-between; align-items:flex-end">
+          <div>
+            <p class="status" style="margin:0" id="startedOn"></p>
+            <p class="daycount" id="dayCount"></p>
+          </div>
+          <div class="row" id="checkinRow">
+            <button class="button" type="button" id="yesBtn">I kept my commitments today</button>
+            <button class="button secondary" type="button" id="slipBtn">I slipped today</button>
+          </div>
+        </div>
+        <p id="todayMsg" class="msg"></p>
+        <div class="progress" aria-hidden="true">
+          <div class="fill" id="progFill" style="width:0"></div>
+          <div class="mark" style="left:33.33%"><span>30</span></div>
+          <div class="mark" style="left:66.66%"><span>60</span></div>
+          <div class="mark" style="left:calc(100% - 2px)"><span>90</span></div>
+        </div>
+        <h3 style="margin-bottom:0">Your 90 days</h3>
+        <p class="status" style="margin:2px 0 0">Tap a past day to fill it in if you missed a check-in.</p>
+        <div class="days" id="days"></div>
+        <div class="legend"><span><i style="background:#5f9a73"></i>Kept commitments</span><span><i style="background:#e8b65c"></i>Slipped</span><span><i style="background:#fff;border:1px solid #dde3df"></i>No check-in</span></div>
+        <div class="milestones" id="milestones"></div>
+        <div id="restartBox" class="private hidden" style="margin-top:20px">
+          <strong>Slips happen.</strong>
+          <p style="margin:6px 0 10px">You can start a new 90 days if you want. Your history stays saved either way.</p>
+          <button class="button secondary" type="button" id="restartBtn">Start a new 90 days from today</button>
+        </div>
+        <div id="pastBox" class="hidden" style="margin-top:20px">
+          <h3 style="margin-bottom:4px">Earlier runs</h3>
+          <ul class="log" id="pastList"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coping skills log (from Brent's worksheet) -->
+    <div id="paneCope" class="panel hidden" role="tabpanel" aria-labelledby="tabCope">
+      <div class="grid2">
+        <form id="copeForm">
+          <h2 style="margin-top:0">Coping skills log</h2>
+          <p class="status" style="margin:0">Write down what happened, how you felt before and after, and what you did to cope. Over time you'll see which skills help you most.</p>
+          <details style="margin-top:12px">
+            <summary style="cursor:pointer;font-weight:600">See an example</summary>
+            <div class="private" style="margin-top:8px;font-size:.92rem">
+              <b>Situation:</b> Argument with partner<br>
+              <b>Thoughts:</b> "I'm a failure in this relationship." "I'm going to end up alone."<br>
+              <b>Before:</b> Shame, sadness (9/10)<br>
+              <b>Coping skill:</b> Replacement / challenging thoughts: "Just because we argued doesn't mean my partner doesn't care about me."<br>
+              <b>Results:</b> Improved mood. Realized I don't have to believe every negative thought.<br>
+              <b>After:</b> Shame, sadness (5/10)
+            </div>
+          </details>
+          <label for="cTrigger">Situation or trigger</label>
+          <input id="cTrigger" type="text" maxlength="160" required>
+          <label for="cThoughts">Thoughts</label>
+          <textarea id="cThoughts" maxlength="400"></textarea>
+          <label for="cBeforeEm">Emotions before</label>
+          <input id="cBeforeEm" type="text" maxlength="120" placeholder="e.g. shame, sadness">
+          <label for="cBefore">How strong before? <span id="cBeforeVal">5</span>/10</label>
+          <input id="cBefore" type="range" min="1" max="10" value="5">
+          <label for="cSkill">Coping skill used</label>
+          <input id="cSkill" type="text" maxlength="120" list="skillList" required>
+          <datalist id="skillList">
+            <option value="Replacement / challenging thoughts"></option>
+            <option value="Called someone"></option>
+            <option value="Went for a walk"></option>
+            <option value="Deep breathing"></option>
+            <option value="Prayer or meditation"></option>
+            <option value="Left the situation"></option>
+            <option value="Journaling"></option>
+            <option value="Exercise"></option>
+          </datalist>
+          <label for="cResults">Results</label>
+          <textarea id="cResults" maxlength="400"></textarea>
+          <label for="cAfterEm">Emotions after</label>
+          <input id="cAfterEm" type="text" maxlength="120">
+          <label for="cAfter">How strong after? <span id="cAfterVal">5</span>/10</label>
+          <input id="cAfter" type="range" min="1" max="10" value="5">
+          <div class="row" style="margin-top:14px"><button class="button" type="submit">Save entry</button></div>
+        </form>
+        <div>
+          <h3 style="margin-top:0">What's helped most</h3>
+          <div id="copeBest" class="status"></div>
+          <h3 style="margin-bottom:0">Your entries</h3>
+          <ul class="log" id="copeLog"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="justify-content:flex-end">
+      <button class="button warn" type="button" id="deleteBtn">Delete my tracker</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>In crisis?</strong> In the U.S., call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) any time, or call 911 in an emergency.</p>
+    <p>This tracker is a personal tool, not medical advice, and doesn't replace a therapist or doctor.</p>
+  </div>
+</footer>
+
+<script type="module">
+// Private feelings + 90-day tracker. Data is encrypted in the browser with a key
+// derived from username + passphrase, then stored under an ID derived from both.
+
+// Firebase web config. Not a secret: access is controlled by the rules in firestore.rules.
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCqUX6QcVt14Tn1nYd8VjOx6p5LWojYCaI",
+  authDomain: "slagroupresources.firebaseapp.com",
+  projectId: "slagroupresources",
+  storageBucket: "slagroupresources.firebasestorage.app",
+  messagingSenderId: "211673871277",
+  appId: "1:211673871277:web:d7bd74fde52082db68e724"
+};
+
+const $ = (id) => document.getElementById(id);
+// Each tracker has its own page (body data-page); the old all-in-one page has none
+const PAGE = document.body.dataset.page || '';
+const PANE_FOR = { feelings: 'paneWheel', ninety: 'pane90', coping: 'paneCope' };
+if (PAGE) { try { localStorage.setItem('trackerPage', PAGE); } catch {} }
+const enc = new TextEncoder(), dec = new TextDecoder();
+
+// ---------- Storage ----------
+// Firestore when configured, otherwise this browser only (preview mode).
+let store;
+if (FIREBASE_CONFIG) {
+  const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+  const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+  const db = fs.getFirestore(initializeApp(FIREBASE_CONFIG));
+  store = {
+    load: async (id) => { const s = await fs.getDoc(fs.doc(db, 'vaults', id)); return s.exists() ? s.data() : null; },
+    save: (id, d) => fs.setDoc(fs.doc(db, 'vaults', id), { ct: d.ct, iv: d.iv, updated: fs.serverTimestamp() }),
+    remove: (id) => fs.deleteDoc(fs.doc(db, 'vaults', id))
+  };
+} else {
+  $('previewNotice').classList.remove('hidden');
+  const mem = {};
+  // localStorage can throw in some embedded previews, so fall back to memory
+  const ls = { get(k) { try { return localStorage.getItem(k); } catch { return mem[k] ?? null; } },
+               set(k, v) { try { localStorage.setItem(k, v); } catch { mem[k] = v; } },
+               del(k) { try { localStorage.removeItem(k); } catch { delete mem[k]; } } };
+  store = {
+    load: async (id) => { const v = ls.get('vault:' + id); return v ? JSON.parse(v) : null; },
+    save: async (id, d) => ls.set('vault:' + id, JSON.stringify(d)),
+    remove: async (id) => ls.del('vault:' + id)
+  };
+}
+
+// ---------- Crypto ----------
+const b64 = (u8) => btoa(String.fromCharCode(...u8));
+const unb64 = (s) => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+
+async function deriveVault(username, passphrase) {
+  const base = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveBits']);
+  const bits = new Uint8Array(await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: enc.encode('slagroupresources:' + username), iterations: 250000, hash: 'SHA-256' }, base, 512));
+  return vaultFromBits(bits);
+}
+// First half is the encryption key, second half is the database ID
+async function vaultFromBits(bits) {
+  const key = await crypto.subtle.importKey('raw', bits.slice(0, 32), 'AES-GCM', false, ['encrypt', 'decrypt']);
+  const id = [...bits.slice(32)].map(b => b.toString(16).padStart(2, '0')).join('');
+  return { id, key, bits };
+}
+async function lock(key, obj) {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, enc.encode(JSON.stringify(obj))));
+  return { ct: b64(ct), iv: b64(iv) };
+}
+async function unlock(key, rec) {
+  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(rec.iv) }, key, unb64(rec.ct));
+  return JSON.parse(dec.decode(pt));
+}
+
+// ---------- Session ----------
+let vault = null, data = null, saveTimer = null;
+
+// Stay signed in across refreshes (this tab), or on this device if "Keep me signed in" is checked.
+// Only the derived key is kept, never the passphrase.
+const SESSION = 'trackerSession';
+function keepSession(persist) {
+  const v = b64(vault.bits);
+  try { sessionStorage.setItem(SESSION, v); if (persist) localStorage.setItem(SESSION, v); else localStorage.removeItem(SESSION); } catch {}
+}
+function clearSession() { try { sessionStorage.removeItem(SESSION); localStorage.removeItem(SESSION); } catch {} }
+async function resumeSession() {
+  let v = null;
+  try { v = sessionStorage.getItem(SESSION) || localStorage.getItem(SESSION); } catch {}
+  if (!v) return;
+  msg('Opening your tracker…');
+  try {
+    vault = await vaultFromBits(unb64(v));
+    const rec = await store.load(vault.id);
+    if (!rec) { clearSession(); msg(''); return; }
+    data = await unlock(vault.key, rec); msg(''); enterApp();
+  } catch (err) { console.error(err); msg(''); }
+}
+// Ask the browser's password manager to save the login (Chrome, Edge, Android)
+async function offerToSave(u, p) {
+  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({ id: u, password: p, name: u })); } catch {}
+}
+const blank = () => ({ v: 1, created: new Date().toISOString(), feelings: [], tracker: { start: null, days: {}, past: [] }, coping: [] });
+
+$('signinForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const u = $('uname').value.trim().toLowerCase(), p = $('pass').value;
+  if (u.length < 3 || p.length < 10) { msg('Use a username of 3+ characters and a passphrase of 10+.', true); return; }
+  $('openBtn').disabled = true; $('notFound').classList.add('hidden'); msg('Unlocking…');
+  try {
+    vault = await deriveVault(u, p);
+    const rec = await store.load(vault.id);
+    if (!rec) { msg(''); $('notFound').classList.remove('hidden'); return; }
+    data = await unlock(vault.key, rec);
+    keepSession($('remember').checked); await offerToSave(u, p);
+    enterApp();
+  } catch (err) { console.error(err); msg("Couldn't open the tracker. Check your connection and try again.", true); }
+  finally { $('openBtn').disabled = false; }
+});
+$('createBtn').addEventListener('click', async () => {
+  data = blank(); await saveNow();
+  keepSession($('remember').checked); await offerToSave($('uname').value.trim().toLowerCase(), $('pass').value);
+  enterApp();
+});
+$('signOut').addEventListener('click', () => { clearSession(); location.reload(); });
+$('deleteBtn').addEventListener('click', async () => {
+  if (!confirm('Delete your tracker permanently? This erases every feeling and check-in and cannot be undone.')) return;
+  await store.remove(vault.id); clearSession(); location.reload();
+});
+function msg(t, err) { $('signinMsg').textContent = t; $('signinMsg').classList.toggle('err', !!err); }
+
+function enterApp() {
+  $('pass').value = '';
+  $('signin').classList.add('hidden'); $('app').classList.remove('hidden');
+  data.coping = data.coping || [];
+  renderLog(); render90(); renderCope(); showTabFromHash();
+}
+function showTabFromHash() {
+  if (PAGE) { for (const [, p] of TABS) $(p).classList.toggle('hidden', p !== PANE_FOR[PAGE]); return; }
+  let t = { '#feelings': 'tabWheel', '#ninety': 'tab90', '#coping': 'tabCope' }[location.hash];
+  if (!t) { try { t = localStorage.getItem('trackerTab'); } catch {} }
+  if (t && $(t)) $(t).click();
+}
+window.addEventListener('hashchange', () => { if (data) showTabFromHash(); });
+function save() { $('saveStatus').textContent = 'Saving…'; clearTimeout(saveTimer); saveTimer = setTimeout(saveNow, 400); }
+async function saveNow() {
+  try { await store.save(vault.id, await lock(vault.key, data)); $('saveStatus').textContent = 'Saved'; }
+  catch (err) { console.error(err); $('saveStatus').textContent = "Couldn't save. Check your connection."; }
+}
+
+// Tabs
+const TABS = [['tabWheel', 'paneWheel'], ['tab90', 'pane90'], ['tabCope', 'paneCope']];
+if (!PAGE) for (const [tab, pane] of TABS) {
+  $(tab).addEventListener('click', () => {
+    for (const [t, p] of TABS) {
+      $(t).setAttribute('aria-selected', String(t === tab)); $(p).classList.toggle('hidden', p !== pane);
+    }
+    try { localStorage.setItem('trackerTab', tab); } catch {}
+  });
+}
+
+// ---------- Feelings wheel ----------
+const CORES = [
+  { name: 'Joy',     color: '#f2d27a', light: '#f9ebc0', words: ['Hopeful', 'Proud', 'Grateful', 'Excited'] },
+  { name: 'Calm',    color: '#9cc5b0', light: '#d3e7dc', words: ['Peaceful', 'Content', 'Relieved', 'Safe'] },
+  { name: 'Sadness', color: '#8fa9d1', light: '#cfdbee', words: ['Lonely', 'Hurt', 'Disappointed', 'Empty'] },
+  { name: 'Anger',   color: '#e09a8a', light: '#f2cfc6', words: ['Frustrated', 'Resentful', 'Irritated', 'Bitter'] },
+  { name: 'Fear',    color: '#c4a5d6', light: '#e5d7ee', words: ['Anxious', 'Worried', 'Overwhelmed', 'Insecure'] },
+  { name: 'Shame',   color: '#d9b38c', light: '#eedcc8', words: ['Guilty', 'Embarrassed', 'Inadequate', 'Exposed'] }
+];
+const SEGS = CORES.flatMap((c, ci) => c.words.map(w => ({ word: w, core: c.name, ci })));
+const N = SEGS.length, STEP = 360 / N;
+const NS = 'http://www.w3.org/2000/svg';
+const pt = (r, a) => [r * Math.sin(a * Math.PI / 180), -r * Math.cos(a * Math.PI / 180)];
+function arc(r0, r1, a0, a1) {
+  const [x0, y0] = pt(r1, a0), [x1, y1] = pt(r1, a1), [x2, y2] = pt(r0, a1), [x3, y3] = pt(r0, a0);
+  const big = a1 - a0 > 180 ? 1 : 0;
+  return `M${x0} ${y0}A${r1} ${r1} 0 ${big} 1 ${x1} ${y1}L${x2} ${y2}A${r0} ${r0} 0 ${big} 0 ${x3} ${y3}Z`;
+}
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+// Radial labels; flipped as the wheel turns so they never read upside down
+const labels = [];
+function radialText(g, txt, r, a, cls) {
+  const t = el('text', { class: cls, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, g);
+  t.textContent = txt; labels.push({ t, r, a }); orient(t, r, a, 0);
+}
+function orient(t, r, a, rotation) {
+  const flip = (((a + rotation) % 360) + 360) % 360 > 180;
+  t.setAttribute('transform', `rotate(${a - 90}) translate(${r} 0)${flip ? ' rotate(180)' : ''}`);
+}
+const rot = $('wheelRot');
+CORES.forEach((c, ci) => {
+  const a0 = ci * 4 * STEP - STEP / 2, a1 = a0 + 4 * STEP;
+  el('path', { d: arc(40, 98, a0, a1), fill: c.color, class: 'seg' }, rot);
+  radialText(rot, c.name, 69, (a0 + a1) / 2, 'ctext');
+});
+const segEls = SEGS.map((s, i) => {
+  const p = el('path', { d: arc(100, 196, i * STEP - STEP / 2, i * STEP + STEP / 2), fill: CORES[s.ci].light,
+    class: 'seg seg-out', tabindex: '0', role: 'button', 'aria-label': `${s.word} (${s.core})` }, rot);
+  p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); spinTo(i); } });
+  radialText(rot, s.word, 148, i * STEP, 'wtext');
+  return p;
+});
+
+let R = 0;            // current rotation in degrees (clockwise)
+let selected = 0;
+const setR = (r) => { R = r; rot.setAttribute('transform', `rotate(${R})`); labels.forEach(l => orient(l.t, l.r, l.a, R)); };
+function updateSelected() {
+  selected = ((Math.round(-R / STEP) % N) + N) % N;
+  segEls.forEach((e, i) => e.classList.toggle('sel', i === selected));
+  $('picked').innerHTML = `${SEGS[selected].word}<small>${SEGS[selected].core}</small>`;
+}
+function animateTo(target) {
+  const from = R, start = performance.now(), dur = 280;
+  const step = (now) => {
+    const t = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - t, 3);
+    setR(from + (target - from) * e);
+    if (t < 1) requestAnimationFrame(step); else updateSelected();
+  };
+  requestAnimationFrame(step);
+}
+function spinTo(i) {
+  // Nearest rotation that puts segment i at the pointer
+  let target = -i * STEP;
+  target += Math.round((R - target) / 360) * 360;
+  animateTo(target);
+}
+$('turnLeft').addEventListener('click', () => animateTo(Math.round(R / STEP) * STEP - STEP));
+$('turnRight').addEventListener('click', () => animateTo(Math.round(R / STEP) * STEP + STEP));
+
+// Drag to turn; a tap without much movement selects the tapped feeling
+const svg = $('wheel');
+let drag = null;
+function angleAt(e) {
+  const b = svg.getBoundingClientRect();
+  const cx = b.left + b.width * (215 / 430), cy = b.top + b.height * (222 / 437);
+  return Math.atan2(e.clientX - cx, -(e.clientY - cy)) * 180 / Math.PI;
+}
+svg.addEventListener('pointerdown', (e) => {
+  drag = { last: angleAt(e), moved: 0, target: e.target };
+  svg.setPointerCapture(e.pointerId);
+});
+svg.addEventListener('pointermove', (e) => {
+  if (!drag) return;
+  let a = angleAt(e), d = a - drag.last;
+  if (d > 180) d -= 360; if (d < -180) d += 360;
+  drag.last = a; drag.moved += Math.abs(d); setR(R + d); updateSelected();
+});
+svg.addEventListener('pointerup', () => {
+  if (!drag) return;
+  const i = segEls.indexOf(drag.target);
+  if (drag.moved < 4 && i >= 0) spinTo(i);
+  else animateTo(Math.round(R / STEP) * STEP);
+  drag = null;
+});
+updateSelected();
+
+$('intensity').addEventListener('input', () => { $('intVal').textContent = $('intensity').value; });
+$('logBtn').addEventListener('click', () => {
+  const s = SEGS[selected];
+  data.feelings.unshift({ t: new Date().toISOString(), word: s.word, core: s.core,
+    intensity: Number($('intensity').value), note: $('note').value.trim() });
+  $('note').value = ''; renderLog(); save();
+});
+
+const esc = (s) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+function renderLog() {
+  const items = data.feelings.slice(0, 15);
+  $('log').innerHTML = items.length ? items.map(f => `<li><div class="when">${new Date(f.t).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</div>
+    <strong>${esc(f.word)}</strong> (${esc(f.core)}) · ${f.intensity}/10${f.note ? `<div>${esc(f.note)}</div>` : ''}</li>`).join('')
+    : '<li class="status">Nothing logged yet. Turn the wheel to how you feel and log it.</li>';
+  const since = Date.now() - 30 * 864e5, counts = {};
+  data.feelings.filter(f => Date.parse(f.t) >= since).forEach(f => counts[f.core] = (counts[f.core] || 0) + 1);
+  const max = Math.max(1, ...Object.values(counts));
+  $('bars').innerHTML = CORES.map(c => `<div class="bar"><span>${c.name}</span><span><span class="fill" style="width:${(counts[c.name] || 0) / max * 100}%;background:${c.color}"></span></span><span>${counts[c.name] || 0}</span></div>`).join('');
+}
+
+// ---------- 90-day tracker ----------
+const MILESTONES = [
+  { day: 30, title: '30 days: Breaking the cycle', text: 'Cravings may spike at first, then start to drop. You start noticing what triggers you.' },
+  { day: 60, title: '60 days: Handling your emotions', text: 'Urges drop a lot. Coping gets easier and you start trusting yourself again.' },
+  { day: 90, title: '90 days: Reconnecting', text: 'New habits start to stick. Less shame, better boundaries, and more room for healthy intimacy.' }
+];
+const ymd = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const today = () => ymd(new Date());
+const toUTC = (s) => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d); };
+const addDays = (s, n) => { const d = new Date(toUTC(s) + n * 864e5); return d.toISOString().slice(0, 10); };
+const diffDays = (a, b) => Math.round((toUTC(b) - toUTC(a)) / 864e5);
+const nice = (s) => new Date(toUTC(s)).toLocaleDateString([], { timeZone: 'UTC', dateStyle: 'medium' });
+
+$('startDate').value = today();
+$('startBtn').addEventListener('click', () => {
+  const s = $('startDate').value || today();
+  if (s > today()) { alert('Pick today or an earlier date.'); return; }
+  data.tracker.start = s; render90(); save();
+});
+function setDay(s, val) { if (val) data.tracker.days[s] = val; else delete data.tracker.days[s]; render90(); save(); }
+$('yesBtn').addEventListener('click', () => setDay(today(), 'yes'));
+$('slipBtn').addEventListener('click', () => setDay(today(), 'slip'));
+$('restartBtn').addEventListener('click', () => {
+  const t = data.tracker, end = today();
+  const kept = Object.entries(t.days).filter(([d, v]) => d >= t.start && d <= end && v === 'yes').length;
+  t.past.unshift({ start: t.start, end, kept });
+  // The new run starts today; today's slip stays with the old run in history
+  t.start = end;
+  delete t.days[end];
+  render90(); save();
+});
+
+function render90() {
+  const t = data.tracker, has = !!t.start;
+  $('startBox').classList.toggle('hidden', has); $('runBox').classList.toggle('hidden', !has);
+  if (!has) return;
+  const td = today(), dayNum = diffDays(t.start, td) + 1, shown = Math.min(dayNum, 90);
+  $('startedOn').textContent = `Started ${nice(t.start)}`;
+  $('dayCount').textContent = dayNum > 90 ? `Day ${dayNum}: past 90!` : `Day ${dayNum} of 90`;
+  $('progFill').style.width = `${shown / 90 * 100}%`;
+  const todayVal = t.days[td];
+  $('todayMsg').textContent = todayVal === 'yes' ? "You checked in today. Nice work."
+    : todayVal === 'slip' ? "You checked in today and marked a slip. Being honest about it matters." : 'You haven’t checked in today yet.';
+  const slipped = Object.entries(t.days).some(([d, v]) => v === 'slip' && d >= t.start);
+  $('restartBox').classList.toggle('hidden', !slipped);
+  // Day grid
+  const cells = [];
+  for (let i = 0; i < 90; i++) {
+    const d = addDays(t.start, i), v = t.days[d], fut = d > td;
+    const cls = ['day', fut ? 'future' : v || '', d === td ? 'today' : '', (i + 1) % 30 === 0 ? 'm' : ''].join(' ');
+    cells.push(`<button type="button" class="${cls}" data-d="${d}" ${fut ? 'disabled' : ''} aria-label="Day ${i + 1}, ${nice(d)}: ${v === 'yes' ? 'kept commitments' : v === 'slip' ? 'slipped' : 'no check-in'}">${i + 1}</button>`);
+  }
+  $('days').innerHTML = cells.join('');
+  // Milestones
+  const reachedOn = (m) => addDays(t.start, m.day - 1);
+  $('milestones').innerHTML = MILESTONES.map(m => {
+    const done = dayNum >= m.day;
+    return `<div class="milestone ${done ? 'done' : ''}"><span class="badge">${done ? 'Reached ' + nice(reachedOn(m)) : `${Math.max(0, m.day - dayNum)} days to go`}</span><h4>${m.title}</h4><p>${m.text}</p></div>`;
+  }).join('');
+  $('pastBox').classList.toggle('hidden', !t.past.length);
+  $('pastList').innerHTML = t.past.map(p => `<li>${nice(p.start)} to ${nice(p.end)} · ${diffDays(p.start, p.end) + 1} day${diffDays(p.start, p.end) ? 's' : ''} · ${p.kept} check-ins kept</li>`).join('');
+}
+// ---------- Coping skills log ----------
+for (const [r, v] of [['cBefore', 'cBeforeVal'], ['cAfter', 'cAfterVal']]) $(r).addEventListener('input', () => { $(v).textContent = $(r).value; });
+$('copeForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const val = (id) => $(id).value.trim();
+  data.coping.unshift({ t: new Date().toISOString(), trigger: val('cTrigger'), thoughts: val('cThoughts'),
+    beforeEm: val('cBeforeEm'), before: Number($('cBefore').value), skill: val('cSkill'),
+    results: val('cResults'), afterEm: val('cAfterEm'), after: Number($('cAfter').value) });
+  $('copeForm').reset(); $('cBeforeVal').textContent = '5'; $('cAfterVal').textContent = '5';
+  renderCope(); save();
+});
+function renderCope() {
+  const list = data.coping;
+  $('copeLog').innerHTML = list.length ? list.slice(0, 20).map(c => {
+    const drop = c.before - c.after;
+    const change = drop > 0 ? `down ${drop}` : drop < 0 ? `up ${-drop}` : 'no change';
+    return `<li><div class="when">${new Date(c.t).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</div>
+      <strong>${esc(c.trigger)}</strong>
+      <div>${esc(c.skill)} · ${c.before} → ${c.after} (${change})</div>
+      <details><summary class="status" style="cursor:pointer">Details</summary>
+        ${c.thoughts ? `<div><b>Thoughts:</b> ${esc(c.thoughts)}</div>` : ''}
+        ${c.beforeEm ? `<div><b>Before:</b> ${esc(c.beforeEm)} (${c.before}/10)</div>` : ''}
+        ${c.results ? `<div><b>Results:</b> ${esc(c.results)}</div>` : ''}
+        ${c.afterEm ? `<div><b>After:</b> ${esc(c.afterEm)} (${c.after}/10)</div>` : ''}
+      </details></li>`;
+  }).join('') : '<li class="status">No entries yet. The next time something triggers you, fill one in.</li>';
+  // Average drop in intensity per coping skill
+  const by = {};
+  list.forEach(c => { const k = c.skill.toLowerCase(); (by[k] = by[k] || { name: c.skill, drops: [] }).drops.push(c.before - c.after); });
+  const ranked = Object.values(by).map(x => ({ name: x.name, n: x.drops.length, avg: x.drops.reduce((a, b) => a + b, 0) / x.drops.length }))
+    .sort((a, b) => b.avg - a.avg).slice(0, 3);
+  $('copeBest').innerHTML = ranked.length
+    ? ranked.map(r => `<div><strong>${esc(r.name)}</strong>: feelings dropped ${r.avg.toFixed(1)} points on average (${r.n} time${r.n === 1 ? '' : 's'})</div>`).join('')
+    : 'Once you log a few entries, this shows which coping skills bring your feelings down the most.';
+}
+
+// ---------- Add to home screen ----------
+let installPrompt = null;
+// Only offer it on phones and tablets that haven't added it yet (or dismissed it)
+const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+const mobile = matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+let dismissed = false; try { dismissed = localStorage.getItem('installDismissed') === '1'; } catch {}
+if (standalone || !mobile || dismissed) $('installBar').classList.add('hidden');
+window.addEventListener('appinstalled', () => $('installBar').classList.add('hidden'));
+$('installClose').addEventListener('click', () => {
+  $('installBar').classList.add('hidden'); try { localStorage.setItem('installDismissed', '1'); } catch {}
+});
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installPrompt = e; });
+$('installBtn').addEventListener('click', async () => {
+  if (installPrompt) { installPrompt.prompt(); installPrompt = null; return; }
+  $('installHelp').classList.toggle('hidden');
+});
+
+// Tap a past day: none → kept → slipped → none
+$('days').addEventListener('click', (e) => {
+  const b = e.target.closest('.day'); if (!b || b.disabled) return;
+  const cur = data.tracker.days[b.dataset.d];
+  setDay(b.dataset.d, cur === undefined ? 'yes' : cur === 'yes' ? 'slip' : null);
+});
+resumeSession();
+</script>
+<script>
+// Header dropdowns: click to open, close on outside click or Escape
+(function () {
+  var dds = Array.prototype.slice.call(document.querySelectorAll('.dd'));
+  function closeAll(except) {
+    dds.forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); } });
+  }
+  dds.forEach(function (d) {
+    var b = d.querySelector('button');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !d.classList.contains('open');
+      closeAll(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    });
+    d.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { closeAll(); }); });
+  });
+  document.addEventListener('click', function () { closeAll(); });
+  // Share the whole site: phone share sheet, or copy the link
+  var SITE = 'https://www.slagroupresources.com/';
+  document.querySelectorAll('[data-share]').forEach(function (b) { b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (navigator.share) { navigator.share({ title: 'SLA Group Resources', text: 'Recovery resources from our group', url: SITE }).catch(function () {}); return; }
+    var t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status');
+    var show = function (m) { t.textContent = m; document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2200); };
+    if (navigator.clipboard) navigator.clipboard.writeText(SITE).then(function () { show('Link copied'); }, function () { show(SITE); }); else show(SITE);
+  }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+})();
+</script>
+</body>
+</html>

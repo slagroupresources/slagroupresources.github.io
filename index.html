@@ -155,8 +155,15 @@
     .paths, .tools { grid-template-columns:1fr; }
     .picks { grid-template-columns:1fr 1fr; }
   }
+  .share-box { display:flex; flex-wrap:wrap; gap:20px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .share-box img { width:140px; height:140px; border-radius:8px; border:1px solid var(--line); }
+  .share-box .copy { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .share-box input { flex:1 1 220px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; font:inherit; background:var(--bg); }
+  .button.secondary { background:#fff; color:var(--green-900); border:1px solid var(--green-900); }
+  .toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--green-900); color:#fff; padding:10px 18px; border-radius:999px; font-weight:600; z-index:50; }
   @media (max-width: 560px) {
     .brand span { display:none; }
+    .share-btn span { display:none; }
     .menu-link { padding:8px 9px; }
     .picks { grid-template-columns:1fr; }
     .path { padding:14px; }
@@ -188,11 +195,15 @@
       <div class="dd">
         <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-trk">Trackers <span aria-hidden="true">▾</span></button>
         <div class="dd-panel" id="dd-trk">
-          <a href="tracker.html#feelings">Feelings check-in</a>
-          <a href="tracker.html#ninety">90-day tracker</a>
-          <a href="tracker.html#coping">Coping skills log</a>
+          <a href="feelings-check-in.html">Feelings check-in</a>
+          <a href="90-day-tracker.html">90-day tracker</a>
+          <a href="coping-skills-log.html">Coping skills log</a>
         </div>
       </div>
+      <button class="menu-link share-btn" type="button" data-share>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>
+        <span>Share</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -245,15 +256,15 @@
 
     <!-- Trackers -->
     <div class="tools">
-      <a class="tool" href="tracker.html#feelings">
+      <a class="tool" href="feelings-check-in.html">
         <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#f2d27a"/><path d="M22 22 22 2A20 20 0 0 1 39.3 12Z" fill="#9cc5b0"/><path d="M22 22 39.3 12A20 20 0 0 1 39.3 32Z" fill="#8fa9d1"/><path d="M22 22 39.3 32A20 20 0 0 1 22 42Z" fill="#e09a8a"/><path d="M22 22 22 42A20 20 0 0 1 4.7 32Z" fill="#c4a5d6"/><path d="M22 22 4.7 32A20 20 0 0 1 4.7 12Z" fill="#d9b38c"/><circle cx="22" cy="22" r="7" fill="#fff"/></svg>
         <div><strong>Feelings check-in</strong><span>Name what you feel and keep a private log</span></div>
       </a>
-      <a class="tool" href="tracker.html#ninety">
+      <a class="tool" href="90-day-tracker.html">
         <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="#5f9a73"><rect x="2" y="4" width="11" height="11" rx="3"/><rect x="16" y="4" width="11" height="11" rx="3"/><rect x="30" y="4" width="11" height="11" rx="3"/><rect x="2" y="18" width="11" height="11" rx="3"/></g><rect x="16" y="18" width="11" height="11" rx="3" fill="#fff" stroke="#1f3a2b" stroke-width="2"/><g fill="#e8f0ea"><rect x="30" y="18" width="11" height="11" rx="3"/><rect x="2" y="32" width="11" height="11" rx="3"/><rect x="16" y="32" width="11" height="11" rx="3"/><rect x="30" y="32" width="11" height="11" rx="3"/></g></svg>
         <div><strong>90-day tracker</strong><span>Check in daily and hit 30, 60, and 90</span></div>
       </a>
-      <a class="tool" href="tracker.html#coping">
+      <a class="tool" href="coping-skills-log.html">
         <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="3" width="36" height="38" rx="5" fill="#e8f0ea"/><rect x="4" y="3" width="36" height="10" rx="5" fill="#f2d27a"/><g stroke="#2f5a40" stroke-width="2.5" stroke-linecap="round"><path d="M11 21h22M11 28h22M11 35h14"/></g></svg>
         <div><strong>Coping skills log</strong><span>See which coping skills help you most</span></div>
       </a>
@@ -354,6 +365,21 @@
         <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ojm_oHYAaRXsPqXgRi53S9tYrqIOC5v7FKdAHj9fibQcTQ/viewform" target="_blank" rel="noopener">Suggest a resource</a>
       </div>
     </section>
+
+    <section class="block" id="share">
+      <h2>Share this site</h2>
+      <div class="share-box">
+        <img src="files/qr-code.png" alt="QR code that opens www.slagroupresources.com" width="140" height="140">
+        <div style="flex:1 1 300px">
+          <p style="margin:0">Know someone who could use this? Send them the link, or let them scan the code with their phone camera.</p>
+          <div class="copy">
+            <input type="text" readonly value="https://www.slagroupresources.com/" aria-label="Site link">
+            <button class="button" type="button" data-share>Share</button>
+            <button class="button secondary" type="button" data-copy>Copy link</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -415,11 +441,37 @@
     try { localStorage.setItem('startPath', p); } catch (e) {}
     if (scroll) document.getElementById('start-' + p).scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
-  $$('.path').forEach(function (b) { b.addEventListener('click', function () { choosePath(b.dataset.path, true); }); });
+  function clearPath() {
+    $$('.path').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    $$('.start').forEach(function (s) { s.classList.add('hidden'); });
+    try { localStorage.removeItem('startPath'); } catch (e) {}
+    current = 'all'; apply(false);
+  }
+  // Tap a path to pick it; tap it again to clear it
+  $$('.path').forEach(function (b) { b.addEventListener('click', function () {
+    if (b.getAttribute('aria-pressed') === 'true') clearPath(); else choosePath(b.dataset.path, true);
+  }); });
   $$('[data-showall]').forEach(function (b) {
     b.addEventListener('click', function () { current = b.dataset.showall; apply(true); document.getElementById('browse').scrollIntoView({ behavior: 'smooth' }); });
   });
   try { var saved = localStorage.getItem('startPath'); if (saved) choosePath(saved, false); } catch (e) {}
+
+  // Share the site: phone share sheet where available, otherwise copy the link
+  var SITE = 'https://www.slagroupresources.com/';
+  function toast(msg) {
+    var t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg;
+    document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2200);
+  }
+  function copyLink() {
+    var done = function () { toast('Link copied'); };
+    if (navigator.clipboard) navigator.clipboard.writeText(SITE).then(done, function () { toast(SITE); }); else toast(SITE);
+  }
+  $$('[data-share]').forEach(function (b) { b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (navigator.share) navigator.share({ title: 'SLA Group Resources', text: 'Recovery resources from our group', url: SITE }).catch(function () {});
+    else copyLink();
+  }); });
+  $$('[data-copy]').forEach(function (b) { b.addEventListener('click', copyLink); });
 
   // Menu links like #books open that section
   function openFromHash() { var el = location.hash && document.getElementById(location.hash.slice(1)); if (el && el.tagName === 'DETAILS') el.open = true; }
