@@ -2,6 +2,7 @@
 title: SLA Group Resources
 exclude:
   - README.md
+  - CLAUDE.md
   - firestore.rules
   - Gemfile
   - Gemfile.lock
