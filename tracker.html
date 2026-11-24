@@ -10,6 +10,11 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tracker">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
   :root { --green-900:#1f3a2b; --green-700:#2f5a40; --green-100:#e8f0ea; --ink:#1d2420; --muted:#5b665f; --line:#dde3df; --bg:#fafbfa; --radius:12px; --amber:#b7791f; }
   * { box-sizing: border-box; }
@@ -48,6 +53,9 @@
   .msg { margin-top:12px; font-size:.95rem; }
   .msg.err { color:#8a3b2b; }
   .hidden { display:none !important; }
+  .check { display:flex; gap:8px; align-items:flex-start; font-weight:500; margin-top:14px; }
+  .check input { margin-top:4px; width:18px; height:18px; accent-color:var(--green-900); }
+  .install { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; margin-top:16px; font-size:.95rem; }
   .tabs { display:flex; gap:8px; margin:24px 0 0; flex-wrap:wrap; }
   .tab { border:1px solid var(--line); background:#fff; border-radius:999px; padding:10px 18px; font:inherit; font-weight:600; cursor:pointer; }
   .tab[aria-selected="true"] { background:var(--green-900); color:#fff; border-color:var(--green-900); }
@@ -144,17 +152,27 @@
 </div>
 
 <main class="wrap">
+  <div id="installBar" class="install">
+    <span>Use this often? Put it on your home screen like an app.</span>
+    <button class="button secondary" type="button" id="installBtn">Add to home screen</button>
+    <div id="installHelp" class="hidden" style="flex-basis:100%">
+      <p style="margin:4px 0"><b>iPhone or iPad (Safari):</b> tap the Share button, then <b>Add to Home Screen</b>.</p>
+      <p style="margin:4px 0"><b>Android (Chrome):</b> tap the ⋮ menu, then <b>Add to Home screen</b> or <b>Install app</b>.</p>
+      <p style="margin:4px 0" class="status">It shows up as "Tracker" so it's discreet, and it opens on whichever tracker you used last.</p>
+    </div>
+  </div>
   <div id="previewNotice" class="notice hidden">Preview mode: the database isn't connected yet, so entries are saved only in this browser.</div>
 
   <!-- ============ SIGN IN ============ -->
   <section id="signin" class="panel">
     <div class="grid2">
-      <form id="signinForm" autocomplete="off">
+      <form id="signinForm" method="post" action="#">
         <h2 style="margin-top:0">Open your tracker</h2>
         <label for="uname">Username</label>
-        <input id="uname" type="text" minlength="3" maxlength="40" required placeholder="Anything you'll remember, not your real name" autocapitalize="off" spellcheck="false">
+        <input id="uname" name="username" type="text" autocomplete="username" minlength="3" maxlength="40" required placeholder="Anything you'll remember, not your real name" autocapitalize="off" spellcheck="false">
         <label for="pass">Passphrase</label>
-        <input id="pass" type="password" minlength="10" required placeholder="At least 10 characters, e.g. four random words">
+        <input id="pass" name="password" type="password" autocomplete="current-password" minlength="10" required placeholder="At least 10 characters, e.g. four random words">
+        <label class="check"><input type="checkbox" id="remember"> <span>Keep me signed in on this device<br><span class="status">Only check this on a phone or computer that's just yours.</span></span></label>
         <div class="row" style="margin-top:18px">
           <button class="button" type="submit" id="openBtn">Open my tracker</button>
         </div>
@@ -172,6 +190,7 @@
           <li>Someone would need both your username and your passphrase to open your tracker.</li>
           <li><strong>If you forget your passphrase, we can't get it back.</strong> Write it down somewhere safe.</li>
           <li>Don't use your real name or email as your username.</li>
+          <li>Your password manager can save your username and passphrase for you.</li>
         </ul>
       </div>
     </div>
@@ -389,9 +408,13 @@ async function deriveVault(username, passphrase) {
   const base = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveBits']);
   const bits = new Uint8Array(await crypto.subtle.deriveBits(
     { name: 'PBKDF2', salt: enc.encode('slagroupresources:' + username), iterations: 250000, hash: 'SHA-256' }, base, 512));
+  return vaultFromBits(bits);
+}
+// First half is the encryption key, second half is the database ID
+async function vaultFromBits(bits) {
   const key = await crypto.subtle.importKey('raw', bits.slice(0, 32), 'AES-GCM', false, ['encrypt', 'decrypt']);
   const id = [...bits.slice(32)].map(b => b.toString(16).padStart(2, '0')).join('');
-  return { id, key };
+  return { id, key, bits };
 }
 async function lock(key, obj) {
   const iv = crypto.getRandomValues(new Uint8Array(12));
@@ -405,6 +428,31 @@ async function unlock(key, rec) {
 
 // ---------- Session ----------
 let vault = null, data = null, saveTimer = null;
+
+// Stay signed in across refreshes (this tab), or on this device if "Keep me signed in" is checked.
+// Only the derived key is kept, never the passphrase.
+const SESSION = 'trackerSession';
+function keepSession(persist) {
+  const v = b64(vault.bits);
+  try { sessionStorage.setItem(SESSION, v); if (persist) localStorage.setItem(SESSION, v); else localStorage.removeItem(SESSION); } catch {}
+}
+function clearSession() { try { sessionStorage.removeItem(SESSION); localStorage.removeItem(SESSION); } catch {} }
+async function resumeSession() {
+  let v = null;
+  try { v = sessionStorage.getItem(SESSION) || localStorage.getItem(SESSION); } catch {}
+  if (!v) return;
+  msg('Opening your tracker…');
+  try {
+    vault = await vaultFromBits(unb64(v));
+    const rec = await store.load(vault.id);
+    if (!rec) { clearSession(); msg(''); return; }
+    data = await unlock(vault.key, rec); msg(''); enterApp();
+  } catch (err) { console.error(err); msg(''); }
+}
+// Ask the browser's password manager to save the login (Chrome, Edge, Android)
+async function offerToSave(u, p) {
+  try { if (window.PasswordCredential) await navigator.credentials.store(new PasswordCredential({ id: u, password: p, name: u })); } catch {}
+}
 const blank = () => ({ v: 1, created: new Date().toISOString(), feelings: [], tracker: { start: null, days: {}, past: [] }, coping: [] });
 
 $('signinForm').addEventListener('submit', async (e) => {
@@ -417,17 +465,20 @@ $('signinForm').addEventListener('submit', async (e) => {
     const rec = await store.load(vault.id);
     if (!rec) { msg(''); $('notFound').classList.remove('hidden'); return; }
     data = await unlock(vault.key, rec);
+    keepSession($('remember').checked); await offerToSave(u, p);
     enterApp();
   } catch (err) { console.error(err); msg("Couldn't open the tracker. Check your connection and try again.", true); }
   finally { $('openBtn').disabled = false; }
 });
 $('createBtn').addEventListener('click', async () => {
-  data = blank(); await saveNow(); enterApp();
+  data = blank(); await saveNow();
+  keepSession($('remember').checked); await offerToSave($('uname').value.trim().toLowerCase(), $('pass').value);
+  enterApp();
 });
-$('signOut').addEventListener('click', () => location.reload());
+$('signOut').addEventListener('click', () => { clearSession(); location.reload(); });
 $('deleteBtn').addEventListener('click', async () => {
   if (!confirm('Delete your tracker permanently? This erases every feeling and check-in and cannot be undone.')) return;
-  await store.remove(vault.id); location.reload();
+  await store.remove(vault.id); clearSession(); location.reload();
 });
 function msg(t, err) { $('signinMsg').textContent = t; $('signinMsg').classList.toggle('err', !!err); }
 
@@ -437,7 +488,11 @@ function enterApp() {
   data.coping = data.coping || [];
   renderLog(); render90(); renderCope(); showTabFromHash();
 }
-function showTabFromHash() { const t = { '#feelings': 'tabWheel', '#ninety': 'tab90', '#coping': 'tabCope' }[location.hash]; if (t) $(t).click(); }
+function showTabFromHash() {
+  let t = { '#feelings': 'tabWheel', '#ninety': 'tab90', '#coping': 'tabCope' }[location.hash];
+  if (!t) { try { t = localStorage.getItem('trackerTab'); } catch {} }
+  if (t && $(t)) $(t).click();
+}
 window.addEventListener('hashchange', () => { if (data) showTabFromHash(); });
 function save() { $('saveStatus').textContent = 'Saving…'; clearTimeout(saveTimer); saveTimer = setTimeout(saveNow, 400); }
 async function saveNow() {
@@ -452,6 +507,7 @@ for (const [tab, pane] of TABS) {
     for (const [t, p] of TABS) {
       $(t).setAttribute('aria-selected', String(t === tab)); $(p).classList.toggle('hidden', p !== pane);
     }
+    try { localStorage.setItem('trackerTab', tab); } catch {}
   });
 }
 
@@ -669,12 +725,23 @@ function renderCope() {
     : 'Once you log a few entries, this shows which coping skills bring your feelings down the most.';
 }
 
+// ---------- Add to home screen ----------
+let installPrompt = null;
+const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+if (standalone) $('installBar').classList.add('hidden');
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installPrompt = e; });
+$('installBtn').addEventListener('click', async () => {
+  if (installPrompt) { installPrompt.prompt(); installPrompt = null; return; }
+  $('installHelp').classList.toggle('hidden');
+});
+
 // Tap a past day: none → kept → slipped → none
 $('days').addEventListener('click', (e) => {
   const b = e.target.closest('.day'); if (!b || b.disabled) return;
   const cur = data.tracker.days[b.dataset.d];
   setDay(b.dataset.d, cur === undefined ? 'yes' : cur === 'yes' ? 'slip' : null);
 });
+resumeSession();
 </script>
 <script>
 // Header dropdowns: click to open, close on outside click or Escape
