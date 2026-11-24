@@ -2,7 +2,7 @@
 layout: page
 title: Privacy Policy
 description: How SLA Group Resources handles your information. We don't ask who you are, we don't track you, and we can't read your tracker data.
-updated: November 23, 2026
+updated: November 24, 2026
 ---
 
 **The short version:** we don't ask who you are, we don't track you, and we can't read your tracker data. Your tracker entries are locked on your own device before they're saved, and only your username and passphrase can unlock them.
@@ -72,7 +72,7 @@ The site links to outside resources, books, podcasts, videos, apps and support g
 ## How long we keep it
 
 - **Tracker data:** until you delete it with "Delete my tracker." Deleting it removes it right away.
-- **Shared reports:** they can't be opened after they expire, and they're deleted automatically within about a day after that. Deleting your tracker also deletes your shared links.
+- **Shared reports:** nobody can open them after they expire. The stored copy, which stays encrypted, is deleted when you remove the link, when you next open your tracker, when someone tries the expired link, or when you delete your tracker.
 - **Ratings:** totals are kept while the resource is listed.
 - **Suggestions:** kept until we've reviewed them, and deleted within 12 months.
 - **Page counts:** kept as totals in Cloudflare's reports.

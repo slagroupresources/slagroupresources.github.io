@@ -77,7 +77,7 @@ To turn analytics off, empty the quotes again.
 `tracker.html` saves each person's data to Firestore, encrypted in their browser with a key made from their username and passphrase. The database only ever sees scrambled text, and a forgotten passphrase can't be recovered.
 - The Firebase web config in `tracker.html` is not a secret. Access is controlled by `firestore.rules`.
 - If you change the rules, paste `firestore.rules` into **Firestore Database → Rules** in the Firebase console and click **Publish**.
-- **Delete expired share links automatically (required by the privacy policy):** in Google Cloud Console (project `slagroupresources`), go to **Firestore → Time-to-live (TTL) → Create policy**. Set Collection group to `shares` and Timestamp field to `expires`, then click **Create**. Expired reports are then deleted, usually within 24 hours.
+- **Expired share links:** the database refuses to open them. The stored copy is deleted when the owner removes the link, when the owner next opens their tracker, when anyone tries the expired link, or when the tracker is deleted. Firestore's automatic deletion (TTL) would need the paid plan, so it isn't used.
 - Optional extra protection: in Google Cloud Console → **APIs & Services → Credentials**, restrict the browser API key to the website `https://www.slagroupresources.com/*`.
 
 ## Why the certificate errors happen

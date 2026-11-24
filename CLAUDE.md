@@ -30,7 +30,7 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 - **Firebase Firestore:** project `slagroupresources`. The web config in the pages is public by design, and security comes from `firestore.rules`. Ben pastes that file into Firebase → Firestore → Rules → Publish whenever it changes. Collections:
   - `vaults/{64-hex}`: `{ct, iv, updated}`. The key and ID come from PBKDF2-SHA256 (250k iterations, salt `'slagroupresources:'+username`, 512 bits): the first 32 bytes are the AES-GCM key, and the last 32 bytes, as hex, are the doc ID.
   - `ratings/{resource-id}`: `{up, down}` counters. Each change is ±1 at most.
-  - `shares/{32-hex}`: `{ct, iv, created, expires}`, encrypted with a random key that lives only in the link fragment `shared.html#<id>.<base64url key>`. Expires in at most 31 days.
+  - `shares/{32-hex}`: `{ct, iv, created, expires}`, encrypted with a random key that lives only in the link fragment `shared.html#<id>.<base64url key>`. Expires in at most 31 days. There's no TTL (it needs billing). Expired copies are deleted when the owner removes the link or signs in, and when `shared.html` gets a permission-denied on an expired link. The privacy policy describes exactly this, so keep them in sync.
 - **Browser storage keys:**
   - `trackerSession`: session storage, plus local storage when "keep me signed in" is checked.
   - `votes`, `startPath`, `trackerPage`, `trackerTab`, `installDismissed`.
@@ -60,7 +60,6 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 
 ## Open items (as of 2026-11-24)
 
-- Ben: **turn on a Firestore TTL policy** on collection group `shares`, field `expires`. The privacy policy promises expired reports are deleted within about a day.
 - Ben: confirm Firestore backups and point-in-time recovery are off, since the policy says no backups. Turn on 2-step sign-in for the Google and GitHub accounts.
 - Ben: have a privacy lawyer confirm whether Washington's law covers an individual volunteer.
 - Ben: verify the domain in the org's Pages settings and enforce HTTPS, set the Google Form to anonymous, submit the sitemap to Search Console and Bing, and retire the old Google Site.

@@ -63,8 +63,13 @@ async function load(id) {
   const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
   const fs = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
   const db = fs.getFirestore(initializeApp(FIREBASE_CONFIG));
-  try { const s = await fs.getDoc(fs.doc(db, 'shares', id)); return s.exists() ? s.data() : null; }
-  catch { return null; }   // expired or removed links are refused by the database rules
+  const ref = fs.doc(db, 'shares', id);
+  try { const s = await fs.getDoc(ref); return s.exists() ? s.data() : null; }
+  catch (err) {
+    // The rules refuse expired reports. Delete the stored copy now so it doesn't linger.
+    if (err.code === 'permission-denied') fs.deleteDoc(ref).catch(() => {});
+    return null;
+  }
 }
 
 const m = location.hash.slice(1).match(/^([0-9a-f]{32})\.([A-Za-z0-9_-]{43})$/);
