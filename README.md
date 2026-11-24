@@ -13,8 +13,6 @@ A plain static site: one `index.html` plus a few small files. No build step. To 
 | `img/mark-light.svg` | Logo in the site header |
 | `img/logo.svg`, `img/logo.png` | Logo for light backgrounds (transparent) |
 | `img/logo-light.svg` | Logo for dark backgrounds (transparent) |
-| `img/buymeacoffee-avatar.png` | 1000×1000 profile picture for Buy Me a Coffee (it crops to a circle) |
-| `img/avatar.svg` | Source file for the avatar |
 | `files/` | Group handouts. **Add these four yourself** (download them from the old site) |
 
 Files to put in `files/`:

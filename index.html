@@ -84,15 +84,6 @@
   a { color: var(--green-700); }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
-  /* Announcement bar */
-  .announce { background: var(--green-100); color: var(--ink); text-align: center; font-size: .9rem; padding: 8px 20px; }
-  .announce a { color: var(--green-900); font-weight: 600; }
-
-  /* Support / costs */
-  .costs { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 10px; }
-  .costs li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
-  .costs .amount { font-weight: 600; white-space: nowrap; }
-
   /* Header */
   .site-header {
     position: sticky; top: 0; z-index: 10;
@@ -183,10 +174,6 @@
 </style>
 </head>
 <body>
-
-<div class="announce">
-  We've updated the site! If you'd like to support our efforts, please <a href="#support-us">click here</a>.
-</div>
 
 <header class="site-header">
   <div class="wrap">
@@ -613,21 +600,6 @@
       </div>
     </section>
 
-    <!-- ============ SUPPORT ============ -->
-    <section id="support-us">
-      <h2>Support the site</h2>
-      <p class="lede">This site is free with no ads. Here's what it costs to keep it going.</p>
-      <div class="submit" style="display:block">
-        <ul class="costs">
-          <li><span><b>Domain name</b>, registered at Namecheap</span><span class="amount">about $18 a year</span></li>
-          <li><span><b>Hosting</b> through GitHub Pages</span><span class="amount">free</span></li>
-          <li><span><b>Group membership:</b> attending the group sessions this site grows out of requires a BetterHelp membership (published rate)</span><span class="amount">$70–$100 a week</span></li>
-          <li><span><b>Development time:</b> building the site, adding resources, and keeping links current</span><span class="amount">volunteer time</span></li>
-        </ul>
-        <p style="margin:0 0 16px">Donations help cover these costs. Nobody pays to be listed here, and the site will stay free either way.</p>
-        <a class="button" href="https://buymeacoffee.com/slagroupresources" target="_blank" rel="noopener">Buy us a coffee</a>
-      </div>
-    </section>
   </div>
 </main>
 
@@ -635,7 +607,6 @@
   <div class="wrap">
     <p><strong>In crisis?</strong> In the U.S., call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) any time, or call 911 in an emergency.</p>
     <p>These resources come from members of a sex addiction recovery group. This isn't medical advice and doesn't replace a therapist or doctor.</p>
-    <p><strong>Want to help?</strong> See <a href="#support-us">what it costs to run the site</a>, or <a href="https://buymeacoffee.com/slagroupresources" target="_blank" rel="noopener">buy us a coffee</a>.</p>
     <p>Last updated November 2026</p>
   </div>
 </footer>
