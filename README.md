@@ -1,0 +1,92 @@
+# SLA Group Resources 2.0
+
+A plain static site: one `index.html` plus a few small files. No build step. To edit, open `index.html`, copy an existing `<article class="card">` block, and change the text.
+
+## Files
+| File | Purpose |
+|---|---|
+| `index.html` | The whole site |
+| `robots.txt` | Lets search engines and AI crawlers in, and points them to the sitemap |
+| `sitemap.xml` | Tells search engines the page exists. Update `lastmod` when you make big changes |
+| `llms.txt` | Plain-text summary that AI assistants can read quickly |
+| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser-tab and phone home-screen icons (the small "open seat" logo) |
+| `img/mark-light.svg` | Logo in the site header |
+| `img/logo.svg`, `img/logo.png` | Logo for light backgrounds (transparent) |
+| `img/logo-light.svg` | Logo for dark backgrounds (transparent) |
+| `img/buymeacoffee-avatar.png` | 1000×1000 profile picture for Buy Me a Coffee (it crops to a circle) |
+| `img/avatar.svg` | Source file for the avatar |
+| `files/` | Group handouts. **Add these four yourself** (download them from the old site) |
+
+Files to put in `files/`:
+- `healthy-sexual-decision-framework.png`
+- `feelings-wheel.png`
+- `coping-skills-log.docx`
+- `90-day-detox-summary.pdf`
+
+## Why the certificate errors happen
+Google Sites only works on `www.` addresses. The bare `slagroupresources.com` has to be forwarded by your domain registrar, and many registrars forward without a valid HTTPS certificate, so browsers show a certificate error. The hosts below issue certificates for both addresses automatically.
+
+## Hosting (free): GitHub Pages, with DNS staying at Namecheap
+
+### 1. Set up a separate GitHub identity
+GitHub's terms allow one free personal account per person. To keep the site separate from your main profile without breaking that rule:
+- **If you already have a GitHub account:** create a free **organization** instead. Click **+ → New organization → Free**, name it (e.g. `slagroupresources`), and choose "My personal account" as the owner. Give it the display name "SLA Group Resources" and no personal details. Your membership in an organization is private by default; check it under **People** to be sure.
+- **If you don't have one:** sign up with a dedicated email address. Turn on two-factor authentication, then go to **Settings → Emails** and check **Keep my email addresses private**.
+
+### 2. Create the repository
+In the organization (or account), click **New repository**:
+- Name: `slagroupresources.github.io` (must match the org or account name exactly, followed by `.github.io`)
+- Visibility: **Public** (free GitHub Pages needs a public repository; it only holds the public website)
+- Click **Create repository**
+
+### 3. Upload the site
+On the empty repository page, click **uploading an existing file**. Drag in the **contents** of this folder, not the folder itself: `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt`, `README.md`, and the `files` folder with the four handouts. Click **Commit changes**.
+
+### 4. Turn on Pages
+**Settings → Pages → Build and deployment**: Source **Deploy from a branch**, branch **main**, folder **/ (root)** → **Save**. After a minute or two the site is live at `https://slagroupresources.github.io`. Check it there before touching DNS.
+
+### 5. Verify the domain (prevents someone else from claiming it)
+In the **organization's** (or account's) **Settings → Pages → Add a domain**, enter `slagroupresources.com`. GitHub shows a TXT record. Add it in Namecheap (step 6), then click **Verify**.
+
+### 6. Point Namecheap at GitHub
+Namecheap → **Domain List → Manage → Advanced DNS**. Nameservers must be **Namecheap BasicDNS**.
+
+Delete:
+- Any **URL Redirect** record for `@` (the old forwarding that causes the certificate errors)
+- The old Google Sites record: CNAME `www` → `ghs.googlehosted.com`
+- Any parking-page records for `@` or `www`
+
+Keep any **MX** (email) records and existing **TXT** verification records.
+
+Add:
+| Type | Host | Value |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | slagroupresources.github.io. |
+| TXT | (from step 5) | (from step 5) |
+
+### 7. Connect the custom domain
+Repository **Settings → Pages → Custom domain**: enter `www.slagroupresources.com` → **Save**. GitHub checks DNS and issues a certificate. This usually takes under an hour, but DNS can take a few hours to settle. When the box becomes available, check **Enforce HTTPS**. The bare `slagroupresources.com` will redirect to www automatically.
+
+### 8. Retire the Google Site
+In Google Sites, go to **Settings → Custom domains** and remove `www.slagroupresources.com`. Then unpublish the old site so there aren't two copies.
+
+### 9. Test
+Open `http://slagroupresources.com`, `https://slagroupresources.com`, and `https://www.slagroupresources.com`. All three should land on the new site with no certificate warning.
+
+### Updating the site later
+In the repository, click a file → pencil icon → edit → **Commit changes**. To replace a file, use **Add file → Upload files** with the same name. Changes go live in a minute or two.
+
+## After it's live
+- **Google Search Console** (search.google.com/search-console): verify the domain and submit `sitemap.xml`.
+- **Bing Webmaster Tools** (bing.com/webmasters): submit the sitemap. Bing's index also feeds ChatGPT search and Copilot.
+- **Google Form:** In Settings → Responses, turn off "Restrict to users in…" and "Collect email addresses" so people can submit without a Google account.
+- **Old Google Site:** Unpublish it, or point its custom domain at nothing, once the new site works, so there aren't two versions.
+
+## Items to check
+- **Quitter:** Many apps use this name. Confirm which one the group means, then add its link.
+- **No Nutt and My Girl:** These were on the old site, but I couldn't confirm them, so I left them out. Add them back with links if the group still recommends them.
+- Book links search Bookshop.org. Podcast links search Apple Podcasts where no official page was confirmed.
