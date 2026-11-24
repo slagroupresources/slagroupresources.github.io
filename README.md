@@ -20,6 +20,12 @@ Everything on the homepage comes from three files in the `_data` folder. Open on
 
 **Careful with commas and quotes.** Every item except the last in a list ends with a comma. If a commit breaks the file, GitHub keeps showing the last good version of the site, and the commit shows a red ✗ under the repository's **Actions** tab. Undo the edit to fix it.
 
+## Sharing with a therapist
+Each tracker page has **Share with your therapist**. People pick which trackers, a time range, and whether to include written notes.
+- **Save as PDF** opens the print dialog with a clean report. Nothing is uploaded.
+- **Create a private link** encrypts the report in the browser with a new random key. The key is only in the link after the `#`, which browsers never send to a server, so the database can't read it. Links expire after 7 or 30 days, and the person can remove them from their tracker any time.
+- Private links need the `shares` rules from `firestore.rules` to be published in Firebase.
+
 ## Ratings (thumbs up / down)
 Counts are stored in Firestore under `ratings/<resource id>`. Each browser can vote once per resource and can change or undo its vote. The thumbs only appear once the rules in `firestore.rules` are published in Firebase.
 
@@ -34,6 +40,7 @@ Counts are stored in Firestore under `ratings/<resource id>`. Each browser can v
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser-tab and phone home-screen icons (the small "open seat" logo) |
 | `feelings-check-in.html`, `90-day-tracker.html`, `coping-skills-log.html` | The three trackers, each its own page and home-screen app |
 | `tracker.html` | Forwards old tracker links to the right page |
+| `shared.html`, `js/report.js` | Read-only report a person shares with their therapist (PDF or private link) |
 | `manifest-*.webmanifest`, `img/icon-*` | Home-screen name and icon for each tracker |
 | `files/qr-code.png` | QR code for sharing the site |
 | `firestore.rules` | Security rules for the tracker database (copy of what's published in Firebase) |

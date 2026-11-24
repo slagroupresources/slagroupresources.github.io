@@ -32,6 +32,23 @@ service cloud.firestore {
         && math.abs(request.resource.data.down - resource.data.get('down', 0)) <= 1;
       allow delete: if false;
     }
+    // Reports shared with a therapist. Encrypted in the browser; the key is only in the link.
+    // A report can be read until it expires; anyone holding the link (or the owner) can remove it.
+    match /shares/{id} {
+      allow get: if id.matches('^[0-9a-f]{32}$') && resource.data.expires > request.time;
+      allow list, update: if false;
+      allow delete: if id.matches('^[0-9a-f]{32}$');
+      allow create: if id.matches('^[0-9a-f]{32}$')
+        && request.resource.data.keys().hasOnly(['ct', 'iv', 'created', 'expires'])
+        && request.resource.data.ct is string
+        && request.resource.data.ct.size() < 400000
+        && request.resource.data.iv is string
+        && request.resource.data.iv.size() < 32
+        && request.resource.data.created == request.time
+        && request.resource.data.expires is timestamp
+        && request.resource.data.expires > request.time
+        && request.resource.data.expires <= request.time + duration.value(31, 'd');
+    }
     // Everything else is closed
     match /{document=**} {
       allow read, write: if false;
