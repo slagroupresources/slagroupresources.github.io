@@ -1,7 +1,20 @@
-<footer>
-  <div class="wrap">
+{%- comment -%}
+  Shared footer. Keep the two privacy policies as separate links (Washington's My Health My Data Act).
+  Pages can pass a note parameter to replace the default medical-advice line (the trackers do).
+{%- endcomment -%}
+<footer class="site-footer">
+  <div class="inner">
     <p><strong>In crisis?</strong> In the U.S., call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) any time, or call 911 in an emergency.</p>
-    <p>These resources come from members of a sex addiction recovery group. This isn't medical advice and doesn't replace a therapist or doctor.</p>
-    <p><a href="privacy.html">Privacy Policy</a> · <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a></p>
+    <p>{% if include.note %}{{ include.note }}{% else %}Nothing here is medical advice, and it doesn't replace a therapist or doctor.{% endif %}</p>
+    <div class="about">
+      <p><strong>Independent and volunteer-run.</strong> SLA Group Resources is a free site run by a volunteer. It isn't affiliated with, endorsed by, or run by BetterHelp, any therapist, or any support group. Many of the resources were first shared by people in the Sex Addiction group sessions on BetterHelp.</p>
+      <p>Questions or ideas? Email <a href="mailto:slagroupresources@gmail.com">slagroupresources@gmail.com</a>.</p>
+      <p class="links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a>
+        <a href="help-now.html">Need help right now?</a>
+        <a href="index.html#share" data-share>Share this site</a>
+      </p>
+    </div>
   </div>
 </footer>

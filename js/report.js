@@ -40,12 +40,13 @@ const STYLE = `<style>
   .rp .legend { font-size: .8rem; color: #5b665f; margin-top: 4px; }
   .rp .bars div { display: grid; grid-template-columns: 80px 1fr 130px; gap: 8px; align-items: center; font-size: .9rem; margin: 3px 0; }
   .rp .bars span.f { display: block; height: 10px; border-radius: 5px; }
+  .rp .tw { overflow-x: auto; }   /* wide tables scroll sideways on phones */
   .rp table { width: 100%; border-collapse: collapse; font-size: .88rem; }
   .rp th { text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #5b665f; border-bottom: 1px solid #1d2420; padding: 6px 6px; }
   .rp td { border-bottom: 1px solid #dde3df; padding: 6px; vertical-align: top; }
   .rp .none { color: #5b665f; }
   .rp .foot { margin-top: 28px; font-size: .8rem; color: #5b665f; }
-  @media print { .rp h2 { break-after: avoid; } .rp tr { break-inside: avoid; } .rp .keep { break-inside: avoid; } }
+  @media print { .rp .tw { overflow: visible; } .rp h2 { break-after: avoid; } .rp tr { break-inside: avoid; } .rp .keep { break-inside: avoid; } }
 </style>`;
 
 function ninetySection(t, today) {
@@ -85,7 +86,7 @@ function feelingsSection(list, notes) {
   return `<section><h2>Feelings check-in</h2>
     <p class="meta">${list.length} entr${list.length === 1 ? 'y' : 'ies'}</p>
     <div class="bars keep">${bars}</div>
-    <table><thead><tr><th>When</th><th>Feeling</th><th>Strength</th>${notes ? '<th>Note</th>' : ''}</tr></thead><tbody>${rows}</tbody></table></section>`;
+    <div class="tw"><table><thead><tr><th>When</th><th>Feeling</th><th>Strength</th>${notes ? '<th>Note</th>' : ''}</tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }
 
 function copingSection(list, notes) {
@@ -99,7 +100,7 @@ function copingSection(list, notes) {
     <td>${esc(c.beforeEm)} ${c.before}/10</td><td>${esc(c.skill)}</td>${notes ? `<td>${esc(c.results)}</td>` : ''}<td>${esc(c.afterEm)} ${c.after}/10</td></tr>`).join('');
   return `<section><h2>Coping skills log</h2>
     <div class="keep"><p class="meta">What helped most</p><ul>${best}</ul></div>
-    <table><thead><tr><th>When</th><th>Situation${notes ? ' / thoughts' : ''}</th><th>Before</th><th>Coping skill</th>${notes ? '<th>Results</th>' : ''}<th>After</th></tr></thead><tbody>${rows}</tbody></table></section>`;
+    <div class="tw"><table><thead><tr><th>When</th><th>Situation${notes ? ' / thoughts' : ''}</th><th>Before</th><th>Coping skill</th>${notes ? '<th>Results</th>' : ''}<th>After</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }
 
 export function renderReport(snap) {

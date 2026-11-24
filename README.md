@@ -3,13 +3,18 @@
 A plain static site: one `index.html` plus a few small files. No build step. To edit, open `index.html`, copy an existing `<article class="card">` block, and change the text.
 
 ## Editing content (no code needed)
-Everything on the homepage comes from three files in the `_data` folder. Open one on GitHub, click the pencil icon, edit, and click **Commit changes**. The site rebuilds itself in about a minute.
+Everything on the homepage comes from four files in the `_data` folder. Open one on GitHub, click the pencil icon, edit, and click **Commit changes**. The site rebuilds itself in about a minute.
 
 | File | What it controls |
 |---|---|
 | `_data/tip.json` | Tip of the week: `title` and `text` |
 | `_data/resources.json` | Every resource, grouped into sections, plus the "Start here" picks for each path |
-| `_data/handouts.json` | The group handouts (file, picture, description) |
+| `_data/handouts.json` | The handouts (file, picture, description) |
+| `_data/faq.json` | Common questions. The same text feeds Google's FAQ listing, so keep answers accurate and plain |
+
+**Guides and policies** are Markdown files you can edit on GitHub the same way: `sex-addiction-recovery.md`, `healing-after-infidelity.md`, `rebuilding-trust.md`, `privacy.md`, `consumer-health-data.md`. Change `updated:` at the top when you edit. `help-now.html` is the Help now page (breathing guide and urge timer).
+
+**Wording rule:** never say "our group." This site is independent and volunteer-run, and it isn't affiliated with BetterHelp or any group. Say "the Sex Addiction group sessions on BetterHelp."
 
 **Adding a resource:** copy an existing item inside the right section's `items` list, paste it below, and change the values.
 - `id`: unique, lowercase, dashes instead of spaces (also used for its thumbs-up count, so don't change it later)
@@ -33,6 +38,10 @@ Counts are stored in Firestore under `ratings/<resource id>`. Each browser can v
 | File | Purpose |
 |---|---|
 | `index.html` | Homepage template (fills itself in from `_data`) |
+| `_includes/header.html`, `_includes/footer.html` | The header (menus, Help now, Exit) and footer (independence note, email, policy links) on every page |
+| `css/chrome.css`, `js/chrome.js` | Styles and behavior for the header, phone menu, quick exit, and share buttons |
+| `_layouts/page.html` | Layout for the guides, policies, and Help now page |
+| `img/og-image.png` | The picture shown when the site is shared in messages or social media |
 | `_config.yml` | Site build settings |
 | `robots.txt` | Lets search engines and AI crawlers in, and points them to the sitemap |
 | `sitemap.xml` | Tells search engines the page exists. Update `lastmod` when you make big changes |

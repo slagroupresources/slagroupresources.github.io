@@ -1,0 +1,58 @@
+/* Shared header, menus, quick exit, footer and toast for every page. */
+:root { --green-900:#1f3a2b; --green-700:#2f5a40; --green-100:#e8f0ea; --ink:#1d2420; --muted:#5b665f; --line:#dde3df; --bg:#fafbfa; }
+
+.skip { position:absolute; left:-9999px; top:8px; background:#fff; color:var(--ink); padding:8px 14px; border-radius:8px; z-index:100; }
+.skip:focus { left:8px; }
+.visually-hidden { position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+/* Header */
+.site-header { background:var(--green-900); color:#fff; position:relative; z-index:20; }
+.site-header .bar { max-width:1040px; margin:0 auto; padding:0 20px; display:flex; align-items:center; gap:8px; height:60px; }
+.brand { color:#fff; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:10px; white-space:nowrap; margin-right:auto; }
+.menu { display:flex; gap:2px; align-items:center; }
+.menu-link { color:#d6e4da; background:none; border:0; font:inherit; font-size:.95rem; padding:8px 11px; border-radius:8px; cursor:pointer; text-decoration:none; white-space:nowrap; }
+.menu-link:hover, .menu-link[aria-expanded="true"] { background:rgba(255,255,255,.12); color:#fff; }
+.dd { position:relative; }
+.dd-panel { display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,.14); min-width:240px; padding:6px; z-index:30; }
+.dd.open .dd-panel { display:block; }
+.dd-panel a { display:block; padding:9px 12px; color:var(--ink); text-decoration:none; border-radius:8px; }
+.dd-panel a:hover, .dd-panel a:focus { background:var(--green-100); outline:none; }
+
+/* "Help now" is the one bright thing in the header */
+.help-now { display:inline-flex; align-items:center; gap:6px; background:#f2d27a; color:#1d2420; font-weight:700; font-size:.92rem; text-decoration:none; padding:7px 13px; border-radius:999px; white-space:nowrap; margin-left:6px; }
+.help-now:hover { background:#f6dd95; }
+.quick-exit { display:inline-flex; align-items:center; gap:5px; color:#fff; border:1px solid rgba(255,255,255,.55); background:none; font:inherit; font-size:.88rem; font-weight:600; padding:6px 11px; border-radius:999px; text-decoration:none; white-space:nowrap; cursor:pointer; }
+.quick-exit:hover { background:rgba(255,255,255,.12); }
+.menu-toggle { display:none; color:#fff; background:none; border:1px solid rgba(255,255,255,.35); font:inherit; font-size:.9rem; padding:6px 11px; border-radius:999px; cursor:pointer; }
+
+/* Phone menu: one panel with every link */
+.mobile-menu { background:#fff; color:var(--ink); border-bottom:1px solid var(--line); box-shadow:0 12px 28px rgba(0,0,0,.12); }
+.mobile-menu[hidden] { display:none; }
+.mobile-menu .inner { max-width:1040px; margin:0 auto; padding:8px 20px 18px; display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; }
+.mobile-menu h2 { font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green-700); margin:12px 0 4px; }
+.mobile-menu a { display:block; padding:7px 0; color:var(--ink); text-decoration:none; }
+.mobile-menu a:hover { text-decoration:underline; }
+
+@media (max-width: 760px) {
+  .menu { display:none; }
+  .menu-toggle { display:inline-block; }
+  .brand span { display:none; }
+}
+@media (max-width: 420px) {
+  .site-header .bar { padding:0 12px; gap:6px; }
+  .help-now { padding:7px 10px; margin-left:0; }
+  .quick-exit, .menu-toggle { padding:6px 9px; }
+  .mobile-menu .inner { grid-template-columns:1fr; }
+}
+
+/* Footer */
+.site-footer { margin-top:48px; background:var(--green-900); color:#d6e4da; padding:28px 0; font-size:.92rem; }
+.site-footer .inner { max-width:1040px; margin:0 auto; padding:0 20px; }
+.site-footer strong, .site-footer a { color:#fff; }
+.site-footer p { margin:6px 0; }
+.site-footer .about { border-top:1px solid rgba(255,255,255,.18); margin-top:14px; padding-top:14px; }
+.site-footer .links { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:10px; }
+
+.toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--green-900); color:#fff; padding:10px 18px; border-radius:999px; font-weight:600; z-index:60; }
+
+@media print { .site-header, .site-footer, .skip { display:none !important; } }

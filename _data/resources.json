@@ -15,7 +15,7 @@
     ],
     "healing": [
       "sex-lies-and-the-other-woman",
-      "pbse",
+      "s-anon",
       "joy-recovery",
       "the-anatomy-of-trust"
     ]
@@ -24,13 +24,13 @@
     {
       "id": "support",
       "title": "Find support",
-      "intro": "Recovery is easier with other people. Start with our group, and add a 12-step meeting if you want more support.",
+      "intro": "Recovery is easier with other people. These groups are free or low cost, and many meet online.",
       "items": [
         {
           "id": "group-session",
-          "title": "Join the group that inspired this site",
+          "title": "Sex Addiction group sessions on BetterHelp",
           "url": "https://www.betterhelp.com/groups-faq/",
-          "text": "Most of the resources here come from members of our group. We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.",
+          "text": "Many of the resources on this site were first shared in these group sessions. You need a BetterHelp membership to join. This site isn't affiliated with BetterHelp or the group.",
           "for": [
             "recovery",
             "together"
@@ -40,7 +40,7 @@
           "id": "saa",
           "title": "Sex Addicts Anonymous (SAA)",
           "url": "https://saa-recovery.org/",
-          "text": "Free 12-step group. Meetings in person, by phone, and online.",
+          "text": "Free 12-step fellowship for people who want to stop compulsive sexual behavior. Meetings in person, by phone, and online.",
           "for": [
             "recovery"
           ]
@@ -53,18 +53,45 @@
           "for": [
             "recovery"
           ]
+        },
+        {
+          "id": "s-anon",
+          "title": "S-Anon",
+          "url": "https://sanon.org/",
+          "text": "Free 12-step fellowship for partners, family, and friends hurt by someone else's sexual behavior. Meetings around the world, plus phone support.",
+          "for": [
+            "healing"
+          ]
+        },
+        {
+          "id": "cosa",
+          "title": "COSA",
+          "url": "https://cosa-recovery.org/",
+          "text": "Free 12-step fellowship for people whose lives have been affected by someone else's compulsive sexual behavior.",
+          "for": [
+            "healing"
+          ]
+        },
+        {
+          "id": "recovering-couples-anonymous",
+          "title": "Recovering Couples Anonymous (RCA)",
+          "url": "https://recovering-couples.org/",
+          "text": "Free 12-step fellowship for couples who want to rebuild commitment, communication, and caring together.",
+          "for": [
+            "together"
+          ]
         }
       ]
     },
     {
       "id": "practices",
-      "title": "Tools from group",
-      "intro": "Things that come up a lot in our sessions.",
+      "title": "Recovery practices",
+      "intro": "Ideas that come up again and again in recovery groups.",
       "items": [
         {
           "id": "bring-the-session-home",
           "title": "Bring the session home",
-          "text": "For partners: ask your partner to go to group, take notes, and share them with you after.",
+          "text": "For partners: ask your partner to go to their group, take notes, and share them with you after.",
           "points": [
             {
               "text": "You get to see what they're learning."

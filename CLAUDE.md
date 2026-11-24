@@ -4,13 +4,14 @@ Read this before changing anything. README.md is the editing guide for Ben; this
 
 ## The one story
 
-A calm, safe, plain-voiced place for people in sex and love addiction recovery, their partners, and people who were hurt. It points people toward Brent Ruebensam's group (held through BetterHelp group sessions) and gives them the best resources and a few private tools. The site is run by Ben as a volunteer. Write in plain, warm, short sentences, like the original Google Site. No hype, no AI-sounding copy.
+A calm, safe, plain-voiced place for people in sex and love addiction recovery, their partners, and people who were hurt. Goal: the go-to free resource for sex addiction and infidelity recovery. It gives the best resources, plain guides, and a few private tools. The site is run by Ben as a volunteer. Write in plain, warm, short sentences, like the original Google Site. No hype, no AI-sounding copy.
 
 ## Hard rules
 
 - **Privacy is the product.** No ad or social pixels, no Google Analytics, no third-party cookies. The only analytics is Cloudflare Web Analytics (cookie-free), loaded through `_includes/analytics.html` on resource and info pages only. The public site token is `cloudflare_analytics_token` in `_config.yml` (empty it to turn analytics off), and it skips browsers that send GPC or Do Not Track. Never include it on tracker pages or `shared.html`.
 - **Washington My Health My Data Act:** everything here is treated as consumer health data. `consumer-health-data.html` must stay linked separately from `privacy.html` on every page that collects data, including the homepage, all three trackers and `shared.html`. New trackers save nothing until the consent box is checked.
 - **Tracker data is end-to-end encrypted.** The operator must never be able to read it. Never send the username or passphrase anywhere, and never log them.
+- **No affiliation, ever.** Never write "our group," "we meet," or anything that implies the site runs or speaks for a group. The site is independent and volunteer-run, not affiliated with BetterHelp, any therapist, or any group. Refer to "the Sex Addiction group sessions on BetterHelp." The shared footer states this on every page; keep it.
 - **Buy Me a Coffee stays off** until Brent agrees. Don't advertise BetterHelp beyond the "membership is required" note.
 - **Every promise in the privacy policies must stay true.** The published text is `privacy.md` and `consumer-health-data.md`, which are the source of truth. The drafting notes and legal flags are in a Claude doc: https://claude.ai/artifact/5JchsVKbk8jCveXHWkcKEF. If a change affects data handling, update both policies and their `updated:` dates in the same commit, and tell Ben.
 
@@ -21,8 +22,11 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
   - `_data/resources.json`: `start_here` paths (recovery / together / healing) and `sections` → items `{id, title, url?, by?, text?, points?, for[]}`. Keep `id`s stable, because ratings are keyed on them.
   - `_data/tip.json`: the tip of the week.
   - `_data/handouts.json`: Brent's handouts in `files/`.
-- **Text pages:** `privacy.md` and `consumer-health-data.md` use `_layouts/page.html`. It has the same header and menu as the homepage, and `_includes/footer.html` is the shared footer with the policy links. The homepage also uses that footer include.
-- **Tracker pages:** `feelings-check-in.html`, `90-day-tracker.html`, `coping-skills-log.html`.
+- **Shared chrome:** every page (homepage, layout pages, trackers) uses `_includes/header.html` (Guides/Resources/Trackers menus, "Help now", quick "Exit", phone Menu panel) and `_includes/footer.html` (crisis line, independence statement, email, policy links; trackers pass `note=`). Styles in `css/chrome.css`, behavior in `js/chrome.js`. Quick exit (button or Esc ×3) clears the tracker session and `location.replace`s to a neutral Google search.
+- **Text pages** use `_layouts/page.html` (front matter: title, description, lede, updated, `type: guide` adds Article JSON-LD; every layout page gets BreadcrumbList): guides `sex-addiction-recovery.md`, `healing-after-infidelity.md`, `rebuilding-trust.md`; `help-now.html` (breathing orb + urge timer, saves nothing); `privacy.md`, `consumer-health-data.md`.
+- **FAQ:** `_data/faq.json` drives the visible FAQ and the FAQPage JSON-LD on the homepage.
+- **SEO:** titles/descriptions/OG tags on every page, `img/og-image.png` (1200×630), WebSite + Organization + CollectionPage + FAQPage JSON-LD on the homepage, sitemap lists every public page, `llms.txt` summarizes the site for AI assistants.
+- **Tracker pages:** `feelings-check-in.html`, `90-day-tracker.html`, `coping-skills-log.html`. They start with empty Jekyll front matter (`---` `---`) so the shared includes work; don't put `{{` or `{%` in their scripts.
   - They share the same CSS and JS and differ only in `<body data-page>`, title, h1, hero text, manifest, icons and apple title.
   - **When you change shared tracker code, make the same edit in all three.** The build scripts that first generated them aren't in the repo, so edit the HTML directly.
   - `tracker.html` is only a redirect for old links and installs.
@@ -44,7 +48,7 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 - Serve locally with `python3 -m http.server 8765` from the repo root. ES module imports fail over `file://`.
 - For offline tests, copy a tracker page and set the Firebase config to `null`. It then falls back to local-storage preview mode.
 - Use Playwright with `/usr/bin/google-chrome`.
-- Approximate the GitHub Pages build into `/tmp/sitebuild` with python-liquid and python-markdown, then serve that folder. See `render_site.py` below; it needs include names quoted for python-liquid. Pass a fake token to test the analytics include.
+- The test scripts live outside the repo (`/home/claude/tests` in the original session): `render_site.py` approximates the Jekyll build into `/tmp/sitebuild` (python-liquid + python-markdown, expands includes with params, `jsonify`), `build_offline.sh` builds with analytics on and Firebase off and serves on :8766, `regression.py` (~220 checks: menus, paths, search, every tracker flow, share links, quick exit, Help now timer, 320px fit, footer wording, analytics placement), `a11y.py` (axe-core WCAG 2.1 AA). If they're gone, rebuild them from this description.
 - Check before pushing:
   - Sign in, then refresh and stay signed in.
   - Save an entry in each tracker.

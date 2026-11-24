@@ -1,0 +1,68 @@
+{%- comment -%}
+  Shared header for every page: menus, "Help now", quick exit, and the phone menu.
+  Resource sections come from _data/resources.json.
+{%- endcomment -%}
+{%- assign SECS = site.data.resources.sections -%}
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="SLA Group Resources home"><img src="img/mark-light.svg" alt="" width="30" height="30"><span>SLA Group Resources</span></a>
+    <nav class="menu" aria-label="Main">
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-gui">Guides <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-gui">
+          <a href="sex-addiction-recovery.html">Sex addiction recovery: where to start</a>
+          <a href="healing-after-infidelity.html">Healing after infidelity and betrayal</a>
+          <a href="rebuilding-trust.html">Rebuilding trust as a couple</a>
+          <a href="help-now.html">Need help right now?</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-res">Resources <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-res">
+          <a href="index.html#files">Handouts and worksheets</a>
+          {%- for sec in SECS %}
+          <a href="index.html#{{ sec.id }}">{{ sec.title }}</a>
+          {%- endfor %}
+          <a href="index.html#faq">Common questions</a>
+          <a href="index.html#submit">Suggest a resource</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-trk">Trackers <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-trk">
+          <a href="feelings-check-in.html">Feelings check-in</a>
+          <a href="90-day-tracker.html">90-day tracker</a>
+          <a href="coping-skills-log.html">Coping skills log</a>
+        </div>
+      </div>
+    </nav>
+    <a class="help-now" href="help-now.html">Help now</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+    <a class="quick-exit" href="https://www.google.com/search?q=weather" data-exit title="Leave this site now. Also signs you out of the trackers. Tip: press Esc three times.">Exit <span aria-hidden="true">✕</span></a>
+  </div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Menu" hidden>
+    <div class="inner">
+      <div>
+        <h2>Guides</h2>
+        <a href="sex-addiction-recovery.html">Sex addiction recovery</a>
+        <a href="healing-after-infidelity.html">Healing after infidelity</a>
+        <a href="rebuilding-trust.html">Rebuilding trust</a>
+        <a href="help-now.html">Need help right now?</a>
+        <h2>Trackers</h2>
+        <a href="feelings-check-in.html">Feelings check-in</a>
+        <a href="90-day-tracker.html">90-day tracker</a>
+        <a href="coping-skills-log.html">Coping skills log</a>
+      </div>
+      <div>
+        <h2>Resources</h2>
+        <a href="index.html">Home</a>
+        <a href="index.html#files">Handouts and worksheets</a>
+        {%- for sec in SECS %}
+        <a href="index.html#{{ sec.id }}">{{ sec.title }}</a>
+        {%- endfor %}
+        <a href="index.html#faq">Common questions</a>
+      </div>
+    </div>
+  </nav>
+</header>

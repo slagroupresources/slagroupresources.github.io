@@ -1,0 +1,134 @@
+---
+layout: page
+title: Need help right now?
+description: Ride out an urge or get through the first hard hours after finding out. A breathing guide, an urge timer, and simple next steps for sex addiction recovery and betrayal.
+lede: Ride out an urge, or get through a hard moment, one breath at a time. Nothing on this page is saved.
+---
+<style>
+  .crisis { background:#fbebeb; border-radius:12px; padding:14px 16px; margin:0 0 20px; }
+  .crisis p { margin:0; }
+  .choose { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:0 0 24px; }
+  .choose a { display:block; background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px; text-decoration:none; color:var(--ink); font-weight:700; }
+  .choose a:hover { border-color:var(--green-700); }
+  .choose span { display:block; font-weight:400; color:var(--muted); font-size:.92rem; }
+  .breathe { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+  .breathe h2 { margin-top:0 !important; }
+  .orb-wrap { height:220px; display:flex; align-items:center; justify-content:center; margin:8px 0; }
+  .orb { width:110px; height:110px; border-radius:50%; background:radial-gradient(circle at 40% 35%, #cfe3d6, #9cc5b0); transition:transform 4s ease-in-out; }
+  .orb.in { transform:scale(1.8); }
+  .orb.hold { transform:scale(1.8); }
+  .orb.out { transform:scale(1); transition-duration:6s; }
+  .phase { font-size:1.4rem; font-weight:700; min-height:1.6em; margin:4px 0; }
+  .clock { font-size:2rem; font-variant-numeric:tabular-nums; font-weight:700; color:var(--green-900); }
+  .controls { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+  .controls select { font:inherit; padding:9px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; }
+  .done { background:var(--green-100); border-radius:12px; padding:12px 16px; margin-top:14px; }
+  .steps li { margin:8px 0; }
+  @media (prefers-reduced-motion: reduce) { .orb { transition:none; } .orb.in, .orb.hold { transform:none; } }
+  @media (max-width: 560px) { .choose { grid-template-columns:1fr; } }
+</style>
+
+<div class="crisis" role="note">
+  <p><strong>If you might hurt yourself or someone else,</strong> call or text <a href="tel:988">988</a> now (Suicide &amp; Crisis Lifeline, U.S.), or call 911. Outside the U.S., call your local emergency number.</p>
+</div>
+
+<div class="choose">
+  <a href="#urge">I'm having an urge<span>Ride it out with the timer below</span></a>
+  <a href="#found-out">I just found out, and I'm hurting<span>Get through the first hours</span></a>
+</div>
+
+<section class="breathe" aria-labelledby="breathe-title">
+  <h2 id="breathe-title">Breathe with this</h2>
+  <p>Urges and panic come in waves. They build, peak, and pass. Breathe with the circle until the timer ends.</p>
+  <div class="orb-wrap" aria-hidden="true"><div class="orb" id="orb"></div></div>
+  <p class="phase" id="phase" aria-live="polite">Press start when you're ready</p>
+  <p class="clock" id="clock">10:00</p>
+  <div class="controls">
+    <label class="visually-hidden" for="mins">Timer length</label>
+    <select id="mins">
+      <option value="5">5 minutes</option>
+      <option value="10" selected>10 minutes</option>
+      <option value="15">15 minutes</option>
+      <option value="20">20 minutes</option>
+    </select>
+    <button class="button" type="button" id="startBtn">Start</button>
+    <button class="button secondary" type="button" id="resetBtn">Reset</button>
+  </div>
+  <div class="done" id="done" hidden>
+    <p style="margin:0"><strong>You rode it out.</strong> That counts. If you'd like, write down what happened and what helped in the <a href="coping-skills-log.html">coping skills log</a>.</p>
+  </div>
+</section>
+
+<h2 id="urge">If you're having an urge</h2>
+<ol class="steps">
+  <li><strong>Move.</strong> Get up and go to a different room, or step outside. Changing where you are breaks the pattern.</li>
+  <li><strong>Put the phone down.</strong> Leave it in another room, or hand it to someone you trust.</li>
+  <li><strong>Reach out.</strong> Text or call your sponsor, a friend from group, or anyone safe. You don't have to explain much. "Having a rough moment" is enough.</li>
+  <li><strong>Check in with yourself.</strong> Are you hungry, angry, lonely, or tired? Take care of that one thing first.</li>
+  <li><strong>Ride it out.</strong> Start the timer above. Notice the urge without acting on it. It will rise, peak, and fade.</li>
+  <li><strong>Write it down after.</strong> What set it off, and what helped? The <a href="coping-skills-log.html">coping skills log</a> keeps this private.</li>
+</ol>
+<p>If you slipped, you haven't lost your progress. Be honest with yourself and the people who support you, and start again today. The <a href="90-day-tracker.html">90-day tracker</a> lets you mark a slip and keep going.</p>
+
+<h2 id="found-out">If you just found out, and you're hurting</h2>
+<ol class="steps">
+  <li><strong>Breathe first.</strong> Use the timer above. Shock can make your body feel out of control. That's a normal reaction to a real injury.</li>
+  <li><strong>You don't have to decide anything tonight.</strong> Not about the relationship, and not about what comes next. Big decisions can wait until you feel steadier.</li>
+  <li><strong>Call someone safe.</strong> A close friend, a family member, or a counselor. <a href="https://sanon.org/" target="_blank" rel="noopener">S-Anon</a> also offers phone support with people who've been through this.</li>
+  <li><strong>Look after your body.</strong> Drink water, eat something small, and try to rest. When you're ready, it's okay to see a doctor about your own health.</li>
+  <li><strong>Step away from searching.</strong> Checking phones and digging for details late at night usually makes the pain worse, not clearer. You can ask your questions later, in a safer setting.</li>
+  <li><strong>It isn't your fault.</strong> Another person's choices are theirs. Your healing matters on its own, whatever happens with the relationship.</li>
+</ol>
+<p>When you're ready, read <a href="healing-after-infidelity.html">Healing after infidelity and betrayal</a>.</p>
+
+<h2>Ground yourself: 5-4-3-2-1</h2>
+<p>When your thoughts are racing, name out loud:</p>
+<ul>
+  <li><strong>5</strong> things you can see</li>
+  <li><strong>4</strong> things you can feel, like your feet on the floor</li>
+  <li><strong>3</strong> things you can hear</li>
+  <li><strong>2</strong> things you can smell</li>
+  <li><strong>1</strong> slow breath</li>
+</ul>
+
+<h2>Keep going</h2>
+<ul class="next">
+  <li><a href="sex-addiction-recovery.html"><strong>Sex addiction recovery</strong>Where to start, and what helps</a></li>
+  <li><a href="healing-after-infidelity.html"><strong>Healing after betrayal</strong>For partners who were hurt</a></li>
+  <li><a href="index.html#support"><strong>Find a support group</strong>Free meetings, online and in person</a></li>
+</ul>
+<p class="note">This page doesn't save anything. Tip: on any page of this site, the Exit button, or pressing Esc three times, leaves quickly for a neutral page.</p>
+
+<script>
+// Breathing guide and urge timer. Breathe in 4 seconds, hold 4, out 6. Nothing is stored.
+(function () {
+  var orb = document.getElementById('orb'), phase = document.getElementById('phase'), clock = document.getElementById('clock');
+  var mins = document.getElementById('mins'), startBtn = document.getElementById('startBtn'), done = document.getElementById('done');
+  var PHASES = [['in', 'Breathe in', 4], ['hold', 'Hold', 4], ['out', 'Breathe out', 6]];
+  var left = 600, running = false, tick = null, breath = null, step = 0;
+
+  function show() { var m = Math.floor(left / 60), s = left % 60; clock.textContent = m + ':' + (s < 10 ? '0' : '') + s; }
+  function nextBreath() {
+    var p = PHASES[step % PHASES.length]; step++;
+    orb.className = 'orb ' + p[0]; phase.textContent = p[1];
+    breath = setTimeout(nextBreath, p[2] * 1000);
+  }
+  function stop(label) {
+    running = false; clearInterval(tick); clearTimeout(breath);
+    orb.className = 'orb'; startBtn.textContent = label;
+  }
+  function start() {
+    running = true; done.hidden = true; startBtn.textContent = 'Pause'; step = 0; nextBreath();
+    tick = setInterval(function () {
+      left--; show();
+      if (left <= 0) { stop('Start again'); left = mins.value * 60; phase.textContent = 'Well done.'; done.hidden = false; }
+    }, 1000);
+  }
+  startBtn.addEventListener('click', function () { if (running) { stop('Resume'); phase.textContent = 'Paused'; } else start(); });
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    stop('Start'); left = mins.value * 60; show(); phase.textContent = "Press start when you're ready"; done.hidden = true;
+  });
+  mins.addEventListener('change', function () { if (!running) { left = mins.value * 60; show(); } });
+  show();
+})();
+</script>

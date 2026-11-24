@@ -6,33 +6,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sex Addiction Recovery Resources | SLA Group Resources</title>
-<meta name="description" content="Resources shared in our sex addiction recovery group. Books, podcasts, apps, 12-step groups, worksheets, and private trackers for people in recovery, partners, and couples.">
+<title>Sex Addiction &amp; Infidelity Recovery Resources | SLA Group Resources</title>
+<meta name="description" content="Free, private help for sex addiction recovery and healing after infidelity: guides, books, podcasts, support groups, worksheets, and encrypted trackers. Independent and volunteer-run.">
 <link rel="canonical" href="https://www.slagroupresources.com/">
 <meta name="theme-color" content="#1f3a2b">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SLA Group Resources: Sex Addiction Recovery Resources">
-<meta property="og:description" content="Resources shared in our sex addiction recovery group, for people in recovery, partners, and couples.">
+<meta property="og:site_name" content="SLA Group Resources">
+<meta property="og:title" content="Sex Addiction &amp; Infidelity Recovery Resources">
+<meta property="og:description" content="Free, private help for people in recovery, partners who were hurt, and couples rebuilding trust.">
 <meta property="og:url" content="https://www.slagroupresources.com/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://www.slagroupresources.com/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SLA Group Resources: free, private help for sex addiction recovery and healing after betrayal">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "WebSite", "name": "SLA Group Resources", "url": "https://www.slagroupresources.com/" },
-    { "@type": "CollectionPage", "name": "Sex Addiction Recovery Resources", "url": "https://www.slagroupresources.com/",
-      "description": "Resources shared in a sex addiction recovery group, for people in recovery, partners, and couples.",
-      "about": ["Sex addiction recovery", "Porn addiction recovery", "Betrayal trauma", "Rebuilding trust"] },
+    { "@type": "WebSite", "@id": "https://www.slagroupresources.com/#website", "name": "SLA Group Resources", "url": "https://www.slagroupresources.com/",
+      "description": "Free, private resources for sex addiction recovery and healing after infidelity.",
+      "publisher": { "@id": "https://www.slagroupresources.com/#org" } },
+    { "@type": "Organization", "@id": "https://www.slagroupresources.com/#org", "name": "SLA Group Resources", "url": "https://www.slagroupresources.com/",
+      "logo": "https://www.slagroupresources.com/logo.png", "email": "slagroupresources@gmail.com",
+      "description": "An independent, volunteer-run resource site. Not affiliated with BetterHelp or any therapist or support group." },
+    { "@type": "CollectionPage", "@id": "https://www.slagroupresources.com/#page", "name": "Sex Addiction & Infidelity Recovery Resources", "url": "https://www.slagroupresources.com/",
+      "isPartOf": { "@id": "https://www.slagroupresources.com/#website" },
+      "about": ["Sex addiction recovery", "Porn addiction recovery", "Compulsive sexual behavior", "Infidelity recovery", "Betrayal trauma", "Rebuilding trust after cheating"],
+      "hasPart": [
+        { "@type": "Article", "name": "Sex addiction recovery: where to start", "url": "https://www.slagroupresources.com/sex-addiction-recovery.html" },
+        { "@type": "Article", "name": "Healing after infidelity and betrayal", "url": "https://www.slagroupresources.com/healing-after-infidelity.html" },
+        { "@type": "Article", "name": "Rebuilding trust after infidelity", "url": "https://www.slagroupresources.com/rebuilding-trust.html" }
+      ] },
     { "@type": "FAQPage", "mainEntity": [
-      { "@type": "Question", "name": "What is a 90-day detox in sex addiction recovery?",
-        "acceptedAnswer": { "@type": "Answer", "text": "A 90-day detox, also called sexual sobriety or abstinence, is a common step in sex addiction recovery. It gives you space to heal, figure out your triggers, and build new ways to cope. The goal is to reset unhealthy patterns and work toward healthy intimacy, not to give up sex forever. Plan it with your therapist, and talk it through with your partner if you are in a relationship." } },
-      { "@type": "Question", "name": "What does 'disclosure is better than discovery' mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Telling the truth yourself, ideally with help from a therapist, does less damage than your partner finding out on their own. When they find out on their own, they're hurt by the behavior and by the hiding." } },
-      { "@type": "Question", "name": "Where can I find a support group for sex addiction?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Our recovery group meets through BetterHelp group sessions (BetterHelp membership required). 12-step fellowships such as Sex Addicts Anonymous (SAA) and Sex and Love Addicts Anonymous (SLAA) also hold free meetings in person and online." } }
+      {%- for f in site.data.faq.faq %}
+      { "@type": "Question", "name": {{ f.q | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | jsonify }} } }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
     ] }
   ]
 }
@@ -47,18 +59,6 @@
   .hidden { display:none !important; }
   .eyebrow { font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green-700); }
 
-  /* Header + menu */
-  .site-header { background:var(--green-900); color:#fff; position:relative; z-index:20; }
-  .site-header .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:60px; }
-  .brand { color:#fff; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:10px; white-space:nowrap; }
-  .menu { display:flex; gap:4px; align-items:center; }
-  .menu-link { color:#d6e4da; background:none; border:0; font:inherit; font-size:.95rem; padding:8px 12px; border-radius:8px; cursor:pointer; text-decoration:none; white-space:nowrap; }
-  .menu-link:hover, .menu-link[aria-expanded="true"] { background:rgba(255,255,255,.12); color:#fff; }
-  .dd { position:relative; }
-  .dd-panel { display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,.14); min-width:220px; padding:6px; z-index:30; }
-  .dd.open .dd-panel { display:block; }
-  .dd-panel a { display:block; padding:9px 12px; color:var(--ink); text-decoration:none; border-radius:8px; }
-  .dd-panel a:hover, .dd-panel a:focus { background:var(--green-100); outline:none; }
 
   /* Hero: one question */
   .hero { background:var(--green-900); color:#fff; padding:40px 0 48px; }
@@ -147,9 +147,6 @@
   details.faq summary { cursor:pointer; font-weight:600; }
   details.faq p { margin:10px 0 0; }
   .submit { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
-  footer { margin-top:48px; background:var(--green-900); color:#d6e4da; padding:26px 0; font-size:.92rem; }
-  footer strong, footer a { color:#fff; }
-  footer p { margin:6px 0; }
 
   @media (max-width: 820px) {
     .paths, .tools { grid-template-columns:1fr; }
@@ -160,15 +157,16 @@
   .share-box .copy { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .share-box input { flex:1 1 220px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; font:inherit; background:var(--bg); }
   .button.secondary { background:#fff; color:var(--green-900); border:1px solid var(--green-900); }
-  .toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--green-900); color:#fff; padding:10px 18px; border-radius:999px; font-weight:600; z-index:50; }
   @media (max-width: 560px) {
-    .brand span { display:none; }
-    .share-btn span { display:none; }
-    .menu-link { padding:8px 9px; }
     .picks { grid-template-columns:1fr; }
     .path { padding:14px; }
   }
+  .hero .sos { margin:20px 0 0; color:#d6e4da; }
+  .sos a { color:#fff; font-weight:700; }
+  .start .guide { display:inline-block; margin:14px 18px 0 0; font-weight:700; }
+  details.faq .more-link { display:inline-block; margin-top:8px; font-weight:600; }
 </style>
+<link rel="stylesheet" href="css/chrome.css">
 {% include analytics.html %}
 </head>
 <body>
@@ -177,42 +175,12 @@
   <symbol id="thumb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></symbol>
 </svg>
 
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html"><img src="img/mark-light.svg" alt="" width="30" height="30"><span>SLA Group Resources</span></a>
-    <nav class="menu" aria-label="Main">
-      <a class="menu-link" href="index.html">Home</a>
-      <div class="dd">
-        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-res">Resources <span aria-hidden="true">▾</span></button>
-        <div class="dd-panel" id="dd-res">
-          <a href="index.html#files">Group handouts</a>
-          {%- for sec in R.sections %}
-          <a href="index.html#{{ sec.id }}">{{ sec.title }}</a>
-          {%- endfor %}
-          <a href="index.html#faq">Common questions</a>
-          <a href="index.html#submit">Suggest a resource</a>
-        </div>
-      </div>
-      <div class="dd">
-        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-trk">Trackers <span aria-hidden="true">▾</span></button>
-        <div class="dd-panel" id="dd-trk">
-          <a href="feelings-check-in.html">Feelings check-in</a>
-          <a href="90-day-tracker.html">90-day tracker</a>
-          <a href="coping-skills-log.html">Coping skills log</a>
-        </div>
-      </div>
-      <button class="menu-link share-btn" type="button" data-share>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>
-        <span>Share</span>
-      </button>
-    </nav>
-  </div>
-</header>
+{% include header.html %}
 
-<main>
+<main id="main">
   <div class="hero">
     <div class="wrap">
-      <h1>Sex addiction recovery resources</h1>
+      <h1>Sex addiction and infidelity recovery resources</h1>
       <p class="ask">Where are you starting?</p>
       <p>Pick the one that fits and we'll show you where to begin.</p>
       <div class="paths" role="group" aria-label="Where are you starting?">
@@ -229,6 +197,7 @@
           <span><strong>I was hurt and want to understand and heal</strong></span>
         </button>
       </div>
+      <p class="sos">Struggling right now? <a href="help-now.html">Get help now →</a></p>
     </div>
   </div>
 
@@ -251,6 +220,9 @@
         {%- endif %}{%- endfor %}{%- endfor %}
         {%- endfor %}
       </div>
+      {%- if p == "recovery" %}<a class="guide" href="sex-addiction-recovery.html">Read the guide: where to start →</a>
+      {%- elsif p == "together" %}<a class="guide" href="rebuilding-trust.html">Read the guide: rebuilding trust →</a>
+      {%- else %}<a class="guide" href="healing-after-infidelity.html">Read the guide: healing after betrayal →</a>{% endif %}
       <button class="more" type="button" data-showall="{{ p }}">Show everything for me ↓</button>
     </div>
     {%- endfor %}
@@ -272,8 +244,8 @@
     </div>
 
     <div class="strip">
-      <span><strong>Join the group that inspired this site.</strong> Most of what's here comes from our group members. We meet through BetterHelp group sessions, so you need a BetterHelp membership to attend.</span>
-      <a class="button" href="https://www.betterhelp.com/groups-faq/" target="_blank" rel="noopener">How to register</a>
+      <span><strong>Looking for a group?</strong> Many of the resources here were first shared in the Sex Addiction group sessions on BetterHelp. You need a BetterHelp membership to join. This site is run by a volunteer and isn't affiliated with BetterHelp or the group.</span>
+      <a class="button" href="https://www.betterhelp.com/groups-faq/" target="_blank" rel="noopener">How BetterHelp groups work</a>
     </div>
 
     <div class="tip">
@@ -284,9 +256,9 @@
 
     <!-- Handouts -->
     <section class="block" id="files">
-      <span class="eyebrow">From our group sessions</span>
-      <h2>Group handouts</h2>
-      <p class="lede">Files the host shared in group. Open them here, or download and print them.</p>
+      <span class="eyebrow">Worksheets and guides</span>
+      <h2>Handouts</h2>
+      <p class="lede">Worksheets shared in the Sex Addiction group sessions on BetterHelp. Open them here, or download and print them.</p>
       <div class="handout-grid">
         {%- for h in site.data.handouts.handouts %}
         <article class="handout">
@@ -346,18 +318,13 @@
 
     <section class="block" id="faq">
       <h2>Common questions</h2>
+      {%- for f in site.data.faq.faq %}
       <details class="faq">
-        <summary>What is a 90-day detox?</summary>
-        <p>A 90-day detox, also called sexual sobriety or abstinence, is a common step in sex addiction recovery. It gives you space to heal, figure out your triggers, and build new ways to cope. The goal is to reset unhealthy patterns and work toward healthy intimacy, not to give up sex forever. Plan it with your therapist, and talk it through with your partner if you're in a relationship.</p>
+        <summary>{{ f.q | escape }}</summary>
+        <p>{{ f.a | escape }}</p>
+        {%- if f.link %}<a class="more-link" href="{{ f.link.url }}">{{ f.link.text | escape }} →</a>{% endif %}
       </details>
-      <details class="faq">
-        <summary>What does "disclosure is better than discovery" mean?</summary>
-        <p>Telling the truth yourself, ideally with help from a therapist, does less damage than your partner finding out on their own. When they find out on their own, they're hurt by the behavior and by the hiding.</p>
-      </details>
-      <details class="faq">
-        <summary>I was hurt by my partner. Is any of this for me?</summary>
-        <p>Yes. Betrayal hurts, and your healing matters on its own. Pick "I was hurt" at the top of the page to see resources for you. You can also ask your partner to come to our group, take notes, and share them with you after.</p>
-      </details>
+      {%- endfor %}
     </section>
 
     <section class="block" id="submit">
@@ -385,27 +352,12 @@
 </main>
 
 {% include footer.html %}
+<script src="js/chrome.js"></script>
 
 <script>
-// Header dropdowns, starting paths, filters, search, and opening sections from links
+// Starting paths, filters, search, and opening sections from links
 (function () {
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
-
-  // Dropdowns
-  var dds = $$('.dd');
-  function closeMenus(except) {
-    dds.forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); } });
-  }
-  dds.forEach(function (d) {
-    var b = d.querySelector('button');
-    b.addEventListener('click', function (e) {
-      e.stopPropagation(); var open = !d.classList.contains('open');
-      closeMenus(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
-    });
-    d.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { closeMenus(); }); });
-  });
-  document.addEventListener('click', function () { closeMenus(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenus(); });
 
   // Filters
   var current = 'all', search = document.getElementById('search');
@@ -451,23 +403,6 @@
     b.addEventListener('click', function () { current = b.dataset.showall; apply(true); document.getElementById('browse').scrollIntoView({ behavior: 'smooth' }); });
   });
   try { var saved = localStorage.getItem('startPath'); if (saved) choosePath(saved, false); } catch (e) {}
-
-  // Share the site: phone share sheet where available, otherwise copy the link
-  var SITE = 'https://www.slagroupresources.com/';
-  function toast(msg) {
-    var t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg;
-    document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2200);
-  }
-  function copyLink() {
-    var done = function () { toast('Link copied'); };
-    if (navigator.clipboard) navigator.clipboard.writeText(SITE).then(done, function () { toast(SITE); }); else toast(SITE);
-  }
-  $$('[data-share]').forEach(function (b) { b.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (navigator.share) navigator.share({ title: 'SLA Group Resources', text: 'Recovery resources from our group', url: SITE }).catch(function () {});
-    else copyLink();
-  }); });
-  $$('[data-copy]').forEach(function (b) { b.addEventListener('click', copyLink); });
 
   // Menu links like #books open that section
   function openFromHash() { var el = location.hash && document.getElementById(location.hash.slice(1)); if (el && el.tagName === 'DETAILS') el.open = true; }
