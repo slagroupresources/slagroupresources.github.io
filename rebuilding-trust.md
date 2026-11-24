@@ -2,65 +2,28 @@
 layout: page
 type: guide
 title: Rebuilding trust after infidelity
-description: "How couples rebuild trust after cheating or sex addiction: honesty versus transparency, what the person who broke trust can do, what the hurt partner needs, timelines, check-ins, and couples support."
-lede: For couples who both want to try. It's slow, and it's possible.
+description: "Simple places to start for couples rebuilding trust after cheating or sex addiction: practices from this site, couples support, and books."
+lede: A few simple places to start for couples.
 updated: November 24, 2026
 ---
 
-Trust isn't rebuilt with one big apology. It comes back through small, honest moments, repeated over a long time. This guide is for couples where both people want to try. If you're the partner who was hurt and you're not sure yet, start with [Healing after infidelity and betrayal](healing-after-infidelity.html).
+## Ideas from this site
 
-## Honesty isn't enough. Transparency is.
+- **Transparency, not just honesty.** Honesty is telling the truth when you're asked. Transparency is telling it before anyone has to ask.
+- **Be present.** Put the phones down and pay attention.
+- **Catch yourself.** Stop the little lies.
+- **There's no timeline.** Trust comes back on the hurt partner's schedule.
+- **Bring the session home.** Take notes in your group and share them with your partner after.
 
-Honesty is telling the truth when you're asked. Transparency is telling it before anyone has to ask. The hurt partner shouldn't have to play detective. When the person who broke trust offers information freely, even when it might not go well, trust has room to grow.
+These come from [Recovery practices](index.html#practices) and the tip of the week on the homepage.
 
-## If you broke the trust
+## Find support together
 
-- **Stop the little lies.** Small lies, even about harmless things, reopen the wound. Catch yourself and correct it right away.
-- **Own it without defending.** "You're right, I did that, and it hurt you" goes further than explaining why.
-- **Answer questions, again and again.** Your partner may ask the same thing many times. That's part of healing, not an attack.
-- **Do your own recovery.** Go to your group, see your therapist, and work your program because you need it, not only to prove something.
-- **Bring the session home.** Take notes in group and share them with your partner after.
-- **Be present.** Put the phone down. Pay attention. They've probably already told you what they need to trust you.
-- **Be patient.** You don't get to set the timeline.
+- [Recovering Couples Anonymous (RCA)](https://recovering-couples.org/) is a 12-step fellowship for couples. <sup>[1](#sources)</sup>
+- Books for couples are under [Books](index.html#books). Pick "I'm walking this journey with someone" on the [homepage](index.html).
 
-## If you were hurt
+## Sources
 
-- You're allowed to ask for what you need: honesty, check-ins, boundaries, and space.
-- Get support of your own, apart from your partner's recovery, like [S-Anon](https://sanon.org/), [COSA](https://cosa-recovery.org/), or a therapist.
-- Notice small, steady changes, not only big gestures.
-- Setbacks and triggers will happen. They don't mean you're failing.
+1. Recovering Couples Anonymous, [recovering-couples.org](https://recovering-couples.org/)
 
-## There's no timeline
-
-Trust comes back on the hurt partner's schedule. For many couples it takes many months, often longer, and progress isn't a straight line. A good week can be followed by a hard day. That's normal.
-
-## Try a weekly check-in
-
-Set aside a calm, regular time. Each person answers:
-
-1. How am I feeling this week? The [feelings check-in](feelings-check-in.html) can help you name it.
-2. What went well between us?
-3. Is there anything I need to share? This one is for the person in recovery. Share it here, before it's discovered.
-4. What do I need from you this week?
-
-Keep it short. Stop if it turns into a fight, and come back to it later or bring it to your therapist.
-
-## Getting help together
-
-- [Recovering Couples Anonymous](https://recovering-couples.org/) is a free 12-step fellowship for couples.
-- Couples therapy often works best alongside, not instead of, each person's own support.
-- *Help Her Heal* by Carol Juergensen Sheets and Vicki Tidwell Palmer, and *Out of the Doghouse* by Robert Weiss, both for the partner who broke trust
-- *Attachment Theory Workbook for Couples* by Elizabeth Gillette
-- *The Anatomy of Trust*, a talk by Brené Brown
-
-There's more under [Together](index.html#browse) on the homepage. Pick "I'm walking this journey with someone" at the top.
-
-## Keep going
-
-<ul class="next">
-  <li><a href="sex-addiction-recovery.html"><strong>Recovery basics</strong>For the partner in recovery</a></li>
-  <li><a href="healing-after-infidelity.html"><strong>Healing after betrayal</strong>For the partner who was hurt</a></li>
-  <li><a href="index.html#support"><strong>Find support</strong>Groups for couples and partners</a></li>
-</ul>
-
-<p class="note">This guide shares what couples in recovery have found helpful. It isn't medical advice and doesn't replace a therapist. SLA Group Resources is independent and volunteer-run.</p>
+<p class="note">This page isn't medical advice. SLA Group Resources is independent and volunteer-run.</p>

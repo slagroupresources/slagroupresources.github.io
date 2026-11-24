@@ -78,7 +78,7 @@
   .doc .button.secondary { background:#fff; color:var(--green-900); border:1px solid var(--green-900); }
   @media (max-width: 560px) { .doc th, .doc td { padding:8px; } }
 </style>
-<link rel="stylesheet" href="css/chrome.css">
+<link rel="stylesheet" href="css/chrome.css?v=2">
 {% unless page.analytics == false %}{% include analytics.html %}{% endunless %}
 </head>
 <body>
@@ -99,7 +99,7 @@
 </main>
 
 {% include footer.html %}
-<script src="js/chrome.js"></script>
+<script src="js/chrome.js?v=2"></script>
 <script>
 // Wide tables scroll sideways on phones
 document.querySelectorAll('.doc table').forEach(function (t) {

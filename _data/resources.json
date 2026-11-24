@@ -24,7 +24,7 @@
     {
       "id": "support",
       "title": "Find support",
-      "intro": "Recovery is easier with other people. These groups are free or low cost, and many meet online.",
+      "intro": "Recovery is easier with other people. Here are a few places to find a group.",
       "items": [
         {
           "id": "group-session",
@@ -40,7 +40,7 @@
           "id": "saa",
           "title": "Sex Addicts Anonymous (SAA)",
           "url": "https://saa-recovery.org/",
-          "text": "Free 12-step fellowship for people who want to stop compulsive sexual behavior. Meetings in person, by phone, and online.",
+          "text": "Free 12-step group. Meetings in person, by phone, and online.",
           "for": [
             "recovery"
           ]
@@ -58,7 +58,7 @@
           "id": "s-anon",
           "title": "S-Anon",
           "url": "https://sanon.org/",
-          "text": "Free 12-step fellowship for partners, family, and friends hurt by someone else's sexual behavior. Meetings around the world, plus phone support.",
+          "text": "12-step program for family and friends of sex addicts. Meetings in many countries, plus phone support.",
           "for": [
             "healing"
           ]
@@ -67,7 +67,7 @@
           "id": "cosa",
           "title": "COSA",
           "url": "https://cosa-recovery.org/",
-          "text": "Free 12-step fellowship for people whose lives have been affected by someone else's compulsive sexual behavior.",
+          "text": "12-step program for people whose lives have been affected by compulsive sexual behavior. Meetings in person, by phone, and online.",
           "for": [
             "healing"
           ]
@@ -76,7 +76,7 @@
           "id": "recovering-couples-anonymous",
           "title": "Recovering Couples Anonymous (RCA)",
           "url": "https://recovering-couples.org/",
-          "text": "Free 12-step fellowship for couples who want to rebuild commitment, communication, and caring together.",
+          "text": "12-step fellowship for couples.",
           "for": [
             "together"
           ]

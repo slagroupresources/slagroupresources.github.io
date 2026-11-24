@@ -27,11 +27,11 @@
     panel.addEventListener('click', function (e) { e.stopPropagation(); if (e.target.closest('a')) setPanel(false); });
   }
 
-  // Quick exit: sign out of the trackers and leave for a neutral page, replacing this page in history.
+  // Quick exit: sign out of the trackers and go to the Google homepage, replacing this page in history.
   // Pressing Escape three times quickly does the same.
   function quickExit() {
     try { sessionStorage.clear(); localStorage.removeItem('trackerSession'); } catch (e) {}
-    location.replace('https://www.google.com/search?q=weather');
+    location.replace('https://www.google.com/');
   }
   $$('[data-exit]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); quickExit(); }); });
   var escTimes = [];

@@ -3,23 +3,19 @@
   "faq": [
     {
       "q": "What is sex addiction?",
-      "a": "Sex addiction, also called compulsive sexual behavior, is when sexual thoughts, urges, or behaviors, including porn, feel out of control and keep causing harm, even when you want to stop. The World Health Organization lists compulsive sexual behaviour disorder in its ICD-11. A therapist who works with it can help you figure out what's going on for you.",
-      "link": { "text": "Where to start", "url": "sex-addiction-recovery.html" }
-    },
-    {
-      "q": "What is betrayal trauma?",
-      "a": "Betrayal trauma is the shock and pain that can follow finding out a partner has been unfaithful or hiding sexual behavior. Trouble sleeping, racing thoughts, checking for clues, and not trusting your own judgment are all common. These are normal reactions to a real injury, and you deserve support for yourself.",
-      "link": { "text": "Healing after infidelity", "url": "healing-after-infidelity.html" }
-    },
-    {
-      "q": "Can a relationship survive infidelity or sex addiction?",
-      "a": "Many couples do rebuild, but it takes time and it isn't guaranteed. It usually takes ongoing honesty from the person who broke trust, support for both partners, and patience with a timeline that belongs to the hurt partner. Whether to stay is the hurt partner's decision to make, in their own time.",
-      "link": { "text": "Rebuilding trust", "url": "rebuilding-trust.html" }
+      "a": "The World Health Organization lists compulsive sexual behaviour disorder in the ICD-11. It describes an ongoing pattern of not being able to control strong, repeated sexual urges.",
+      "link": {
+        "text": "Source: WHO ICD-11",
+        "url": "https://icd.who.int/browse/2025-01/mms/en#1630268048"
+      }
     },
     {
       "q": "What is a 90-day detox?",
       "a": "A 90-day detox, also called sexual sobriety or abstinence, is a common step in sex addiction recovery. It gives you space to heal, figure out your triggers, and build new ways to cope. The goal is to reset unhealthy patterns and work toward healthy intimacy, not to give up sex forever. Plan it with your therapist, and talk it through with your partner if you're in a relationship.",
-      "link": { "text": "90-day tracker", "url": "90-day-tracker.html" }
+      "link": {
+        "text": "90-day tracker",
+        "url": "90-day-tracker.html"
+      }
     },
     {
       "q": "What does \"disclosure is better than discovery\" mean?",
@@ -27,23 +23,35 @@
     },
     {
       "q": "What should I do when an urge hits?",
-      "a": "Put space between you and the urge. Leave the room, put your phone somewhere else, and call or text someone. Urges come in waves, and they pass if you ride them out. The Help now page has a timer and a breathing guide.",
-      "link": { "text": "Help now", "url": "help-now.html" }
+      "a": "Make a safety plan, reach out to someone, and check HALT: are you hungry, angry, lonely, or tired? Then wait it out. Give it 15 minutes and go for a walk.",
+      "link": {
+        "text": "Help now",
+        "url": "help-now.html"
+      }
     },
     {
       "q": "Where can I find a support group?",
-      "a": "Sex Addicts Anonymous (SAA) and Sex and Love Addicts Anonymous (SLAA) hold free 12-step meetings for people in recovery. S-Anon and COSA are for partners and family. Recovering Couples Anonymous is for couples. The Sex Addiction group sessions on BetterHelp are another option, and need a BetterHelp membership.",
-      "link": { "text": "Find support", "url": "index.html#support" }
+      "a": "Sex Addicts Anonymous (SAA) and Sex and Love Addicts Anonymous (SLAA) are 12-step groups for people in recovery. S-Anon and COSA are 12-step groups for people affected by someone else's sexual behavior. Recovering Couples Anonymous is for couples. The Sex Addiction group sessions on BetterHelp need a BetterHelp membership.",
+      "link": {
+        "text": "Find support",
+        "url": "index.html#support"
+      }
     },
     {
       "q": "I was hurt by my partner. Is any of this for me?",
       "a": "Yes. Betrayal hurts, and your healing matters on its own. Pick \"I was hurt\" at the top of this page to see resources for you. You can also ask your partner to go to their group, take notes, and share them with you after.",
-      "link": { "text": "Healing after infidelity", "url": "healing-after-infidelity.html" }
+      "link": {
+        "text": "Healing after infidelity",
+        "url": "healing-after-infidelity.html"
+      }
     },
     {
       "q": "Are the trackers private?",
       "a": "Yes. Your entries are encrypted on your own device with your username and passphrase before they're saved, so no one else can read them, including the person who runs this site. There's no email and no account.",
-      "link": { "text": "Privacy Policy", "url": "privacy.html" }
+      "link": {
+        "text": "Privacy Policy",
+        "url": "privacy.html"
+      }
     },
     {
       "q": "Is this site part of BetterHelp?",
