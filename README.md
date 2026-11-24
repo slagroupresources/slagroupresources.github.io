@@ -10,6 +10,9 @@ A plain static site: one `index.html` plus a few small files. No build step. To 
 | `sitemap.xml` | Tells search engines the page exists. Update `lastmod` when you make big changes |
 | `llms.txt` | Plain-text summary that AI assistants can read quickly |
 | `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Browser-tab and phone home-screen icons (the small "open seat" logo) |
+| `tracker.html` | Feelings check-in and 90-day tracker |
+| `firestore.rules` | Security rules for the tracker database (copy of what's published in Firebase) |
+| `files/thumbs/` | Preview pictures for the Word and PDF handouts |
 | `img/mark-light.svg` | Logo in the site header |
 | `img/logo.svg`, `img/logo.png` | Logo for light backgrounds (transparent) |
 | `img/logo-light.svg` | Logo for dark backgrounds (transparent) |
@@ -20,6 +23,12 @@ Files to put in `files/`:
 - `feelings-wheel.png`
 - `coping-skills-log.docx`
 - `90-day-detox-summary.pdf`
+
+## Tracker database (Firebase)
+`tracker.html` saves each person's data to Firestore, encrypted in their browser with a key made from their username and passphrase. The database only ever sees scrambled text, and a forgotten passphrase can't be recovered.
+- The Firebase web config in `tracker.html` is not a secret. Access is controlled by `firestore.rules`.
+- If you change the rules, paste `firestore.rules` into **Firestore Database → Rules** in the Firebase console and click **Publish**.
+- Optional extra protection: in Google Cloud Console → **APIs & Services → Credentials**, restrict the browser API key to the website `https://www.slagroupresources.com/*`.
 
 ## Why the certificate errors happen
 Google Sites only works on `www.` addresses. The bare `slagroupresources.com` has to be forwarded by your domain registrar, and many registrars forward without a valid HTTPS certificate, so browsers show a certificate error. The hosts below issue certificates for both addresses automatically.

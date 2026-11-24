@@ -84,6 +84,44 @@
   a { color: var(--green-700); }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
+  /* Group handouts (featured) */
+  .handouts { background: var(--green-100); border-radius: 18px; padding: 28px; margin-top: 24px; }
+  .handouts-head h2 { font-size: 1.7rem; margin: 2px 0 4px; }
+  .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green-700); }
+  .handout-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .card.handout { padding: 0; overflow: hidden; }
+  .card.handout .thumb { display: flex; align-items: center; justify-content: center; height: 190px; padding: 12px; background: #fff; border-bottom: 1px solid var(--line); }
+  .card.handout .thumb img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .card.handout .type { margin: 14px 18px 0; font-size: .78rem; font-weight: 600; color: var(--green-700); text-transform: uppercase; letter-spacing: .05em; }
+  .card.handout h3 { margin: 2px 18px 0; font-size: 1.05rem; }
+  .card.handout .desc { margin: 6px 18px 14px; }
+  .card.handout .actions { margin: auto 18px 18px; display: flex; align-items: center; gap: 16px; }
+  .card.handout .button { padding: 9px 18px; font-size: .92rem; }
+  @media (max-width: 720px) { .card.handout .thumb { height: auto; } .handouts { padding: 20px; } }
+  /* Featured row */
+  .featured-band { margin-top: -36px; margin-bottom: 28px; }
+  .featured { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .feature { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px; text-decoration: none; color: var(--ink); box-shadow: 0 6px 20px rgba(31,58,43,.10); transition: transform .15s, box-shadow .15s; }
+  .feature:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(31,58,43,.16); }
+  .feature-art { width: 64px; height: 64px; object-fit: cover; object-position: top; border-radius: 10px; margin-bottom: 12px; }
+  .feature h2 { margin: 4px 0 4px; font-size: 1.25rem; }
+  .feature p { margin: 0 0 14px; color: var(--muted); }
+  .feature .go { margin-top: auto; font-weight: 700; color: var(--green-700); }
+  .badge-new { align-self: flex-start; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--green-900); color: #fff; border-radius: 999px; padding: 3px 10px; }
+  .badge-new.quiet { background: var(--green-100); color: var(--green-700); }
+  .hero { padding-bottom: 76px !important; }
+  @media (max-width: 820px) { .featured { grid-template-columns: 1fr; } }
+  /* Header menu */
+  .site-header nav.menu { display: flex; gap: 4px; align-items: center; overflow: visible; }
+  .menu-link { color: #d6e4da; background: none; border: 0; font: inherit; font-size: .95rem; padding: 8px 12px; border-radius: 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .menu-link:hover, .menu-link[aria-expanded="true"] { background: rgba(255,255,255,.12); color: #fff; }
+  .dd { position: relative; }
+  .dd-panel { display: none; position: absolute; right: 0; top: calc(100% + 6px); background: #fff; border: 1px solid #dde3df; border-radius: 12px; box-shadow: 0 10px 28px rgba(0,0,0,.14); min-width: 220px; padding: 6px; z-index: 30; }
+  .dd.open .dd-panel { display: block; }
+  .dd-panel a { display: block; padding: 9px 12px; color: #1d2420; text-decoration: none; border-radius: 8px; }
+  .dd-panel a:hover, .dd-panel a:focus { background: #e8f0ea; outline: none; }
+  @media (max-width: 720px) { .brand span { display: none; } .menu-link { padding: 8px 9px; } }
+
   /* Header */
   .site-header {
     position: sticky; top: 0; z-index: 10;
@@ -91,9 +129,6 @@
   }
   .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
   .brand { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.05rem; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
-  .site-header nav { display: flex; gap: 18px; overflow-x: auto; }
-  .site-header nav a { color: #d6e4da; text-decoration: none; font-size: .95rem; white-space: nowrap; }
-  .site-header nav a:hover { color: #fff; }
 
   /* Group session banner */
   .group-banner { background: var(--green-100); border-bottom: 1px solid var(--line); }
@@ -169,7 +204,6 @@
 
   @media (max-width: 720px) {
     .paths { grid-template-columns: 1fr; }
-    .site-header nav { display: none; }
   }
 </style>
 </head>
@@ -177,17 +211,30 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/">
-      <img src="img/mark-light.svg" alt="" width="30" height="30">
-      SLA Group Resources
-    </a>
-    <nav aria-label="Main">
-      <a href="#support">Find support</a>
-      <a href="#books">Books</a>
-      <a href="#podcasts">Podcasts</a>
-      <a href="#apps">Apps</a>
-      <a href="#files">Group files</a>
-      <a href="#submit">Submit</a>
+    <a class="brand" href="index.html"><img src="img/mark-light.svg" alt="" width="30" height="30"><span>SLA Group Resources</span></a>
+    <nav class="menu" aria-label="Main">
+      <a class="menu-link" href="index.html">Home</a>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-res">Resources <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-res">
+          <a href="index.html#files">Group handouts</a>
+          <a href="index.html#support">Find support</a>
+          <a href="index.html#practices">Tools from group</a>
+          <a href="index.html#books">Books</a>
+          <a href="index.html#podcasts">Podcasts</a>
+          <a href="index.html#videos">YouTube and videos</a>
+          <a href="index.html#apps">Apps</a>
+          <a href="index.html#faq">Common questions</a>
+          <a href="index.html#submit">Suggest a resource</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-trk">Trackers <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-trk">
+          <a href="tracker.html#feelings">Feelings check-in</a>
+          <a href="tracker.html#ninety">90-day tracker</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -203,6 +250,47 @@
         <button class="path" data-filter="partner" aria-pressed="false"><strong>I'm a partner</strong><span>Help for you after betrayal</span></button>
         <button class="path" data-filter="couple" aria-pressed="false"><strong>We're healing together</strong><span>Rebuilding trust together</span></button>
       </div>
+    </div>
+  </div>
+
+  <!-- ============ FEATURED ============ -->
+  <div class="featured-band">
+    <div class="wrap featured">
+      <a class="feature" href="tracker.html#feelings">
+        <svg class="feature-art" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="40" r="36" fill="#f2d27a"/>
+          <path d="M40 40 L40 4 A36 36 0 0 1 71.2 22 Z" fill="#9cc5b0"/>
+          <path d="M40 40 L71.2 22 A36 36 0 0 1 71.2 58 Z" fill="#8fa9d1"/>
+          <path d="M40 40 L71.2 58 A36 36 0 0 1 40 76 Z" fill="#e09a8a"/>
+          <path d="M40 40 L40 76 A36 36 0 0 1 8.8 58 Z" fill="#c4a5d6"/>
+          <path d="M40 40 L8.8 58 A36 36 0 0 1 8.8 22 Z" fill="#d9b38c"/>
+          <circle cx="40" cy="40" r="12" fill="#fff"/>
+        </svg>
+        <span class="badge-new">New</span>
+        <h2>Feelings check-in</h2>
+        <p>Turn the wheel to put a name to what you're feeling, and keep a private log.</p>
+        <span class="go">Open the feelings wheel →</span>
+      </a>
+      <a class="feature" href="tracker.html#ninety">
+        <svg class="feature-art" viewBox="0 0 80 80" aria-hidden="true">
+          <g fill="#5f9a73"><rect x="4" y="10" width="14" height="14" rx="3"/><rect x="22" y="10" width="14" height="14" rx="3"/><rect x="40" y="10" width="14" height="14" rx="3"/><rect x="58" y="10" width="14" height="14" rx="3"/>
+          <rect x="4" y="28" width="14" height="14" rx="3"/><rect x="22" y="28" width="14" height="14" rx="3"/></g>
+          <rect x="40" y="28" width="14" height="14" rx="3" fill="#fff" stroke="#1f3a2b" stroke-width="2"/>
+          <g fill="#e8f0ea"><rect x="58" y="28" width="14" height="14" rx="3"/><rect x="4" y="46" width="14" height="14" rx="3"/><rect x="22" y="46" width="14" height="14" rx="3"/><rect x="40" y="46" width="14" height="14" rx="3"/><rect x="58" y="46" width="14" height="14" rx="3"/></g>
+          <rect x="4" y="66" width="68" height="6" rx="3" fill="#e8f0ea"/><rect x="4" y="66" width="24" height="6" rx="3" fill="#2f5a40"/>
+        </svg>
+        <span class="badge-new">New</span>
+        <h2>90-day tracker</h2>
+        <p>Check in once a day and see yourself hit 30, 60, and 90 days.</p>
+        <span class="go">Start your 90 days →</span>
+      </a>
+      <a class="feature" href="#files">
+        <img class="feature-art" src="files/thumbs/90-day-detox-summary.jpg" alt="">
+        <span class="badge-new quiet">From group</span>
+        <h2>Group handouts</h2>
+        <p>The worksheets the host shared in group, ready to download and print.</p>
+        <span class="go">See the handouts →</span>
+      </a>
     </div>
   </div>
 
@@ -232,6 +320,45 @@
       <p class="quote">Transparency vs. honesty.</p>
       <p>Honesty is telling the truth when you're asked. Transparency is telling it before anyone has to ask. Stop the little lies, and be open even when it might not go well. That's what rebuilds trust.</p>
     </div>
+
+    <!-- ============ GROUP HANDOUTS (featured) ============ -->
+    <section id="files" class="handouts">
+      <div class="handouts-head">
+        <span class="eyebrow">From our group sessions</span>
+        <h2>Group handouts</h2>
+        <p class="lede">Files the host shared in group. Open them here, or download and print them.</p>
+      </div>
+      <div class="handout-grid">
+        <article class="card handout" data-for="self">
+          <a class="thumb" href="files/healthy-sexual-decision-framework.png" target="_blank"><img src="files/healthy-sexual-decision-framework.png" alt="Healthy Sexual Decision Framework: red, yellow, and green circles for behaviors that undermine recovery, need caution, or support recovery" loading="lazy"></a>
+          <span class="type">Image · PNG</span>
+          <h3>Healthy Sexual Decision Framework</h3>
+          <p class="desc">A red, yellow, and green guide for deciding what fits your recovery.</p>
+          <div class="actions"><a class="button" href="files/healthy-sexual-decision-framework.png" download>Download</a><a href="files/healthy-sexual-decision-framework.png" target="_blank">View</a></div>
+        </article>
+        <article class="card handout" data-for="self partner couple">
+          <a class="thumb" href="files/feelings-wheel.png" target="_blank"><img src="files/feelings-wheel.png" alt="Feelings wheel showing core emotions and more specific feelings radiating outward" loading="lazy"></a>
+          <span class="type">Image · PNG</span>
+          <h3>Feelings Wheel</h3>
+          <p class="desc">Helps you put a name to what you're feeling.</p>
+          <div class="actions"><a class="button" href="files/feelings-wheel.png" download>Download</a><a href="files/feelings-wheel.png" target="_blank">View</a></div>
+        </article>
+        <article class="card handout" data-for="self">
+          <a class="thumb" href="files/coping-skills-log.docx"><img src="files/thumbs/coping-skills-log.jpg" alt="Coping Skills Log worksheet: a table for trigger, thoughts, emotion intensity, coping skill used, and results" loading="lazy"></a>
+          <span class="type">Worksheet · Word</span>
+          <h3>Coping Skills Log</h3>
+          <p class="desc">Write down a trigger, what you were thinking, and how strong your feelings were before and after using a coping skill. Has an example filled in.</p>
+          <div class="actions"><a class="button" href="files/coping-skills-log.docx" download>Download</a></div>
+        </article>
+        <article class="card handout" data-for="self couple">
+          <a class="thumb" href="files/90-day-detox-summary.pdf" target="_blank"><img src="files/thumbs/90-day-detox-summary.jpg" alt="90-Day Detox Summary: three color-coded stages for days 1–30, 31–60, and 61–90" loading="lazy"></a>
+          <span class="type">Guide · PDF</span>
+          <h3>90-Day Detox Summary</h3>
+          <p class="desc">What to expect during each month of a 90-day detox.</p>
+          <div class="actions"><a class="button" href="files/90-day-detox-summary.pdf" download>Download</a><a href="files/90-day-detox-summary.pdf" target="_blank">View</a></div>
+        </article>
+      </div>
+    </section>
 
     <p id="no-results" class="empty hidden">No resources match that search. Try a different word, or <a href="#submit">suggest one</a>.</p>
 
@@ -544,35 +671,6 @@
       </div>
     </section>
 
-    <!-- ============ GROUP FILES ============ -->
-    <section id="files">
-      <h2>Group files</h2>
-      <p class="lede">Files the host shared in group. Free to download and print.</p>
-      <div class="grid">
-        <article class="card file-card" data-for="self">
-          <img src="files/healthy-sexual-decision-framework.png" alt="Healthy Sexual Decision Framework: red, yellow, and green circles for behaviors that undermine recovery, need caution, or support recovery" loading="lazy">
-          <h3><a href="files/healthy-sexual-decision-framework.png" target="_blank">Healthy Sexual Decision Framework</a></h3>
-          <p class="desc">A red, yellow, and green guide for deciding what fits your recovery.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card file-card" data-for="self partner couple">
-          <img src="files/feelings-wheel.png" alt="Feelings wheel showing core emotions and more specific feelings radiating outward" loading="lazy">
-          <h3><a href="files/feelings-wheel.png" target="_blank">Feelings Wheel</a></h3>
-          <p class="desc">Helps you put a name to what you're feeling.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Partners</span><span class="tag">Couples</span></div>
-        </article>
-        <article class="card" data-for="self">
-          <h3><a href="files/coping-skills-log.docx">Coping Skills Log (Word)</a></h3>
-          <p class="desc">Write down a trigger, what you were thinking, and how strong your feelings were before and after using a coping skill. Has an example filled in.</p>
-          <div class="tags"><span class="tag">In recovery</span></div>
-        </article>
-        <article class="card" data-for="self couple">
-          <h3><a href="files/90-day-detox-summary.pdf" target="_blank">90-Day Detox Summary (PDF)</a></h3>
-          <p class="desc">What to expect during each month of a 90-day detox.</p>
-          <div class="tags"><span class="tag">In recovery</span><span class="tag">Couples</span></div>
-        </article>
-      </div>
-    </section>
 
     <!-- ============ FAQ ============ -->
     <section id="faq">
@@ -651,6 +749,26 @@
     });
   });
   search.addEventListener('input', apply);
+})();
+</script>
+<script>
+// Header dropdowns: click to open, close on outside click or Escape
+(function () {
+  var dds = Array.prototype.slice.call(document.querySelectorAll('.dd'));
+  function closeAll(except) {
+    dds.forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); } });
+  }
+  dds.forEach(function (d) {
+    var b = d.querySelector('button');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !d.classList.contains('open');
+      closeAll(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    });
+    d.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { closeAll(); }); });
+  });
+  document.addEventListener('click', function () { closeAll(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 })();
 </script>
 </body>
