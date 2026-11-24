@@ -6,3 +6,8 @@ exclude:
   - firestore.rules
   - Gemfile
   - Gemfile.lock
+
+# Cloudflare Web Analytics site token (cookie-free page counts on resource pages only).
+# Paste the token from Cloudflare > Analytics & Logs > Web Analytics between the quotes.
+# Leave it empty to keep analytics off.
+cloudflare_analytics_token: ""

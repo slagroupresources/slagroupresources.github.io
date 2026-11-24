@@ -197,7 +197,8 @@
         <p id="signinMsg" class="msg" role="status"></p>
         <div id="notFound" class="hidden">
           <p class="msg">We couldn't find a tracker with that username and passphrase. Check for typos, or start a new one.</p>
-          <button class="button secondary" type="button" id="createBtn">Start a new tracker</button>
+          <label class="check"><input type="checkbox" id="consent"> <span>Save my entries so I can open them later. They're encrypted on this device first, and I've read the <a href="consumer-health-data.html" target="_blank" rel="noopener">Consumer Health Data Privacy Policy</a>.</span></label>
+          <button class="button secondary" type="button" id="createBtn" disabled style="margin-top:12px">Start a new tracker</button>
         </div>
       </form>
       <div class="private">
@@ -210,6 +211,7 @@
           <li>Don't use your real name or email as your username.</li>
           <li>Your password manager can save your username and passphrase for you.</li>
         </ul>
+        <p style="margin:10px 0 0"><a href="consumer-health-data.html">How we handle your health information</a></p>
       </div>
     </div>
   </section>
@@ -410,6 +412,7 @@
   <div class="wrap">
     <p><strong>In crisis?</strong> In the U.S., call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) any time, or call 911 in an emergency.</p>
     <p>This tracker is a personal tool, not medical advice, and doesn't replace a therapist or doctor.</p>
+    <p><a href="privacy.html">Privacy Policy</a> · <a href="consumer-health-data.html">Consumer Health Data Privacy Policy</a></p>
   </div>
 </footer>
 
@@ -536,7 +539,10 @@ $('signinForm').addEventListener('submit', async (e) => {
   } catch (err) { console.error(err); msg("Couldn't open the tracker. Check your connection and try again.", true); }
   finally { $('openBtn').disabled = false; }
 });
+// A new tracker saves nothing until the person agrees to it
+$('consent').addEventListener('change', () => { $('createBtn').disabled = !$('consent').checked; });
 $('createBtn').addEventListener('click', async () => {
+  if (!$('consent').checked) return;
   data = blank(); await saveNow();
   keepSession($('remember').checked); await offerToSave($('uname').value.trim().toLowerCase(), $('pass').value);
   enterApp();
@@ -834,7 +840,11 @@ async function copyText(t, btn) {
 $('copyLink').addEventListener('click', () => copyText($('linkText').value, $('copyLink')));
 function renderShares() {
   const now = Date.now();
-  data.shares = (data.shares || []).filter(sh => Date.parse(sh.expires) > now);   // forget expired links
+  data.shares = (data.shares || []).filter(sh => {
+    if (Date.parse(sh.expires) > now) return true;
+    store.shareRemove(sh.id).catch(() => {});   // expired: delete the stored report too
+    return false;
+  });
   $('linksBox').classList.toggle('hidden', !data.shares.length);
   $('linkList').innerHTML = data.shares.map(sh => `<li><div class="when">Made ${new Date(sh.created).toLocaleDateString([], { dateStyle: 'medium' })} · expires ${new Date(sh.expires).toLocaleDateString([], { dateStyle: 'medium' })}</div>
     <div class="row" style="justify-content:space-between"><span>${esc(sh.what)}</span>

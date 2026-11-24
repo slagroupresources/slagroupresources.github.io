@@ -56,10 +56,28 @@ Files to put in `files/`:
 - `coping-skills-log.docx`
 - `90-day-detox-summary.pdf`
 
+## Privacy policies
+
+- `privacy.md` is the Privacy Policy and `consumer-health-data.md` is the Consumer Health Data Privacy Policy (for Washington's My Health My Data Act). Edit them on GitHub like any text file, and change the `updated:` date at the top when you do.
+- Both are linked in the footer of every page. Keep them as two separate links, because Washington requires the health data policy to have its own link.
+- If you change what the site collects, update both policies first.
+
+## Page counts (Cloudflare Web Analytics)
+
+Cookie-free visit counts on the homepage and policy pages only, never on the trackers or shared reports. Visitors whose browser sends Global Privacy Control or Do Not Track aren't counted.
+
+1. Sign in at dash.cloudflare.com (a free account works), then go to **Analytics & Logs → Web Analytics → Add a site**.
+2. Enter `www.slagroupresources.com` and choose the manual JavaScript snippet (not automatic setup).
+3. Copy only the token, the long value after `"token":` in the snippet.
+4. Paste it between the quotes in `_config.yml` at `cloudflare_analytics_token: ""` and commit. Counts start a few minutes after the site rebuilds.
+
+To turn analytics off, empty the quotes again.
+
 ## Tracker database (Firebase)
 `tracker.html` saves each person's data to Firestore, encrypted in their browser with a key made from their username and passphrase. The database only ever sees scrambled text, and a forgotten passphrase can't be recovered.
 - The Firebase web config in `tracker.html` is not a secret. Access is controlled by `firestore.rules`.
 - If you change the rules, paste `firestore.rules` into **Firestore Database → Rules** in the Firebase console and click **Publish**.
+- **Delete expired share links automatically (required by the privacy policy):** in Google Cloud Console (project `slagroupresources`), go to **Firestore → Time-to-live (TTL) → Create policy**. Set Collection group to `shares` and Timestamp field to `expires`, then click **Create**. Expired reports are then deleted, usually within 24 hours.
 - Optional extra protection: in Google Cloud Console → **APIs & Services → Credentials**, restrict the browser API key to the website `https://www.slagroupresources.com/*`.
 
 ## Why the certificate errors happen

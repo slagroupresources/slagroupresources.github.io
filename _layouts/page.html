@@ -1,0 +1,134 @@
+{%- comment -%}
+  Layout for plain text pages (privacy policies and similar).
+  Write the page as Markdown with front matter: layout, title, description, updated.
+  Same header, menu and footer as the homepage.
+{%- endcomment -%}
+{%- assign R = site.data.resources -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} | SLA Group Resources</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="canonical" href="https://www.slagroupresources.com{{ page.url }}">
+<meta name="theme-color" content="#1f3a2b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root { --green-900:#1f3a2b; --green-700:#2f5a40; --green-100:#e8f0ea; --ink:#1d2420; --muted:#5b665f; --line:#dde3df; --bg:#fafbfa; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+  a { color:var(--green-700); }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+
+  /* Header + menu (matches the homepage) */
+  .site-header { background:var(--green-900); color:#fff; position:relative; z-index:20; }
+  .site-header .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:60px; }
+  .brand { color:#fff; text-decoration:none; font-weight:600; display:flex; align-items:center; gap:10px; white-space:nowrap; }
+  .menu { display:flex; gap:4px; align-items:center; }
+  .menu-link { color:#d6e4da; background:none; border:0; font:inherit; font-size:.95rem; padding:8px 12px; border-radius:8px; cursor:pointer; text-decoration:none; white-space:nowrap; }
+  .menu-link:hover, .menu-link[aria-expanded="true"] { background:rgba(255,255,255,.12); color:#fff; }
+  .dd { position:relative; }
+  .dd-panel { display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,.14); min-width:220px; padding:6px; z-index:30; }
+  .dd.open .dd-panel { display:block; }
+  .dd-panel a { display:block; padding:9px 12px; color:var(--ink); text-decoration:none; border-radius:8px; }
+  .dd-panel a:hover, .dd-panel a:focus { background:var(--green-100); outline:none; }
+
+  /* Page title band + readable text column */
+  .page-hero { background:var(--green-900); color:#fff; padding:32px 0 36px; }
+  .page-hero h1 { margin:0; font-size:clamp(1.6rem,4vw,2.2rem); line-height:1.2; }
+  .page-hero p { margin:8px 0 0; color:#d6e4da; }
+  .doc { max-width:760px; margin:0 auto; padding:28px 20px 8px; }
+  .doc h2 { font-size:1.3rem; margin:34px 0 8px; }
+  .doc h3 { font-size:1.08rem; margin:24px 0 6px; }
+  .doc p, .doc li { font-size:1rem; }
+  .doc ul, .doc ol { padding-left:22px; }
+  .doc li { margin:4px 0; }
+  .doc table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.94rem; background:#fff; }
+  .doc th, .doc td { text-align:left; vertical-align:top; border:1px solid var(--line); padding:9px 12px; }
+  .doc th { background:var(--green-100); }
+  .doc .table-scroll { overflow-x:auto; }
+  .doc blockquote { margin:16px 0; padding:12px 16px; background:var(--green-100); border-radius:12px; }
+  .doc blockquote p { margin:0; }
+
+  footer { margin-top:48px; background:var(--green-900); color:#d6e4da; padding:26px 0; font-size:.92rem; }
+  footer strong, footer a { color:#fff; }
+  footer p { margin:6px 0; }
+  @media (max-width: 560px) {
+    .brand span { display:none; }
+    .menu-link { padding:8px 9px; }
+    .doc th, .doc td { padding:8px; }
+  }
+</style>
+{% include analytics.html %}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/mark-light.svg" alt="" width="30" height="30"><span>SLA Group Resources</span></a>
+    <nav class="menu" aria-label="Main">
+      <a class="menu-link" href="index.html">Home</a>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-res">Resources <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-res">
+          <a href="index.html#files">Group handouts</a>
+          {%- for sec in R.sections %}
+          <a href="index.html#{{ sec.id }}">{{ sec.title }}</a>
+          {%- endfor %}
+          <a href="index.html#faq">Common questions</a>
+          <a href="index.html#submit">Suggest a resource</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="menu-link" type="button" aria-expanded="false" aria-controls="dd-trk">Trackers <span aria-hidden="true">▾</span></button>
+        <div class="dd-panel" id="dd-trk">
+          <a href="feelings-check-in.html">Feelings check-in</a>
+          <a href="90-day-tracker.html">90-day tracker</a>
+          <a href="coping-skills-log.html">Coping skills log</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <h1>{{ page.title }}</h1>
+    {%- if page.updated %}<p>Last updated {{ page.updated }}</p>{% endif %}
+  </div>
+</div>
+
+<main class="doc">
+{{ content }}
+</main>
+
+{% include footer.html %}
+
+<script>
+// Header dropdowns, and wide tables scroll sideways on phones
+(function () {
+  var dds = Array.prototype.slice.call(document.querySelectorAll('.dd'));
+  function closeMenus(except) {
+    dds.forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); } });
+  }
+  dds.forEach(function (d) {
+    var b = d.querySelector('button');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation(); var open = !d.classList.contains('open');
+      closeMenus(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', function () { closeMenus(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenus(); });
+
+  document.querySelectorAll('.doc table').forEach(function (t) {
+    var box = document.createElement('div'); box.className = 'table-scroll';
+    t.parentNode.insertBefore(box, t); box.appendChild(t);
+  });
+})();
+</script>
+</body>
+</html>

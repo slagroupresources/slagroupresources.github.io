@@ -1,0 +1,18 @@
+{%- comment -%}
+  Cloudflare Web Analytics: cookie-free page counts.
+  Include this ONLY on resource and information pages. Never on tracker pages or shared.html.
+  It stays off until cloudflare_analytics_token is set in _config.yml, and it never loads
+  for visitors whose browser sends Global Privacy Control or Do Not Track.
+{%- endcomment -%}
+{%- if site.cloudflare_analytics_token and site.cloudflare_analytics_token != "" -%}
+<script>
+(function () {
+  if (navigator.globalPrivacyControl === true || navigator.doNotTrack === '1') return;
+  var s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', '{"token": "{{ site.cloudflare_analytics_token }}"}');
+  document.head.appendChild(s);
+})();
+</script>
+{%- endif -%}

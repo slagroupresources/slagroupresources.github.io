@@ -8,10 +8,11 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 
 ## Hard rules
 
-- **Privacy is the product.** No analytics, ad or social pixels, or third-party cookies. Never put any of these on tracker pages or `shared.html`. Adding analytics needs Ben's decision, a cookie-free tool, and a privacy policy update first.
+- **Privacy is the product.** No ad or social pixels, no Google Analytics, no third-party cookies. The only analytics is Cloudflare Web Analytics (cookie-free), loaded through `_includes/analytics.html` on resource and info pages only. It stays off until `cloudflare_analytics_token` is set in `_config.yml`, and it skips browsers that send GPC or Do Not Track. Never include it on tracker pages or `shared.html`.
+- **Washington My Health My Data Act:** everything here is treated as consumer health data. `consumer-health-data.html` must stay linked separately from `privacy.html` on every page that collects data, including the homepage, all three trackers and `shared.html`. New trackers save nothing until the consent box is checked.
 - **Tracker data is end-to-end encrypted.** The operator must never be able to read it. Never send the username or passphrase anywhere, and never log them.
 - **Buy Me a Coffee stays off** until Brent agrees. Don't advertise BetterHelp beyond the "membership is required" note.
-- **Every promise in the privacy policy must stay true.** The draft lives in a Claude doc: https://claude.ai/artifact/5JchsVKbk8jCveXHWkcKEF. If a change affects data handling, flag it.
+- **Every promise in the privacy policies must stay true.** The published text is `privacy.md` and `consumer-health-data.md`, which are the source of truth. The drafting notes and legal flags are in a Claude doc: https://claude.ai/artifact/5JchsVKbk8jCveXHWkcKEF. If a change affects data handling, update both policies and their `updated:` dates in the same commit, and tell Ben.
 
 ## How it's built
 
@@ -20,6 +21,7 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
   - `_data/resources.json`: `start_here` paths (recovery / together / healing) and `sections` → items `{id, title, url?, by?, text?, points?, for[]}`. Keep `id`s stable, because ratings are keyed on them.
   - `_data/tip.json`: the tip of the week.
   - `_data/handouts.json`: Brent's handouts in `files/`.
+- **Text pages:** `privacy.md` and `consumer-health-data.md` use `_layouts/page.html`. It has the same header and menu as the homepage, and `_includes/footer.html` is the shared footer with the policy links. The homepage also uses that footer include.
 - **Tracker pages:** `feelings-check-in.html`, `90-day-tracker.html`, `coping-skills-log.html`.
   - They share the same CSS and JS and differ only in `<body data-page>`, title, h1, hero text, manifest, icons and apple title.
   - **When you change shared tracker code, make the same edit in all three.** The build scripts that first generated them aren't in the repo, so edit the HTML directly.
@@ -42,7 +44,7 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 - Serve locally with `python3 -m http.server 8765` from the repo root. ES module imports fail over `file://`.
 - For offline tests, copy a tracker page and set the Firebase config to `null`. It then falls back to local-storage preview mode.
 - Use Playwright with `/usr/bin/google-chrome`.
-- Render the homepage with python-liquid: `Environment().parse(t).render({'site': {'data': data}})`, stripping the front matter first.
+- Approximate the GitHub Pages build into `/tmp/sitebuild` with python-liquid and python-markdown, then serve that folder. See `render_site.py` below; it needs include names quoted for python-liquid. Pass a fake token to test the analytics include.
 - Check before pushing:
   - Sign in, then refresh and stay signed in.
   - Save an entry in each tracker.
@@ -56,13 +58,11 @@ A calm, safe, plain-voiced place for people in sex and love addiction recovery, 
 - Push with `git -c push.negotiate=true push`.
 - Ben reviews changes on the live site, so test before pushing.
 
-## Open items (as of 2026-11-23)
+## Open items (as of 2026-11-24)
 
 - Ben: publish the current `firestore.rules`. Ratings and share links depend on it.
-- Privacy policy: Ben is answering the missing details in the doc. After that:
-  - Add `privacy.html` and a footer "Privacy" link on every page.
-  - Possibly add a separate Washington consumer health data notice.
-- Turn on a Firestore TTL policy on `shares.expires`.
-- Decide on deleting inactive vaults.
-- Analytics: undecided. If added, use cookie-free analytics on resource pages only.
+- Ben: **turn on a Firestore TTL policy** on collection group `shares`, field `expires`. The privacy policy promises expired reports are deleted within about a day.
+- Ben: send the Cloudflare Web Analytics token, then set `cloudflare_analytics_token`.
+- Ben: confirm Firestore backups and point-in-time recovery are off, since the policy says no backups. Turn on 2-step sign-in for the Google and GitHub accounts.
+- Ben: have a privacy lawyer confirm whether Washington's law covers an individual volunteer.
 - Ben: verify the domain in the org's Pages settings and enforce HTTPS, set the Google Form to anonymous, submit the sitemap to Search Console and Bing, and retire the old Google Site.

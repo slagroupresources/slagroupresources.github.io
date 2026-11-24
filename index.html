@@ -169,6 +169,7 @@
     .path { padding:14px; }
   }
 </style>
+{% include analytics.html %}
 </head>
 <body>
 
@@ -361,7 +362,7 @@
 
     <section class="block" id="submit">
       <div class="submit">
-        <span><strong>Found something that helped you?</strong> Share it and we'll add it. You don't need to give your name.</span>
+        <span><strong>Found something that helped you?</strong> Share it and we'll add it. You don't need to give your name, and please leave out details about your own health.</span>
         <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ojm_oHYAaRXsPqXgRi53S9tYrqIOC5v7FKdAHj9fibQcTQ/viewform" target="_blank" rel="noopener">Suggest a resource</a>
       </div>
     </section>
@@ -383,12 +384,7 @@
   </div>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p><strong>In crisis?</strong> In the U.S., call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) any time, or call 911 in an emergency.</p>
-    <p>These resources come from members of a sex addiction recovery group. This isn't medical advice and doesn't replace a therapist or doctor.</p>
-  </div>
-</footer>
+{% include footer.html %}
 
 <script>
 // Header dropdowns, starting paths, filters, search, and opening sections from links
